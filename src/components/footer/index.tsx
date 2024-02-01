@@ -20,7 +20,7 @@ const Footer = () => {
         <div className='w-full lg:w-1/3 flex items-center justify-center'>
           <Image
             src={logo}
-            alt='Logomarca'
+            alt='Logomarca empresa'
           />
         </div>
         <div className='flex flex-col sm:flex-row items-center sm:items-start justify-center gap-5'>
