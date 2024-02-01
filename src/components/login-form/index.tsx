@@ -72,7 +72,8 @@ const LoginForm = () => {
         form.reset()
 
         // Realizando a função de login
-        Login()
+        // Login()
+        console.log(form.getValues())
       }
       else {
         callToast(
