@@ -17,14 +17,12 @@ import HeaderNavigation from './header-navigation'
 import HeaderSheet from './header-sheet'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
-import { useCollabContext } from '@/context/collaborator'
 
-import userFormatter from '@/utils/user-formatter'
-
+import useFormatter from '@/hooks/use-formatter'
 
 const Header = () => {
   const {removeItem} = useSessionStorage('isLogged')
-  const {userName, userRole} = userFormatter();
+  const {userName, userRole} = useFormatter();
 
   return (
     <header className='sticky z-10 top-0 w-full bg-background h-20 px-5 py-6 shadow-md flex items-center justify-center'>

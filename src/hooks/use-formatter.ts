@@ -1,6 +1,6 @@
 import { useSessionStorage } from "@/hooks/use-session-storage"
 
-const userFormatter = () => {
+const useFormatter = () => {
   const {getItem} = useSessionStorage('collab')
 
     // formating user name
@@ -14,4 +14,4 @@ const userFormatter = () => {
     return {userName, userRole}
 }
 
-export default userFormatter;
+export default useFormatter;

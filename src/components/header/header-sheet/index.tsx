@@ -25,12 +25,12 @@ import { ExternalLink, LogOut, Menu } from "lucide-react"
 import collaboratorLinks from "@/configs/link-cards"
 
 import { Separator } from "@/components/ui/separator";
-import { useCollabContext } from '@/context/collaborator';
-import userFormatter from '@/utils/user-formatter';
+
+import useFormatter from '@/hooks/use-formatter';
 
 const HeaderSheet = () => {
   const {removeItem} = useSessionStorage('isLogged');
-  const {userName, userRole} = userFormatter();
+  const {userName, userRole} = useFormatter();
 
   return (
     <Sheet>
