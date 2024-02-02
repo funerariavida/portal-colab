@@ -22,7 +22,8 @@ const HeaderNavigation = () => {
             {/* Percorrendo array de links */}
             {collaboratorLinks.map((link, index) => {    
                 return (<NavigationMenuItem key={index}>
-                    <NavigationMenuTrigger  className='bg-secondary hover:opacity-70 hover:bg-secondary text-white'>
+                    <NavigationMenuTrigger  
+                        className='bg-primary focus:bg-primary text-white'>
                         {link.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
