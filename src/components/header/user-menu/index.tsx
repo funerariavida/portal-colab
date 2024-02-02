@@ -24,8 +24,11 @@ import {
 const UserMenu = () => {
   const {getItem, removeItem} = useSessionStorage<sessionType>('collab')
   const {collab} = useCollabContext()
-  const userInfo = JSON.parse(getItem().toString())
-  const username = userInfo.name.split(' ')[0].toLowerCase()
+
+  const item = getItem()?.toString()
+  const userInfo = item != undefined && JSON.parse(item)
+  const userName = userInfo.name.split(' ')[0].toLowerCase()
+  const userRole = userInfo.role.toLowerCase()
 
   return (
     <DropdownMenu>
@@ -37,8 +40,8 @@ const UserMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-44'>
         <DropdownMenuLabel className='flex flex-col items-start'>
-          <span className='text-base font-semibold capitalize'>{username ?? 'Usuário'}</span>
-          <span className='text-sm font-medium capitalize'>{userInfo.role.toLowerCase() ?? 'Cargo'}</span>
+          <span className='text-base font-semibold capitalize'>{userName ?? 'Usuário'}</span>
+          <span className='text-sm font-medium capitalize'>{userRole ?? 'Cargo'}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

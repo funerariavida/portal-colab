@@ -49,7 +49,7 @@ export default function useCollab(){
     }).catch((e: Error) => {
       callToast('Erro', e.message, true)
     }).finally(() => setIsLoading(false))
-  }, [])
+  }, [replace, setItem])
 
   return { recallData, data, isLoading }
 }
