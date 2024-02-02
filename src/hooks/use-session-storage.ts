@@ -1,5 +1,12 @@
+export type sessionType = {
+  name: string,
+  role: string,
+  cpf: string,
+  isLogged: boolean
+}
+
 export function useSessionStorage<T>(key: string) {
-  const setItem = (value: T | string): void => {
+  const setItem = (value: T | string | sessionType): void => {
     try {
       if (typeof value === 'string') {
         window.sessionStorage.setItem(key, value);
@@ -11,7 +18,7 @@ export function useSessionStorage<T>(key: string) {
     }
   };
 
-  const getItem = (): T | string | undefined => {
+  const getItem = (): T | string | sessionType | undefined => {
     try {
       const item = window.sessionStorage.getItem(key);
       if (item === null) return undefined;

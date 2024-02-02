@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { useSessionStorage } from '@/hooks/use-session-storage'
+import { sessionType, useSessionStorage } from '@/hooks/use-session-storage'
 import { useCollabContext } from '@/context/collaborator'
 
 import { LogOut } from 'lucide-react'
@@ -21,13 +21,11 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 
-import { Button } from '@/components/ui/button'
-
 const UserMenu = () => {
-  const {removeItem} = useSessionStorage('isLogged')
+  const {getItem, removeItem} = useSessionStorage<sessionType>('collab')
   const {collab} = useCollabContext()
-  
-  const user = collab?.nome.split(' ')[0].toLowerCase()
+  const userInfo = JSON.parse(getItem().toString())
+  const username = userInfo.name.split(' ')[0].toLowerCase()
 
   return (
     <DropdownMenu>
@@ -39,8 +37,8 @@ const UserMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className='w-44'>
         <DropdownMenuLabel className='flex flex-col items-start'>
-          <span className='text-base font-semibold capitalize'>{user}</span>
-          <span className='text-sm font-medium capitalize'>{collab?.cargo.toLowerCase()}</span>
+          <span className='text-base font-semibold capitalize'>{username ?? 'Usuário'}</span>
+          <span className='text-sm font-medium capitalize'>{userInfo.role.toLowerCase() ?? 'Cargo'}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

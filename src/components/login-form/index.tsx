@@ -1,14 +1,8 @@
 'use client'
 
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 import useCollab from '@/hooks/use-collab'
-
-import callToast from '@/utils/call-toast'
-
-import { useRouter } from 'next/navigation'
-
-import { useCollabContext } from '@/context/collaborator'
 
 // form
 import {z} from "zod"
@@ -22,7 +16,6 @@ import InputMask from 'react-input-mask'
 import { Loader2, LogIn } from 'lucide-react'
 
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
-import { useSessionStorage } from '@/hooks/use-session-storage'
 
 const formSchema = z.object({
   cpf: z.string().min(2, 
@@ -32,21 +25,7 @@ const formSchema = z.object({
 })
 
 const LoginForm = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { setCollab } = useCollabContext();
-  const {replace} = useRouter()
-  const {data} = useCollab();
-  const {setItem} = useSessionStorage('isLogged')
-
-
-  function Login () {
-    setIsLoading(true)
-    setTimeout(() => {
-      setIsLoading(false)
-      setItem(true)
-      replace('/portaldocolaborador')
-    }, 3000)
-  }
+  const {recallData, isLoading} = useCollab();
 
   // Preparando formulário
   const form = useForm<z.infer<typeof formSchema>>({
@@ -57,32 +36,7 @@ const LoginForm = () => {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    if(data){
-      const user = data.find((user) => user.cpf === values.cpf)
-
-      if(user){
-        // Setando dados do colaborador no contexto
-        setCollab({
-           nome: user.nome,
-           cargo: user.cargo,
-           cpf: user.cpf
-        })
-
-        // resetando informações do formulário
-        form.reset()
-
-        // Realizando a função de login
-        // Login()
-        console.log(form.getValues())
-      }
-      else {
-        callToast(
-          'Erro',
-          'CPF não reconhecido',
-          true
-        )
-      }
-    }
+    recallData(values.cpf);
   }
 
   return (
