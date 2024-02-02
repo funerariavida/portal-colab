@@ -8,29 +8,28 @@ import Image from 'next/image'
 
 import Logo from '@/assets/image/logo.png'
 
-import { LogOut, Menu } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Separator } from '@/components/ui/separator'
 
 import HeaderNavigation from './header-navigation'
 import HeaderSheet from './header-sheet'
-import UserMenu from './user-menu'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useCollabContext } from '@/context/collaborator'
 
+import userFormatter from '@/utils/user-formatter'
+
 
 const Header = () => {
   const {removeItem} = useSessionStorage('isLogged')
-  const {collab} = useCollabContext()
-
-  const user = collab?.nome.split(' ')[0]
+  const {userName, userRole} = userFormatter();
 
   return (
-    <header className='sticky z-10 top-0 w-full bg-background h-20 p-6 shadow-md flex items-center justify-center'>
+    <header className='sticky z-10 top-0 w-full bg-background h-20 px-5 py-6 shadow-md flex items-center justify-center'>
        <HeaderSheet />
-        <div className='w-32'>
+        <div className='w-32 ms-7 lg:m-0'>
             <Image 
             className='w-full'  
               src={Logo}
@@ -40,20 +39,23 @@ const Header = () => {
         <div className='ms-auto h-full gap-4 flex items-center justify-center'>
           <HeaderNavigation />
           <Separator orientation='vertical' className='w-[2px] h-full hidden lg:flex bg-primary'/>
-          {/* {collab && <span className='hidden lg:flex'>Bem vindo(a), <b className='text-primary'>{user}</b></span>}
+          {userName && userRole && <div className='hidden lg:flex flex-col mr-2'>
+              <h1 className='text-base font-bold capitalize'>{userName ?? 'Usuário'}</h1>
+              <h2 className='text-sm capitalize'>{userRole ?? 'Cargo'}</h2>
+            </div>}
           <Button 
             asChild
-            variant={'ghost'}
+            variant={'outline'}
             onClick={() => removeItem()}
             className='hidden lg:flex hover:bg-transparent hover:text-primary'>
               <Link
                 href={'/portaldocolaborador/login'}
                 
               >
-                <LogOut />
+                <LogOut className='w-4 h-4 mr-4'/>
+                <span className='text-base'>Sair</span>
               </Link>
-          </Button> */}
-          <UserMenu />
+          </Button>
         </div>
     </header>
   )

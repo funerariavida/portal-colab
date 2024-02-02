@@ -26,13 +26,11 @@ import collaboratorLinks from "@/configs/link-cards"
 
 import { Separator } from "@/components/ui/separator";
 import { useCollabContext } from '@/context/collaborator';
+import userFormatter from '@/utils/user-formatter';
 
 const HeaderSheet = () => {
-  const {removeItem} = useSessionStorage('isLogged')
-
-  const {collab} = useCollabContext()
-
-  const user = collab?.nome.split(' ')[0].toLowerCase()
+  const {removeItem} = useSessionStorage('isLogged');
+  const {userName, userRole} = userFormatter();
 
   return (
     <Sheet>
@@ -44,8 +42,8 @@ const HeaderSheet = () => {
       <SheetContent className="px-2 overflow-auto">
         <SheetHeader className="px-2">
           <SheetTitle className='flex flex-col items-start'>
-            <span className='text-base font-semibold capitalize'>{user}</span>
-            <span className='text-sm font-medium capitalize'>{collab?.cargo.toLowerCase()}</span>
+            <span className='text-base font-semibold capitalize'>{userName ?? 'Usuário'}</span>
+            <span className='text-sm font-medium capitalize'>{userRole ?? 'Cargo'}</span>
           </SheetTitle>
         </SheetHeader>
         <Separator />
