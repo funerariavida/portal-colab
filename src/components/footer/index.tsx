@@ -17,9 +17,9 @@ const Footer = () => {
 <footer className="bg-background shadow-md border-t p-4">
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 items-center justify-between">
           <span className="flex items-center justify-center gap-1 text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © 2023
+            © 2024
             <Link href="https://funerariavida.com.br/" className="hover:underline">
-             Funerária Vida™
+             Funerária Vida
             </Link>. 
             <strong>Todos os direitos reservados</strong>
           </span>

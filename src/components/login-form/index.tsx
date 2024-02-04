@@ -64,7 +64,7 @@ const LoginForm = () => {
         />
         <Button className='w-full text-primary hover:bg-secondary hover:text-white border-0' 
           variant={'outline'}
-          disabled={isLoading} type='submit'>
+          disabled={isLoading || !form.formState.isValid} type='submit'>
           {isLoading && <Loader2  className="mr-2 h-4 w-4 animate-spin" />}
           {!isLoading && <LogIn className='mr-2 w-4 h-4'/>} Acessar
         </Button>

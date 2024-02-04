@@ -40,7 +40,7 @@ const HeaderSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent className="px-2 overflow-auto">
-        <SheetHeader className="px-2">
+        <SheetHeader className="px-2 py-3">
           <SheetTitle className='flex flex-col items-start'>
             <span className='text-base font-semibold capitalize'>{userName ?? 'Usuário'}</span>
             <span className='text-sm font-medium capitalize'>{userRole ?? 'Cargo'}</span>
@@ -72,11 +72,11 @@ const HeaderSheet = () => {
             <Button 
               asChild
               onClick={() => removeItem()}
-              variant={'secondary'}
+              variant={'outline'}
             >
               <Link href={'/portaldocolaborador/login'}>
                 <LogOut className="w-4 h-4 mr-4"/>
-                <span>Logout</span>
+                <span>Sair</span>
               </Link>
             </Button>
           </div>

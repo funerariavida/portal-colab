@@ -11,7 +11,7 @@ export default function PortalColaborador() {
 
       {/* Utils section */}
       <section className='h-[150vh] xl:h-[120vh] gap-10 w-full flex flex-col items-center justify-start'>
-        <div className='w-full bg-primary h-1/4 flex flex-col items-center justify-center'>
+        <div className='w-full bg-primary h-[10%] md:h-[15%] lg:h-1/4 flex flex-col items-center justify-center'>
           <h1 className='text-white text-4xl lg:text-5xl font-bold'>Portal do Colaborador</h1>
         </div>
         <div className='flex w-full gap-4 flex-wrap items-center justify-center'>
