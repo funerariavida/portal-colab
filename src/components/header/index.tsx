@@ -25,7 +25,7 @@ const Header = () => {
   const {userName, userRole} = useFormatter();
 
   return (
-    <header className='sticky z-10 top-0 w-full bg-background h-20 px-5 py-6 shadow-md flex items-center justify-center'>
+    <header className='fixed z-10 top-0 w-full bg-background h-20 px-5 py-6 shadow-md flex items-center justify-center'>
        <HeaderSheet />
         <div className='w-32 ms-7 lg:m-0'>
             <Image 

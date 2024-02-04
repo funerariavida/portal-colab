@@ -40,7 +40,7 @@ export default function HomeLayout({
       <div className='h-screen w-full'>
         <CollabContextProvider>
           <Header />
-          <main className="flex w-full min-h-screen flex-col items-center justify-center">
+          <main className="mt-20 flex w-full min-h-screen flex-col items-center justify-center">
             {children}
           </main>
           <Footer />

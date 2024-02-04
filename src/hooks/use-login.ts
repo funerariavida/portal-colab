@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import axios from 'axios'
 
 import { axiosInstance } from '@/configs/axios-base-config';
 
@@ -7,6 +8,7 @@ import callToast from '@/utils/call-toast';
 import { useRouter } from 'next/navigation';
 
 import { useSessionStorage } from './use-session-storage';
+import { AxiosError } from 'axios';
 
 type CollabResponse = {
   code: number,
@@ -22,8 +24,6 @@ export default function useLogin(){
   const {setItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME);
   const {replace} = useRouter();
 
-  console.log(process.env.NEXT_PUBLIC_API_BASE_URL, process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
-
   const recallData = useCallback((cpf: string) => {
     setIsLoading(true);
 
@@ -38,8 +38,13 @@ export default function useLogin(){
         })
       // redirecionando para a página principal
       replace('/portaldocolaborador')
-    }).catch((e: Error) => {
-      callToast('Erro', e.message, true)
+    }).catch((e: Error | AxiosError) => {
+      // axios error
+      if(axios.isAxiosError(e)){
+        callToast('Erro de requisição', e.response?.data.message, true)
+      }
+      // general error
+      else {callToast(e.name, e.message, true)}
     }).finally(() => setIsLoading(false))
   }, [replace, setItem])
 

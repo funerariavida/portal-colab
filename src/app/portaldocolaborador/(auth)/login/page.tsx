@@ -24,6 +24,12 @@ const Login = () => {
 
       {/* second part */}
       <div className="bg-primary h-screen w-full md:w-1/2 flex gap-5 flex-col items-center justify-center text-white">
+        <div className='w-1/2 p-4 mb-2 flex md:hidden bg-background'>
+          <Image 
+            src={Logo}
+            alt='logomarca'
+          />
+        </div>
         <div className='flex flex-col items-center justify-center gap-1'>
           <h1 className='text-xl text-white font-bold'>Login</h1>
           <h2 className='text-lg text-zinc-300 font-medium'>Acesse sua conta</h2>

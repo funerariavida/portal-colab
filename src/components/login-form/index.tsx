@@ -48,7 +48,7 @@ const LoginForm = () => {
         {/* cpf */}
         <FormField
           control={form.control}
-          name='cpf'
+          name='cpf' 
           render={({field}) => (
             <FormItem className='w-full'>
               <FormControl>
@@ -58,7 +58,7 @@ const LoginForm = () => {
                   mask={'999.999.999-99'}
                   placeholder='CPF'/>
               </FormControl>
-              <FormMessage className='px-3 text-xs' />
+              <FormMessage className='px-3 text-xs font-bold text-secondary' />
             </FormItem>
           )}
         />
