@@ -2,7 +2,6 @@ export type sessionType = {
   name: string,
   role: string,
   cpf: string,
-  isLogged: boolean
 }
 
 export function useSessionStorage<T>(key: string) {

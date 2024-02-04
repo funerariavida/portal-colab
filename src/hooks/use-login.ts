@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
 
-import { AxiosResponse } from 'axios';
 import { axiosInstance } from '@/configs/axios-base-config';
 
 import callToast from '@/utils/call-toast';
@@ -20,7 +19,7 @@ type CollabResponse = {
 
 export default function useLogin(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const {setItem} = useSessionStorage('collab');
+  const {setItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME);
   const {replace} = useRouter();
 
   const recallData = useCallback((cpf: string) => {

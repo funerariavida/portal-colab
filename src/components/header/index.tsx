@@ -21,7 +21,7 @@ import { useSessionStorage } from '@/hooks/use-session-storage'
 import useFormatter from '@/hooks/use-formatter'
 
 const Header = () => {
-  const {removeItem} = useSessionStorage('collab')
+  const {removeItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME)
   const {userName, userRole} = useFormatter();
 
   return (
