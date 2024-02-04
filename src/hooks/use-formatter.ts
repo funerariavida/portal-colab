@@ -1,7 +1,7 @@
 import { useSessionStorage } from "@/hooks/use-session-storage"
 
 const useFormatter = () => {
-  const {getItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME)
+  const {getItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
 
     // Formatando nome do usuário e seu cargo
     const item = getItem()?.toString()

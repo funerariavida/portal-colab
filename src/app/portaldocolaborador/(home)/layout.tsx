@@ -18,7 +18,7 @@ export default function HomeLayout({
 }) {
   const [isLoading, SetIsLoading] = useState<boolean>(true)
   const {collab} = useCollabContext()
-  const {getItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME)
+  const {getItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
   const {push} = useRouter()
 
   useLayoutEffect(() => {

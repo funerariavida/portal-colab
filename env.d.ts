@@ -1,6 +1,6 @@
 namespace NodeJS {
   interface ProcessEnv {
-    SESSION_STORAGE_NAME: string
-    API_BASE_URL: string
+    NEXT_PUBLIC_SESSION_STORAGE_NAME: string
+    NEXT_PUBLIC_API_BASE_URL: string
   }
 }

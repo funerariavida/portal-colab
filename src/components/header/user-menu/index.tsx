@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/avatar"
 
 const UserMenu = () => {
-  const {getItem, removeItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME)
+  const {getItem, removeItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
   const {collab} = useCollabContext()
 
   const item = getItem()?.toString()

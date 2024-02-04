@@ -19,8 +19,10 @@ type CollabResponse = {
 
 export default function useLogin(){
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const {setItem} = useSessionStorage(process.env.SESSION_STORAGE_NAME);
+  const {setItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME);
   const {replace} = useRouter();
+
+  console.log(process.env.NEXT_PUBLIC_API_BASE_URL, process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
 
   const recallData = useCallback((cpf: string) => {
     setIsLoading(true);
