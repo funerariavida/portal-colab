@@ -36,15 +36,18 @@ export default function useLogin(){
           role: res.data[0].cargo,
           cpf: res.data[0].cpf,
         })
+      // Chamando retorno visual
+      callToast('Sucesso', 'CPF validado com sucesso!', 'success')
+      
       // redirecionando para a página principal
       replace('/portaldocolaborador')
     }).catch((e: Error | AxiosError) => {
       // axios error
       if(axios.isAxiosError(e)){
-        callToast('Erro de requisição', e.response?.data.message, true)
+        callToast('Erro de requisição', e.response?.data.message, 'destructive')
       }
       // general error
-      else {callToast(e.name, e.message, true)}
+      else {callToast(e.name, e.message, 'destructive')}
     }).finally(() => setIsLoading(false))
   }, [replace, setItem])
 
