@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import useCollab from '@/hooks/use-collab'
+import useLogin from '@/hooks/use-login'
 
 // form
 import {z} from "zod"
@@ -17,6 +17,7 @@ import { Loader2, LogIn } from 'lucide-react'
 
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
 
+
 const formSchema = z.object({
   cpf: z.string().min(2, 
     {
@@ -25,7 +26,7 @@ const formSchema = z.object({
 })
 
 const LoginForm = () => {
-  const {recallData, isLoading} = useCollab();
+  const {recallData, isLoading} = useLogin();
 
   // Preparando formulário
   const form = useForm<z.infer<typeof formSchema>>({

@@ -3,7 +3,7 @@ import { useSessionStorage } from "@/hooks/use-session-storage"
 const useFormatter = () => {
   const {getItem} = useSessionStorage('collab')
 
-    // formating user name
+    // Formatando nome do usuário e seu cargo
     const item = getItem()?.toString()
     const userInfo = item != undefined && JSON.parse(item)
     const aux_01 = userInfo.name.split(' ')[0].toLowerCase()
