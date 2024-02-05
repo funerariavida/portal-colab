@@ -38,6 +38,7 @@ const LoginForm = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     recallData(values.cpf);
+    form.reset()
   }
 
   return (

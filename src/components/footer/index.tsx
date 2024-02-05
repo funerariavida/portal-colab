@@ -14,8 +14,8 @@ import collaboratorLinks from "@/configs/link-cards"
 const Footer = () => {
   return (
   
-<footer className="bg-background shadow-md border-t p-4">
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 items-center justify-between">
+<footer className="p-4 border-t shadow-md bg-background">
+      <div className="flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-0">
           <span className="flex items-center justify-center gap-1 text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2024
             <Link href="https://funerariavida.com.br/" className="hover:underline">
@@ -25,38 +25,38 @@ const Footer = () => {
           </span>
 
           {/* footer links */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-2">
 
             <Button
-              variant={"outline"}
-              className='fill-primary hover:fill-white'
+              variant={"default"}
+              className='fill-white hover:bg-transparent hover:fill-primary'
               size={'icon'}
             >
               <Facebook className="text-transparent fill-inherit"/>
             </Button>
 
             <Button
-              variant={"outline"}
-               className='text-white fill-primary hover:text-primary hover:fill-white'
+              variant={"default"}
+              className='fill-white text-primary hover:bg-transparent'
               size={'icon'}
             >
               <Instagram className="text-inherit fill-inherit"/>
             </Button>
 
             <Button
-              variant={"outline"}
-               className='fill-primary hover:fill-white'
+              variant={"default"}
+              className='hover:bg-transparent fill-white hover:fill-primary'
               size={'icon'}
             >
               <Linkedin className="text-transparent fill-inherit"/>
             </Button>
 
             <Button
-              variant={"outline"}
-              className='text-white fill-primary hover:text-primary hover:fill-white'
+              variant={"default"}
+              className='fill-primary hover hover:bg-transparent'
               size={'icon'}
             >
-              <Youtube className="text-inherit fill-inherit"/>
+              <Youtube className="text-inherit fill-inherit" strokeWidth={2}/>
             </Button>
           </div>
       </div>

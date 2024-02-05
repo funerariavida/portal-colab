@@ -10,7 +10,7 @@ export default function PortalColaborador() {
     <div className="flex w-full min-h-screen flex-col items-center justify-center">
 
       {/* Utils section */}
-      <section className='h-[150vh] xl:h-[120vh] gap-10 w-full flex flex-col items-center justify-start'>
+      <section className='h-[150vh] xl:h-[100vh] gap-10 w-full flex flex-col items-center justify-start'>
         <div className='w-full bg-primary h-[10%] md:h-[15%] lg:h-1/4 flex flex-col items-center justify-center'>
           <h1 className='text-white text-4xl lg:text-5xl font-bold'>Portal do Colaborador</h1>
         </div>
@@ -42,8 +42,8 @@ export default function PortalColaborador() {
             return <LinkCard 
               key={index}
               title={link.title} 
+              iconAlign='center'
               description={link.description}
-              icon={link.icon}
               linkPath={link.linkPath}
               />
           })}
@@ -52,7 +52,7 @@ export default function PortalColaborador() {
       </section>
 
       {/* Department section */}
-      <section className='h-[120vh] sm:h-screen w-full flex flex-col gap-10 items-center justify-center'>
+      <section className='h-screen w-full flex flex-col gap-10 items-center justify-center'>
         <h2 className='text-secondary text-lg lg:text-2xl font-semibold'>Links de Setores</h2>
         <div className='flex w-full gap-6 flex-wrap items-center justify-center'>
           {/* Card link */}
