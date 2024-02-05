@@ -24,7 +24,7 @@ const Login = () => {
 
       {/* second part */}
       <div className="flex flex-col items-center justify-center w-full h-screen gap-5 text-white bg-primary md:w-1/2">
-        <div className='flex w-1/2 p-4 mb-2 md:hidden bg-background'>
+        <div className='flex w-1/2 p-4 mb-2 md:hidden'>
           <Image 
             src={Logo}
             alt='logomarca'
