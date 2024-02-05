@@ -11,7 +11,7 @@ import LoginForm from '@/components/login-form'
 const Login = () => {
 
   return (
-    <div className='flex items-center justify-center w-full h-screen'>
+    <div className='flex items-center justify-center w-full h-full'>
       {/* first part */}
       <div className='items-center justify-center hidden w-1/2 h-screen md:flex text-primary'>
         <div className='w-52'>
