@@ -1,14 +1,8 @@
-import Image from "next/image"
-
 import Link from 'next/link'
 
 import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react"
 
-import { Separator } from "../ui/separator"
-
-import logo from '@/assets/image/logo.png'
 import { Button } from "../ui/button"
-import collaboratorLinks from "@/configs/link-cards"
 
 
 const Footer = () => {
@@ -16,7 +10,7 @@ const Footer = () => {
   
 <footer className="p-4 border-t shadow-md bg-background">
       <div className="flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-0">
-          <span className="flex items-center justify-center gap-1 text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="flex items-center justify-center w-full gap-1 text-xs text-center text-gray-500 sm:text-sm sm:w-auto">
             © 2024
             <Link href="https://funerariavida.com.br/" className="hover:underline">
              Funerária Vida

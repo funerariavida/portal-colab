@@ -34,7 +34,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
             'p-6 flex flex-col items-center justify-center gap-2 shadow-md transition-all duration-300 rounded-xl hover:scale-105',
             className,
             {
-                'w-4/5 sm:w-96 h-40': className === undefined
+                'w-4/5 sm:w-96 h-32 sm:h-40': className === undefined
             },
             {
                 'bg-background text-primary' : variant === 'default'
@@ -65,8 +65,8 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
             </div>
             }
             <div>
-                <h1 className='text-xl font-bold'>{title}</h1>
-                <p className=' text-base font-medium'>{description}</p>
+                <h1 className='text-base sm:text-xl font-bold'>{title}</h1>
+                <p className='text-xs sm:text-base font-medium'>{description}</p>
             </div>
             {iconAlign === 'center' && <ExternalLink 
                 className={variant === 'default' ? 'text-primary' : 'text-white'} 

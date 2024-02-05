@@ -45,7 +45,7 @@ const LoginForm = () => {
     <Form {...form}>
       <form 
         onSubmit={form.handleSubmit(onSubmit)} 
-        className='flex flex-col items-center justify-center gap-3 w-1/2'>
+        className='flex flex-col items-center justify-center w-1/2 gap-3'>
         {/* cpf */}
         <FormField
           control={form.control}
@@ -54,20 +54,21 @@ const LoginForm = () => {
             <FormItem className='w-full'>
               <FormControl>
                 <InputMask 
-                  className='flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-black focus:ring-black' 
+                  className='flex w-full h-10 px-3 py-2 text-sm border rounded-md text-zinc-400 border-input bg-background ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-black' 
                   {...field}
                   mask={'999.999.999-99'}
-                  placeholder='CPF'/>
+                  placeholder='CPF'
+                />
               </FormControl>
               <FormMessage className='px-3 text-xs font-bold text-secondary' />
             </FormItem>
           )}
         />
-        <Button className='w-full text-primary hover:bg-secondary hover:text-white border-0' 
+        <Button className='w-full border-0 text-primary hover:bg-secondary hover:text-white' 
           variant={'outline'}
           disabled={isLoading || !form.formState.isValid} type='submit'>
-          {isLoading && <Loader2  className="mr-2 h-4 w-4 animate-spin" />}
-          {!isLoading && <LogIn className='mr-2 w-4 h-4'/>} Acessar
+          {isLoading && <Loader2  className="w-4 h-4 mr-2 animate-spin" />}
+          {!isLoading && <LogIn className='w-4 h-4 mr-2'/>} Acessar
         </Button>
       </form>
     </Form>
