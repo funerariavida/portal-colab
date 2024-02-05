@@ -10,7 +10,7 @@ export default function PortalColaborador() {
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
 
       {/* Utils section */}
-      <section className='max-[360px]:h-[150vh] h-[120vh] xl:h-screen gap-5 sm:gap-10 w-full flex flex-col items-center justify-start'>
+      <section className='max-[380px]:h-[150vh] h-[120vh] xl:h-screen gap-5 sm:gap-10 w-full flex flex-col items-center justify-start'>
         <div className='w-full bg-primary h-[12%] md:h-[15%] lg:h-1/4 flex flex-col items-center justify-center'>
           <h1 className='text-2xl font-bold text-white sm:text-4xl lg:text-5xl'>Portal do Colaborador</h1>
         </div>
