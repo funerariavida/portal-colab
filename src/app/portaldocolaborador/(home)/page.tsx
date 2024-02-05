@@ -16,7 +16,7 @@ export default function PortalColaborador() {
         </div>
         <div className='flex flex-wrap items-center justify-center w-full gap-4'>
           <div className='w-full text-center'>
-            <h3 className='text-lg font-semibold lg:text-2xl text-secondary'>Links úteis</h3>
+            <h3 className='text-lg font-semibold lg:text-2xl text-secondary'>Utilitários</h3>
           </div>
           {/* Card link */}
           {collaboratorLinks[0].infos.map((link, index) => {
@@ -35,7 +35,7 @@ export default function PortalColaborador() {
 
       {/* Training section */}
       <section className='h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center'>
-        <h2 className='text-lg font-semibold text-white lg:text-2xl'>Links de Treinamento</h2>
+        <h2 className='text-lg font-semibold text-white lg:text-2xl'>Treinamentos</h2>
         <div className='flex flex-wrap items-center justify-center w-full gap-6'>
           {/* Card link */}
           {collaboratorLinks[1].infos.map((link, index) => {
@@ -53,7 +53,7 @@ export default function PortalColaborador() {
 
       {/* Department section */}
       <section className='h-[120vh] xl:h-screen w-full flex flex-col gap-10 items-center justify-center'>
-        <h2 className='text-lg font-semibold text-secondary lg:text-2xl'>Links de Setores</h2>
+        <h2 className='text-lg font-semibold text-secondary lg:text-2xl'>Setores</h2>
         <div className='flex flex-wrap items-center justify-center w-full gap-6'>
           {/* Card link */}
           {collaboratorLinks[2].infos.map((link, index) => {

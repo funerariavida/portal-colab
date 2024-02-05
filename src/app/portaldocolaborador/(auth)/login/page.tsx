@@ -2,7 +2,8 @@
 
 import React from 'react'
 
-import Logo from '@/assets/image/logo-02.png'
+import Logo from '@/assets/image/logo.png'
+import Logo02 from '@/assets/image/logo-02.png'
 import Image from 'next/image'
 
 import LoginForm from '@/components/login-form'
@@ -26,7 +27,7 @@ const Login = () => {
       <div className="flex flex-col items-center justify-center w-full h-screen gap-5 text-white bg-primary md:w-1/2">
         <div className='flex w-1/2 p-4 mb-2 md:hidden'>
           <Image 
-            src={Logo}
+            src={Logo02}
             alt='logomarca'
           />
         </div>

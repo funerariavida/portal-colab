@@ -23,7 +23,7 @@ const HeaderNavigation = () => {
             {collaboratorLinks.map((link, index) => {    
                 return (<NavigationMenuItem key={index}>
                     <NavigationMenuTrigger  
-                        className='bg-primary focus:bg-primary text-white'>
+                        className='text-white capitalize bg-primary focus:bg-primary'>
                         {link.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -31,7 +31,7 @@ const HeaderNavigation = () => {
                             {/* Percorrendo array de infos */}
                             {link.infos.map((info, index) => {
                                 return <Link key={index} href={info.linkPath} target='blank' legacyBehavior passHref>
-                                    <NavigationMenuLink className='p-4 flex items-start justify-between rounded-lg hover:bg-secondary hover:text-white transition-all'>
+                                    <NavigationMenuLink className='flex items-start justify-between p-4 transition-all rounded-lg hover:bg-secondary hover:text-white'>
                                         {info.title}
                                         <ExternalLink size='16'/>
                                     </NavigationMenuLink>

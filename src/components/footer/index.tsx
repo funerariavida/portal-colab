@@ -9,7 +9,7 @@ const Footer = () => {
   return (
   
 <footer className="p-4 border-t shadow-md bg-background">
-      <div className="flex flex-col items-center justify-between gap-3 sm:flex-row sm:gap-0">
+      <div className="flex items-center justify-center w-full gap-3 sm:flex-row sm:gap-0">
           <span className="flex items-center justify-center w-full gap-1 text-xs text-center text-gray-500 sm:text-sm sm:w-auto">
             © 2024
             <Link href="https://funerariavida.com.br/" className="hover:underline">
@@ -19,7 +19,7 @@ const Footer = () => {
           </span>
 
           {/* footer links */}
-          <div className="flex items-center justify-center gap-2">
+          {/* <div className="flex items-center justify-center gap-2">
 
             <Button
               variant={"default"}
@@ -52,7 +52,7 @@ const Footer = () => {
             >
               <Youtube className="text-inherit fill-inherit" strokeWidth={2}/>
             </Button>
-          </div>
+          </div> */}
       </div>
 </footer>
 

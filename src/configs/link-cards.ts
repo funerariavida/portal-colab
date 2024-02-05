@@ -20,7 +20,7 @@ const collaboratorLinks: Props[] = [
     name: "utilitários",
     infos: [
       {
-        title: "Ouvidoria Interna",
+        title: "Ouvidoria interna",
         description: "Um espaço para ouvir você colaborador",
         icon: Speech,
         linkPath:
@@ -48,7 +48,7 @@ const collaboratorLinks: Props[] = [
           "https://docs.google.com/forms/d/e/1FAIpQLScBrma8d15k3A7KOAasodqOoOW9jJr14Cc5zQNGPsTLFw9_Iw/viewform",
       },
       {
-        title: "Manutenção Predial",
+        title: "Manutenção predial",
         description: "Solicite manutenção predial",
         icon: Settings,
         linkPath: "https://forms.gle/ngCiEPHsm6xTPAZH6",
@@ -63,7 +63,7 @@ const collaboratorLinks: Props[] = [
     ],
   },
   {
-    name: "treinamento",
+    name: "treinamentos",
     infos: [
       {
         title: "Transmissão de velório",
@@ -87,7 +87,7 @@ const collaboratorLinks: Props[] = [
         linkPath: "https://beacons.ai/crematorios_fv",
       },
       {
-        title: "Departamento Pessoal",
+        title: "Departamento pessoal",
         description: "",
         linkPath: "https://beacons.ai/dp_fv",
       },
@@ -97,7 +97,7 @@ const collaboratorLinks: Props[] = [
         linkPath: "https://beacons.ai/operacional_fv",
       },
       {
-        title: "Recursos Humanos",
+        title: "Recursos humanos",
         description: "",
         linkPath: "https://beacons.ai/rh_fv",
       },

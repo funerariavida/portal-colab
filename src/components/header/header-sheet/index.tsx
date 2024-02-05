@@ -43,7 +43,7 @@ const HeaderSheet = () => {
         <SheetHeader className="px-2 py-3">
           <SheetTitle className='flex flex-col items-start'>
             <span className='text-base font-semibold capitalize'>{userName ?? 'Usuário'}</span>
-            <span className='text-sm font-medium capitalize'>{userRole ?? 'Cargo'}</span>
+            <span className='text-sm font-medium uppercase'>{userRole ?? 'Cargo'}</span>
           </SheetTitle>
         </SheetHeader>
         <Separator />
@@ -51,13 +51,13 @@ const HeaderSheet = () => {
           <Accordion type="single" collapsible className="w-full">
             {collaboratorLinks.map((data,index) => {
               return <AccordionItem key={index} value={`index-${index}`}>
-              <AccordionTrigger className="text-primary font-semibold">{data.name}</AccordionTrigger>
+              <AccordionTrigger className="font-semibold capitalize text-primary">{data.name}</AccordionTrigger>
               <AccordionContent className="flex flex-col items-start">
                 {data.infos.map((link, index) => {
-                  return <Button key={index} variant={'ghost'} asChild>
+                  return <Button className='hover:bg-secondary hover:text-white' key={index} variant={'ghost'} asChild>
                    <Link href={link.linkPath} target="blank">
-                    <ExternalLink className="mr-4 w-4 h-4"/> 
-                    <span className="text-zinc-500">{link.title}</span>
+                      <ExternalLink className="w-4 h-4 mr-4 text-inherit"/> 
+                      <span className="text-inherit">{link.title}</span>
                     </Link>
                   </Button>
                 })}
@@ -68,7 +68,7 @@ const HeaderSheet = () => {
           </Accordion>
         </div>
         <SheetFooter>
-          <div className="flex w-full items-start">
+          <div className="flex items-start w-full">
             <Button 
               asChild
               onClick={() => removeItem()}

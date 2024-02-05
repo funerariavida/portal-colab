@@ -25,7 +25,7 @@ const Header = () => {
   const {userName, userRole} = useFormatter();
 
   return (
-    <header className='fixed z-10 top-0 w-full bg-background h-20 px-5 py-6 shadow-md flex items-center justify-center'>
+    <header className='fixed top-0 z-10 flex items-center justify-center w-full h-20 px-3 py-6 shadow-md bg-background lg:px-5'>
         <div className='w-32 ms-7 lg:m-0'>
             <Image 
             className='w-full'  
@@ -33,10 +33,10 @@ const Header = () => {
               alt='Logomarca'
             />
         </div>
-        <div className='ms-auto h-full gap-4 flex items-center justify-center'>
+        <div className='flex items-center justify-center h-full gap-4 ms-auto'>
           <HeaderNavigation />
           <Separator orientation='vertical' className='w-[2px] h-full hidden lg:flex bg-primary'/>
-          {userName && userRole && <div className='hidden lg:flex flex-col mr-2'>
+          {userName && userRole && <div className='flex-col hidden mr-2 lg:flex'>
               <h1 className='text-base font-bold capitalize'>{userName ?? 'Usuário'}</h1>
               <h2 className='text-sm capitalize'>{userRole ?? 'Cargo'}</h2>
             </div>}
