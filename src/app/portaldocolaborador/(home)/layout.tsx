@@ -1,50 +1,46 @@
 'use client'
 
-import { useLayoutEffect, useState } from "react";
+import { ReactNode, useLayoutEffect, useState } from 'react'
 
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import FullPageLoader from "@/components/full-page-loader";
+import Footer from '@/components/footer'
+import FullPageLoader from '@/components/full-page-loader'
+import Header from '@/components/header'
 
-import { useSessionStorage } from "@/hooks/use-session-storage";
-import { useRouter } from "next/navigation";
-import { CollabContextProvider, useCollabContext } from "@/context/collaborator";
+import { CollabContextProvider, useCollabContext } from '@/context/collaborator'
+import { useSessionStorage } from '@/hooks/use-session-storage'
+import { useRouter } from 'next/navigation'
 
-
-export default function HomeLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function HomeLayout({ children }: { children: ReactNode }) {
   const [isLoading, SetIsLoading] = useState<boolean>(true)
-  const {collab} = useCollabContext()
-  const {getItem} = useSessionStorage(process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME)
-  const {push} = useRouter()
+  const { collab } = useCollabContext()
+  const { getItem } = useSessionStorage(
+    process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
+  )
+  const { push } = useRouter()
 
   useLayoutEffect(() => {
-    if(!getItem() && !collab){
+    if (!getItem() && !collab) {
       push('/portaldocolaborador/login')
     }
-    
     setTimeout(() => {
       SetIsLoading(false)
     }, 2000)
   })
 
-  if(isLoading) {
+  if (isLoading) {
     return <FullPageLoader />
   }
 
-  if(!isLoading){
+  if (!isLoading) {
     return (
-      <div className='h-screen w-full'>
+      <div className="h-screen w-full">
         <CollabContextProvider>
           <Header />
           <main className="mt-20 flex w-full min-h-screen flex-col items-center justify-center">
             {children}
           </main>
           <Footer />
-      </CollabContextProvider>
+        </CollabContextProvider>
       </div>
     )
   }

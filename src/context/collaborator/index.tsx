@@ -1,8 +1,15 @@
 'use client'
 
-import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react"
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from 'react'
 
-import Collaborators from "@/types/collaborators"
+import Collaborators from '@/types/collaborators'
 
 type authContextProps = {
   collab: Collaborators | null
@@ -12,17 +19,17 @@ type authContextProps = {
 const CollabContext = createContext<authContextProps>({} as authContextProps)
 
 export const CollabContextProvider = ({
-  children, 
+  children,
 }: {
   children: ReactNode
 }) => {
   const [collab, setCollab] = useState<Collaborators | null>(null)
 
   return (
-    <CollabContext.Provider value={{collab, setCollab}}>
+    <CollabContext.Provider value={{ collab, setCollab }}>
       {children}
     </CollabContext.Provider>
   )
-};
+}
 
 export const useCollabContext = () => useContext(CollabContext)

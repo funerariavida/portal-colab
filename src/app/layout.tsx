@@ -1,15 +1,15 @@
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
 
-import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import type { Metadata } from 'next'
+import { Roboto } from 'next/font/google'
 
-import './globals.css';
+import './globals.css'
 
 import { Toaster } from '@/components/ui/toaster'
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
-  subsets: ['latin'] ,
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
@@ -21,10 +21,9 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode
-}>){
-
+}>) {
   return (
-    <html lang='pt-br'>
+    <html lang="pt-br">
       <body className={roboto.className}>
         {children}
         <Toaster />

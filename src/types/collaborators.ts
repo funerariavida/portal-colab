@@ -1,6 +1,6 @@
 type Collaborators = {
-  nome: string,
-  cargo: string,
+  nome: string
+  cargo: string
   cpf: string
 }
 

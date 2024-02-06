@@ -1,20 +1,18 @@
-import { toast } from "@/components/ui/use-toast";
-import classNames from "classnames";
+import { toast } from '@/components/ui/use-toast'
+import classNames from 'classnames'
 
 const callToast = (
-  title:string,
+  title: string,
   description: string,
-  variant?: 'destructive' | 'success' | 'default'
+  variant?: 'destructive' | 'success' | 'default',
 ) => {
   toast({
-    title: title,
-    description: description,
+    title,
+    description,
     variant: variant === 'destructive' ? 'destructive' : 'default',
     duration: 2500,
-    className: classNames(
-      {'bg-green-500 text-white': variant === 'success'},
-    )
+    className: classNames({ 'bg-green-500 text-white': variant === 'success' }),
   })
 }
 
-export default callToast;
+export default callToast
