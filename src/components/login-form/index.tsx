@@ -13,7 +13,7 @@ import { Button } from '../ui/button'
 
 import { Loader2, LogIn } from 'lucide-react'
 
-import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
+import { Form, FormControl, FormField, FormItem } from '../ui/form'
 
 const formSchema = z.object({
   cpf: z.string().min(2, {
@@ -51,13 +51,14 @@ const LoginForm = () => {
             <FormItem className="w-full">
               <FormControl>
                 <InputMask
-                  className="flex w-full h-10 px-3 py-2 text-sm border rounded-md text-zinc-400 border-input bg-background ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-black"
+                  disabled={isLoading}
+                  className="flex w-full text-zinc-600 h-10 px-3 py-2 text-sm border rounded-md border-input bg-background ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-black"
                   {...field}
                   mask={'999.999.999-99'}
                   placeholder="CPF"
                 />
               </FormControl>
-              <FormMessage className="px-3 text-xs font-bold text-secondary" />
+              {/* <FormMessage className="px-3 text-xs font-bold text-secondary" /> */}
             </FormItem>
           )}
         />

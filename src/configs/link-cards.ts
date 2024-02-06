@@ -4,6 +4,7 @@ import {
   Book,
   Clock,
   Computer,
+  FilePlus,
   FileText,
   Radio,
   Settings,
@@ -59,6 +60,13 @@ const collaboratorLinks: Props[] = [
         icon: FileText,
         linkPath:
           'https://docs.google.com/forms/d/e/1FAIpQLSdtjKjyUxJLfsEuFYCbzm_Kbpk5nuFmDg54RSvl13riSWEbZg/viewform?usp=sf_link',
+      },
+      {
+        title: 'Anexar atestado',
+        description: 'Envie seus atestados',
+        icon: FilePlus,
+        linkPath:
+          'https://docs.google.com/forms/d/e/1FAIpQLSd7wU7TUXteChqFzOY5Gf3Z6mwsqI9E_BLhRnA5nQpYV-yKZA/viewform?usp=sf_link',
       },
     ],
   },

@@ -1,5 +1,7 @@
 'use client'
 
+// Atualmente não utilizado no projeto por motivos de bug
+
 import {
   Dispatch,
   ReactNode,

@@ -1,5 +1,3 @@
-'use client'
-
 import Logo02 from '@/assets/image/logo-02.png'
 import Logo from '@/assets/image/logo.png'
 import Image from 'next/image'

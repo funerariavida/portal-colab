@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios'
+
 import { useCallback, useState } from 'react'
 
 import { axiosInstance } from '@/configs/axios-base-config'
