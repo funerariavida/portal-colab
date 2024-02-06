@@ -1,32 +1,34 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { ReactNode } from 'react';
 
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
 
-import {Toaster} from '@/components/ui/toaster'
+import './globals.css';
 
-const roboto = Roboto({ 
+import { Toaster } from '@/components/ui/toaster'
+
+const roboto = Roboto({
   weight: ['300', '400', '700'],
-  subsets: ["latin"] ,
-});
+  subsets: ['latin'] ,
+})
 
 export const metadata: Metadata = {
-  title: "Portal do Colaborador",
-  description: "Site para o portal de colaboradores",
-};
+  title: 'Portal do Colaborador',
+  description: 'Site para o portal de colaboradores',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children: ReactNode
+}>){
 
   return (
-    <html lang="pt-br">
+    <html lang='pt-br'>
       <body className={roboto.className}>
-            {children}
-          <Toaster />
+        {children}
+        <Toaster />
       </body>
     </html>
-  );
+  )
 }
