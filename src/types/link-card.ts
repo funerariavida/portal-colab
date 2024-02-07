@@ -1,9 +1,9 @@
 import { LucideIcon } from 'lucide-react'
 
 type LinkCardsProps = {
-  icon?: LucideIcon
   title: string
   description: string
+  icon?: LucideIcon
   linkPath: string
 }
 export default LinkCardsProps
