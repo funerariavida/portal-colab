@@ -6,7 +6,7 @@ import Footer from '@/components/footer'
 import FullPageLoader from '@/components/full-page-loader'
 import Header from '@/components/header'
 
-import { CollabContextProvider, useCollabContext } from '@/context/collaborator'
+import { useCollabContext } from '@/context/collaborator'
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useRouter } from 'next/navigation'
 
@@ -34,13 +34,11 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   if (!isLoading) {
     return (
       <div className="h-screen w-full">
-        <CollabContextProvider>
           <Header />
           <main className="mt-20 flex w-full min-h-screen flex-col items-center justify-center">
             {children}
           </main>
           <Footer />
-        </CollabContextProvider>
       </div>
     )
   }
