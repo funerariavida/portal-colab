@@ -13,7 +13,7 @@ export function useSessionStorage<T>(key: string) {
         window.sessionStorage.setItem(key, JSON.stringify(value))
       }
     } catch (e) {
-      window.console.error(e)
+      console.error(e)
     }
   }
 
@@ -23,7 +23,7 @@ export function useSessionStorage<T>(key: string) {
       if (item === null) return undefined
       return item
     } catch (e) {
-      window.console.error(e)
+      console.error(e)
       return undefined
     }
   }
@@ -32,7 +32,7 @@ export function useSessionStorage<T>(key: string) {
     try {
       window.sessionStorage.removeItem(key)
     } catch (e) {
-      window.console.error(e)
+      console.error(e)
     }
   }
 

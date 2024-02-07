@@ -3,35 +3,33 @@
 import { ReactNode, useLayoutEffect, useState } from 'react'
 
 import Footer from '@/components/footer'
-import FullPageLoader from '@/components/full-page-loader'
 import Header from '@/components/header'
 
-import { useCollabContext } from '@/context/collaborator'
+import HomePageLoader from '@/components/home-page-loader'
+
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useRouter } from 'next/navigation'
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
-  const [isLoading, SetIsLoading] = useState<boolean>(true)
-  const { collab } = useCollabContext()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const { getItem } = useSessionStorage(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
   const { push } = useRouter()
 
   useLayoutEffect(() => {
-    if (!getItem() && !collab) {
+    if (!getItem()) {
       push('/portaldocolaborador/login')
     }
-    setTimeout(() => {
-      SetIsLoading(false)
-    }, 2000)
-  })
+    else setIsLoading(false)
+    
+  }, [])
 
-  if (isLoading) {
-    return <FullPageLoader />
+  if (true) {
+    return <HomePageLoader />
   }
 
-  if (!isLoading) {
+  if(false) {
     return (
       <div className="h-screen w-full">
           <Header />
