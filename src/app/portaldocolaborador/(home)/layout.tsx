@@ -25,11 +25,11 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
     
   }, [])
 
-  if (true) {
+  if (isLoading) {
     return <HomePageLoader />
   }
 
-  if(false) {
+  if(!isLoading) {
     return (
       <div className="h-screen w-full">
           <Header />
