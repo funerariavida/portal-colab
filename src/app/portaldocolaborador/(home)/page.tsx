@@ -16,7 +16,10 @@ export default function PortalColaborador() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
-      <UtilsSection data={data}/>
+      <UtilsSection
+        className='h-full w-full flex flex-col items-between justify-start'
+        data={data}
+        />
 
       {/* Training section */}
       <section className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center">
