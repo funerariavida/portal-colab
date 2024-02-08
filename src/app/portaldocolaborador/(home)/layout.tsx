@@ -5,7 +5,7 @@ import { ReactNode, useLayoutEffect, useState } from 'react'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 
-import HomePageLoader from '@/components/home-page-loader'
+// import HomePageLoader from '@/components/home-page-loader'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useRouter } from 'next/navigation'
@@ -24,10 +24,6 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
     else setIsLoading(false)
     
   }, [])
-
-  if (isLoading) {
-    return <HomePageLoader />
-  }
 
   if(!isLoading) {
     return (

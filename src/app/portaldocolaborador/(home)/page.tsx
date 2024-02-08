@@ -1,13 +1,16 @@
 'use client'
 
-// import useLinks from '@/hooks/use-links'
+import useLinks from '@/hooks/use-links'
 
 import LinkCard from '../../../components/link-card/index'
 
+import HomePageLoader from '@/components/home-page-loader'
 import collaboratorLinks from '@/configs/link-cards'
 
 export default function PortalColaborador() {
-  // const {data, isLoading, error} = useLinks()
+  const {data, isLoading, error} = useLinks()
+
+  if(!data) return <HomePageLoader />
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
@@ -19,24 +22,24 @@ export default function PortalColaborador() {
           </h1>
         </div>
         <div className="px-2 py-3 flex flex-wrap items-center justify-center w-full gap-3">
-          <div className="w-full text-center">
-            <h3 className="text-lg font-semibold lg:text-2xl text-secondary">
-              Utilitários
-            </h3>
-          </div>
-           {/* Card link */}
-          {collaboratorLinks[0].infos.map((link, index) => {
-            return (
-              <LinkCard
-                variant="primary"
-                key={index}
-                title={link.title}
-                description={link.description}
-                icon={link.icon}
-                linkPath={link.linkPath}
-              />
-            )
-          })}
+            <div className="w-full text-center">
+              <h3 className="text-lg font-semibold lg:text-2xl text-secondary">
+                {data[0].name}
+              </h3>
+            </div>
+            {/* Card link */}           
+              {data[0].infos.map((link, index) => {
+                return (
+                  <LinkCard
+                    variant="primary"
+                    key={index}
+                    title={link.title}
+                    description={link.description}
+                    icon={link.icon}
+                    linkPath={link.linkPath}
+                  />
+                )
+              })}
         </div>
       </section>
 
