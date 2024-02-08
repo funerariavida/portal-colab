@@ -1,8 +1,14 @@
+'use client'
+
+// import useLinks from '@/hooks/use-links'
+
 import LinkCard from '../../../components/link-card/index'
 
 import collaboratorLinks from '@/configs/link-cards'
 
 export default function PortalColaborador() {
+  // const {data, isLoading, error} = useLinks()
+
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       {/* Utils section */}
@@ -18,7 +24,7 @@ export default function PortalColaborador() {
               Utilitários
             </h3>
           </div>
-          {/* Card link */}
+           {/* Card link */}
           {collaboratorLinks[0].infos.map((link, index) => {
             return (
               <LinkCard
