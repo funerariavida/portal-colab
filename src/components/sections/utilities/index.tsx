@@ -1,15 +1,13 @@
 import LinkCard from '@/components/link-card'
-import LinkProps from '@/types/links'
 
-import { ComponentProps } from 'react'
+import SectionProps from '@/types/section'
 
-type Props = {
-  data: LinkProps[]
-}
+const UtilsSection = ({data, cardVariant, className, ...props}: SectionProps) => {
 
-const UtilsSection = ({data, className, ...props}: Props & ComponentProps<'section'>) => {
   return (
-    <section {...props}>
+    <section 
+      {...props}
+    >
       <div className="w-full bg-primary h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-white sm:text-4xl lg:text-5xl">
           Portal do Colaborador
@@ -23,9 +21,10 @@ const UtilsSection = ({data, className, ...props}: Props & ComponentProps<'secti
         </div>
         {/* Card link */}           
         {data[0].infos.map((link, index) => {
+
           return (
             <LinkCard
-              variant="primary"
+              variant={cardVariant}
               key={index}
               title={link.title}
               description={link.description}

@@ -1,9 +1,9 @@
-import { LucideIcon } from 'lucide-react'
+import dynamicIconImports from "lucide-react/dynamicIconImports"
 
 type LinkCardsProps = {
   title: string
   description: string
-  icon?: LucideIcon
+  icon?:  keyof typeof dynamicIconImports
   linkPath: string
 }
 export default LinkCardsProps

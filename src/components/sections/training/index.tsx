@@ -1,18 +1,12 @@
-import { ComponentProps } from "react"
+import SectionProps from "@/types/section"
 
 import LinkCard from "@/components/link-card"
 
-import LinkProps from "@/types/links"
-
-type Props = {
-  data: LinkProps[]
-}
-
-const TrainingSection = ({data, ...props}: Props & ComponentProps<'section'>) => {
+const TrainingSection = ({data, cardVariant, ...props}: SectionProps) => {
   return (
     <section 
       {...props}
-      >
+    >
     <h2 className="text-lg font-semibold text-white lg:text-2xl">
       Treinamentos
     </h2>
@@ -22,6 +16,7 @@ const TrainingSection = ({data, ...props}: Props & ComponentProps<'section'>) =>
         return (
           <LinkCard
             key={index}
+            variant={cardVariant}
             title={link.title}
             iconAlign="center"
             description={link.description}

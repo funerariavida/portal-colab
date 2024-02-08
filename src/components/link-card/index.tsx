@@ -7,6 +7,7 @@ import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 
 import { AnchorHTMLAttributes, forwardRef } from 'react'
+import DynamicIcon from '../dynamic-icon'
 
 type componentProps = LinkCardsProps &
   AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -19,7 +20,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
     {
       className,
       iconAlign = 'top',
-      icon: Icon,
+      icon: iconName,
       title,
       description,
       linkPath,
@@ -63,9 +64,10 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
 
         {/* card info */}
         <div className="flex w-full items-center justify-center gap-6">
-          {Icon && (
+          {iconName && (
             <div>
-              <Icon
+              <DynamicIcon
+                name={iconName}
                 className={
                   variant === 'default' ? 'text-primary' : 'text-white'
                 }
