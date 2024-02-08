@@ -7,6 +7,8 @@ import LinkCard from '../../../components/link-card/index'
 import HomePageLoader from '@/components/home-page-loader'
 import collaboratorLinks from '@/configs/link-cards'
 
+import UtilsSection from '@/components/sections/utilities'
+
 export default function PortalColaborador() {
   const {data, isLoading, error} = useLinks()
 
@@ -14,34 +16,7 @@ export default function PortalColaborador() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
-      {/* Utils section */}
-      <section className="h-full w-full flex flex-col items-between justify-start">
-        <div className="w-full bg-primary h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold text-white sm:text-4xl lg:text-5xl">
-            Portal do Colaborador
-          </h1>
-        </div>
-        <div className="px-2 py-3 flex flex-wrap items-center justify-center w-full gap-3">
-            <div className="w-full text-center">
-              <h3 className="text-lg font-semibold lg:text-2xl text-secondary">
-                {data[0].name}
-              </h3>
-            </div>
-            {/* Card link */}           
-              {data[0].infos.map((link, index) => {
-                return (
-                  <LinkCard
-                    variant="primary"
-                    key={index}
-                    title={link.title}
-                    description={link.description}
-                    icon={link.icon}
-                    linkPath={link.linkPath}
-                  />
-                )
-              })}
-        </div>
-      </section>
+      <UtilsSection data={data}/>
 
       {/* Training section */}
       <section className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center">
