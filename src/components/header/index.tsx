@@ -40,7 +40,7 @@ const Header = () => {
             <h1 className="text-base font-bold capitalize">
               {userName ?? 'Usuário'}
             </h1>
-            <h2 className="text-sm capitalize">{userRole ?? 'Cargo'}</h2>
+            <h2 className="text-sm uppercase">{userRole ?? 'Cargo'}</h2>
           </div>
         )}
         <Button
