@@ -7,6 +7,7 @@ import LinkCard from '../../../components/link-card/index'
 import HomePageLoader from '@/components/home-page-loader'
 import collaboratorLinks from '@/configs/link-cards'
 
+import TrainingSection from '@/components/sections/training'
 import UtilsSection from '@/components/sections/utilities'
 
 export default function PortalColaborador() {
@@ -22,25 +23,10 @@ export default function PortalColaborador() {
         />
 
       {/* Training section */}
-      <section className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center">
-        <h2 className="text-lg font-semibold text-white lg:text-2xl">
-          Treinamentos
-        </h2>
-        <div className="flex flex-wrap items-center justify-center w-full gap-6">
-          {/* Card link */}
-          {collaboratorLinks[1].infos.map((link, index) => {
-            return (
-              <LinkCard
-                key={index}
-                title={link.title}
-                iconAlign="center"
-                description={link.description}
-                linkPath={link.linkPath}
-              />
-            )
-          })}
-        </div>
-      </section>
+      <TrainingSection 
+        data={data}
+        className='h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center'
+      />
 
       {/* Department section */}
       <section className="p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center">
