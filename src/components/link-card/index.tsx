@@ -63,21 +63,23 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
         </div>
 
         {/* card info */}
-        <div className="flex w-full items-center justify-center gap-6">
-          {iconName && (
+        <div className="flex w-full items-center justify-between gap-6">
+          <div className='flex items-center justify-center gap-3'>
+            {iconName && (
+              <div>
+                <DynamicIcon
+                  name={iconName}
+                  className={
+                    variant === 'default' ? 'text-primary' : 'text-white'
+                  }
+                  size={32}
+                />
+              </div>
+            )}
             <div>
-              <DynamicIcon
-                name={iconName}
-                className={
-                  variant === 'default' ? 'text-primary' : 'text-white'
-                }
-                size={44}
-              />
+              <h1 className="text-base sm:text-xl font-bold">{title}</h1>
+              <p className="text-xs sm:text-base font-medium">{description}</p>
             </div>
-          )}
-          <div>
-            <h1 className="text-base sm:text-xl font-bold">{title}</h1>
-            <p className="text-xs sm:text-base font-medium">{description}</p>
           </div>
           {iconAlign === 'center' && (
             <ExternalLink
