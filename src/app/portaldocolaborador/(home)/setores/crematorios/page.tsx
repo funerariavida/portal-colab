@@ -17,9 +17,10 @@ export default async function CrematorioPage() {
     <div className='h-full w-full flex flex-col items-center justify-center'>
       <div className='flex flex-wrap items-center justify-center h-full w-full'>
         <Suspense fallback={<HomePageLoader/>}>
-          {data[0].infos.map((info) => {
+          {data[0].infos.map((info, index) => {
             return (
               <LinkCard
+                key={index}
                 title={info.title}
                 variant="primary"
                 description={info.description}
