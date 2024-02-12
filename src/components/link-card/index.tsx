@@ -32,7 +32,6 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
     return (
       <Link
         href={linkPath}
-        target="blank"
         className={classNames(
           'p-6 flex flex-col items-center justify-center gap-2 shadow-md transition-all duration-300 rounded-xl hover:scale-105',
           className,
@@ -51,6 +50,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
         )}
         ref={ref}
         {...props}
+        replace
       >
         {/* icon wrapper */}
         <div className="w-full flex items-center justify-end">

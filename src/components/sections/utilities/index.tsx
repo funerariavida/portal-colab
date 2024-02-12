@@ -30,6 +30,7 @@ const UtilsSection = ({data, cardVariant, className, ...props}: SectionProps) =>
               description={link.description}
               icon={link.icon}
               linkPath={link.linkPath}
+              target='blank'
              />
           )
         })}

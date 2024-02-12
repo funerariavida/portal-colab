@@ -7,14 +7,17 @@ import useSWR, { Fetcher } from 'swr'
 const fetcher: Fetcher<LinkProps[], string> = (url: string) => {
   const res = axiosInstance({
     method: 'get',
-    url: url
+    url: url,
+    headers: {
+      'token': process.env.API_CONTENT_KEY
+    }
   }).then((res) => res.data)
 
   return res
 }
 
 export default function useLinks() {
-  const {data, isLoading, error} = useSWR<LinkProps[], Error>('content/c590d2c06e8d1cc2ddd9d0130b49a211fa6e8a67 ', fetcher)
+  const {data, isLoading, error} = useSWR<LinkProps[], Error>('', fetcher)
 
   return {data, isLoading, error}
 }

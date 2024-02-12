@@ -9,7 +9,7 @@ import DepartmentSection from '@/components/sections/department'
 import TrainingSection from '@/components/sections/training'
 import UtilsSection from '@/components/sections/utilities'
 
-export default function PortalColaborador() {
+export default function PortalPage() {
   const {data, isLoading, error} = useLinks()
 
   if(!data) return <HomePageLoader />

@@ -2,7 +2,6 @@ import axios, { AxiosError } from 'axios'
 
 import { useCallback, useState } from 'react'
 
-import { axiosInstance } from '@/configs/axios-base-config'
 
 import callToast from '@/utils/call-toast'
 
@@ -30,9 +29,14 @@ export default function useLogin() {
     (cpf: string) => {
       setIsLoading(true)
 
-      axiosInstance<CollabResponse[]>({
-        url: `auth/${cpf}`,
+      axios<CollabResponse[]>({
+        url: `https://n8n.empresavida.com.br/webhook/bea2eed4-5182-4597-b1b5-f58ae937a03f/v3/portal/auth/${cpf}`,
+        // url: `auth/${cpf}`,
         method: 'get',
+        // method: 'post',
+        // headers: {
+        //   token: process.env.API_LOGIN_KEY
+        // }
       })
         .then((res) => {
           setItem({

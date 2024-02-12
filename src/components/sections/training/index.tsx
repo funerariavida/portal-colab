@@ -21,6 +21,7 @@ const TrainingSection = ({data, cardVariant, ...props}: SectionProps) => {
             iconAlign="center"
             description={link.description}
             linkPath={link.linkPath}
+            target='blank'
           />
         )
       })}
