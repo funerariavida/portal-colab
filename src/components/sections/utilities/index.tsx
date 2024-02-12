@@ -2,8 +2,7 @@ import LinkCard from '@/components/link-card'
 
 import SectionProps from '@/types/section'
 
-const UtilsSection = ({data, cardVariant, className, ...props}: SectionProps) => {
-
+export default function UtilsSection ({data, cardVariant, className, ...props}: SectionProps) {
   return (
     <section 
       {...props}
@@ -38,5 +37,3 @@ const UtilsSection = ({data, cardVariant, className, ...props}: SectionProps) =>
   </section>
   )
 }
-
-export default UtilsSection
