@@ -4,7 +4,7 @@ import GenericSector from "@/components/sections/generic-sector"
 
 import LinkProps from "@/types/links"
 
-export default async function AtendimentoPage() {
+export default async function RecursosHumanosPage() {
   const data: LinkProps[] = await axios({
     url: 'http://localhost:3000/api/links',
     method: 'get',
