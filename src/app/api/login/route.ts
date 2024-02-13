@@ -1,24 +1,20 @@
-
 import { NextResponse } from "next/server";
 
-type ReqProps = {
-  cpf: string
-}
-
 export async function POST(request: Request) {
-  const { cpf }: ReqProps = await request.json()
+  const req = await request.json()
 
-  const res = await fetch(`${process.env.API_BASE_URL}/auth`, {
-    method: 'POST',
+  const data = await fetch(`${process.env.API_BASE_URL}/auth`, {
+    method: 'post',
     headers: {
+      'Content-Type': 'application/json',
       'token': process.env.API_LOGIN_KEY
     },
-    body: cpf
-  })
-
-  console.log(res)
-
+   body: JSON.stringify(req)
+  }).then((res) => res.json())
+  
+  console.log(data)
+  
   return NextResponse.json({
-    res
+    data
   })
 }
