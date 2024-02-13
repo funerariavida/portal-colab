@@ -7,13 +7,20 @@ import classNames from "classnames"
 type Props = SectionProps &  {
   link: LinkProps
   hasHeader?: boolean
+  cardOrientation?: "vertical" | "horizontal"
 }
 
-export default function GenericSector({hasHeader = false, cardVariant,link, ...props}: Props) {
+export default function GenericSector({
+  hasHeader = false, 
+  cardVariant, 
+  cardOrientation = "horizontal", 
+  link, 
+  ...props
+  }: Props) {
 
   return (
     <section 
-      className="mx-auto grid w-full max-w-[1440px] grid-rows-[min_content_max-content] gap-5"
+      className="mx-auto grid w-full max-w-[1440px] grid-rows-[min_content_max-content] gap-3"
       {...props}
     >
       {/* header */}
@@ -41,7 +48,17 @@ export default function GenericSector({hasHeader = false, cardVariant,link, ...p
       )}
 
       {/* cards */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-3 p-6">
+      <div className={
+        classNames(
+          "flex-1 flex items-center justify-center gap-3 p-6",
+          { 
+            "flex-row flex-wrap": cardOrientation === 'horizontal'
+          },
+          {
+            "flex-col": cardOrientation === 'vertical' 
+          }
+        )
+      }>
         {
           link.infos.map((info, index) => {
             return (

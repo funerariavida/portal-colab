@@ -31,12 +31,12 @@ export default function useLogin() {
 
       axios<CollabResponse[]>({
         url: `https://n8n.empresavida.com.br/webhook/bea2eed4-5182-4597-b1b5-f58ae937a03f/v3/portal/auth/${cpf}`,
-        // url: `auth/${cpf}`,
-        method: 'get',
+        // url: `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/login`,
+        method: 'post',
         // method: 'post',
-        // headers: {
-        //   token: process.env.API_LOGIN_KEY
-        // }
+        // data: {
+        //  "cpf": cpf
+        //}
       })
         .then((res) => {
           setItem({
