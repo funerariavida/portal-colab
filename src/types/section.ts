@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 import LinkProps from "./links";
 
 type SectionProps = ComponentProps<'section'> & {
-  data: LinkProps[]
+  data?: LinkProps[]
   cardVariant?: "default" | "primary" | "secondary"
   pageNumber?: number
 }
