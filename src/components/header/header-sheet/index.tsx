@@ -22,15 +22,15 @@ import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { ExternalLink, LogOut, Menu } from 'lucide-react'
 
+import collaboratorLinks from '@/configs/link-cards'
+
 import { Separator } from '@/components/ui/separator'
 
 import useFormatter from '@/hooks/use-formatter'
-import useLinks from '@/hooks/use-links'
 
-export default function HeaderSheet() {
+const HeaderSheet = () => {
   const { removeItem } = useSessionStorage('isLogged')
   const { userName, userRole } = useFormatter()
-  const { data } = useLinks()
 
   return (
     <Sheet>
@@ -53,7 +53,7 @@ export default function HeaderSheet() {
         <Separator />
         <div className="grid gap-4 p-4">
           <Accordion type="single" collapsible className="w-full">
-            {data?.map((data, index) => {
+            {collaboratorLinks.map((data, index) => {
               return (
                 <AccordionItem key={index} value={`index-${index}`}>
                   <AccordionTrigger className="font-semibold capitalize text-primary">
@@ -95,3 +95,5 @@ export default function HeaderSheet() {
     </Sheet>
   )
 }
+
+export default HeaderSheet
