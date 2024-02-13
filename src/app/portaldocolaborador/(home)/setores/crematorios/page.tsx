@@ -1,10 +1,8 @@
-import HomePageLoader from "@/components/home-page-loader"
-import LinkCard from "@/components/link-card"
+import GenericSector from "@/components/sections/generic-sector"
 import LinkProps from "@/types/links"
 
 import axios from "axios"
 
-import { Suspense } from "react"
 
 export default async function CrematorioPage() {
   const data: LinkProps[] = await axios({
@@ -15,22 +13,18 @@ export default async function CrematorioPage() {
 
   return (
     <div className='h-full w-full flex flex-col items-center justify-center'>
-      <div className='flex flex-wrap items-center justify-center h-full w-full'>
-        <Suspense fallback={<HomePageLoader/>}>
-          {data[0].infos.map((info, index) => {
-            return (
-              <LinkCard
-                key={index}
-                title={info.title}
-                variant="primary"
-                description={info.description}
-                linkPath={info.linkPath}
-                icon={info.icon}
-              />
-            )
-          })}
-        </Suspense>        
-      </div>
+      {
+        data.map((link, index) => {
+          return(
+            <GenericSector
+              key={index}
+              hasHeader
+              link={link}
+              cardVariant="secondary"
+            />
+          )
+        })
+      }
     </div>
   ) 
 }

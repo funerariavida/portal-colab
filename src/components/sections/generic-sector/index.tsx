@@ -20,22 +20,19 @@ export default function GenericSector({hasHeader = false, cardVariant,link, ...p
       {hasHeader && (
         <div className={
           classNames(
-          "w-full h-20 md:h-28 lg:h-32 flex flex-col items-center justify-center",
-          {
-            "bg-background" : cardVariant === 'default'
-          },
-          {
-            "bg-primary" : cardVariant === 'primary'
-          },
-          {
-            "bg-secondary" : cardVariant === 'secondary'
-          },
+          "w-full h-20 bg-background flex flex-col items-center justify-center",
         )}>
           <h1 className={
             classNames(
-            "text-2xl font-bold sm:text-4xl lg:text-5xl",
+            "text-2xl font-bold",
             {
-              "text-primary": cardVariant === 'default'
+              "text-primary": cardVariant === 'primary'
+            },
+            {
+              "text-secondary": cardVariant === 'secondary'
+            },
+            {
+              "text-black": cardVariant !== 'default'
             }
           )}>
             {link.name}
@@ -44,11 +41,12 @@ export default function GenericSector({hasHeader = false, cardVariant,link, ...p
       )}
 
       {/* cards */}
-      <div className="flex-1 flex items-center justify-center flex-wrap gap-3 p-6">
+      <div className="flex-1 flex flex-col items-center justify-center gap-3 p-6">
         {
-          link.infos.map((info) => {
+          link.infos.map((info, index) => {
             return (
               <LinkCard
+                key={index}
                 title={info.title}
                 variant={cardVariant}
                 description={info.description}
