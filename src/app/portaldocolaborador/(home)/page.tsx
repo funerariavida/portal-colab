@@ -22,22 +22,22 @@ export default async function PortalPage() {
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       <Suspense fallback={<HomePageLoader />}>
         <UtilsSection
-          className='h-full w-full flex flex-col items-between justify-start'
-          cardVariant='primary'
+          className="h-full w-full flex flex-col items-between justify-start"
+          cardVariant="primary"
           data={data}
-          />
+        />
 
         {/* Training section */}
-        <TrainingSection 
+        <TrainingSection
           data={data}
-          className='h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center'
+          className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center"
         />
 
         {/* Department section */}
-        <DepartmentSection 
+        <DepartmentSection
           data={data}
-          cardVariant='secondary'
-          className='p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center'
+          cardVariant="secondary"
+          className="p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center"
         />
       </Suspense>
     </div>

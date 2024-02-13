@@ -64,7 +64,7 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
 
         {/* card info */}
         <div className="flex w-full items-center justify-between gap-6">
-          <div className='flex items-center justify-center gap-3'>
+          <div className="flex items-center justify-center gap-3">
             {iconName && (
               <div>
                 <DynamicIcon

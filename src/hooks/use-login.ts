@@ -2,7 +2,6 @@ import axios, { AxiosError } from 'axios'
 
 import { useCallback, useState } from 'react'
 
-
 import callToast from '@/utils/call-toast'
 
 import { useRouter } from 'next/navigation'
@@ -10,14 +9,16 @@ import { useRouter } from 'next/navigation'
 import { useSessionStorage } from './use-session-storage'
 
 type CollabResponse = {
-  data: [{
-    code: number
-    message: string
-    nome: string
-    cargo: string
-    cpf: string
-    type_user: string
-  }]
+  data: [
+    {
+      code: number
+      message: string
+      nome: string
+      cargo: string
+      cpf: string
+      type_user: string
+    },
+  ]
 }
 
 export default function useLogin() {
@@ -35,8 +36,8 @@ export default function useLogin() {
         url: `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/login`,
         method: 'post',
         data: {
-         cpf
-        }
+          cpf,
+        },
       })
         .then((res) => {
           console.log(res.data.data[0])

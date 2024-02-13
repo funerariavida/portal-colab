@@ -1,4 +1,4 @@
-import LinkCardsProps from "./link-card"
+import LinkCardsProps from './link-card'
 
 type LinkProps = {
   page: string

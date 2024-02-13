@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
   const req = await request.json()
@@ -7,14 +7,14 @@ export async function POST(request: Request) {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
-      'token': process.env.API_LOGIN_KEY
+      token: process.env.API_LOGIN_KEY,
     },
-   body: JSON.stringify(req)
+    body: JSON.stringify(req),
   }).then((res) => res.json())
-  
+
   console.log(data)
-  
+
   return NextResponse.json({
-    data
+    data,
   })
 }

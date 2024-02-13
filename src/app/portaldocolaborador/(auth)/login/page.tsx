@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import LoginForm from '@/components/login-form'
 
-const Login = () => {
+export default function LoginPage() {
   return (
     <div className="flex items-center justify-center w-full h-full">
       {/* first part */}
@@ -30,5 +30,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login
