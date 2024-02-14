@@ -5,6 +5,7 @@ import { ReactNode, useLayoutEffect, useState } from 'react'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 
+import { LinkProvider } from '@/context/link'
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useRouter } from 'next/navigation'
 
@@ -24,11 +25,13 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   if (!isLoading) {
     return (
       <div className="h-screen w-full">
-        <Header />
-        <main className="mt-20 flex w-full min-h-screen flex-col items-center justify-center">
-          {children}
-        </main>
-        <Footer />
+        <LinkProvider>
+          <Header />
+          <main className="mt-20 flex w-full min-h-screen flex-col items-center justify-center">
+            {children}
+          </main>
+          <Footer />
+        </LinkProvider>
       </div>
     )
   }
