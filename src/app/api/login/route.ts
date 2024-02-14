@@ -12,8 +12,6 @@ export async function POST(request: Request) {
     body: JSON.stringify(req),
   }).then((res) => res.json())
 
-  console.log(data)
-
   return NextResponse.json({
     data,
   })
