@@ -3,6 +3,8 @@ import axios from 'axios'
 import LinkProps from '@/types/links'
 
 import GenericSector from '@/components/sections/generic-sector'
+import CardGroupSkeleton from '@/components/skeleton/card-group'
+import { Suspense } from 'react'
 
 export default async function AtendimentoPage() {
   const data: LinkProps[] = await axios({
@@ -19,16 +21,18 @@ export default async function AtendimentoPage() {
       <div className="w-full bg-secondary h-24 flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-white">Atendimento</h1>
       </div>
-      {data.map((link, index) => {
-        return (
-          <GenericSector
-            key={index}
-            hasHeader
-            link={link}
-            cardVariant="secondary"
-          />
-        )
-      })}
+      <Suspense fallback={<CardGroupSkeleton />}>
+        {data.map((link, index) => {
+          return (
+            <GenericSector
+              key={index}
+              hasHeader
+              link={link}
+              cardVariant="secondary"
+            />
+          )
+        })}
+      </Suspense>
     </div>
   )
 }

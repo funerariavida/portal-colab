@@ -1,8 +1,11 @@
+import { Suspense } from 'react'
+
 import axios from 'axios'
 
 import LinkProps from '@/types/links'
 
 import GenericSector from '@/components/sections/generic-sector'
+import CardGroupSkeleton from '@/components/skeleton/card-group'
 
 export default async function TiPage() {
   const data: LinkProps[] = await axios({
@@ -19,16 +22,18 @@ export default async function TiPage() {
           Tecnologia da Informações
         </h1>
       </div>
-      {data.map((link, index) => {
-        return (
-          <GenericSector
-            key={index}
-            hasHeader
-            link={link}
-            cardVariant="secondary"
-          />
-        )
-      })}
+      <Suspense fallback={<CardGroupSkeleton />}>
+        {data.map((link, index) => {
+          return (
+            <GenericSector
+              key={index}
+              hasHeader
+              link={link}
+              cardVariant="secondary"
+            />
+          )
+        })}
+      </Suspense>
     </div>
   )
 }
