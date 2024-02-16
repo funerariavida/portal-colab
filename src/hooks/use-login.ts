@@ -40,7 +40,6 @@ export default function useLogin() {
         },
       })
         .then((res) => {
-          console.log(res.data.data[0])
           const data = res.data.data[0]
           setItem({
             name: data.nome,

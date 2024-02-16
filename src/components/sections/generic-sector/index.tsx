@@ -5,7 +5,6 @@ import LinkProps from '@/types/links'
 
 import { ComponentProps } from 'react'
 
-import { useLinkContext } from '@/context/link'
 import classNames from 'classnames'
 
 type Props = ComponentProps<'section'> & {
@@ -22,8 +21,6 @@ export default function GenericSector({
   link,
   ...props
 }: Props) {
-  const { links } = useLinkContext()
-
   return (
     <section
       className="mx-auto grid w-full max-w-[1440px] grid-rows-[min_content_max-content] gap-3"

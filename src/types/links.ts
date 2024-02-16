@@ -6,4 +6,14 @@ type LinkProps = {
   infos: LinkCardsProps[]
 }
 
+export enum LinkPageEnum {
+  'main',
+  'atendimento',
+  'crematórios',
+  'dp',
+  'operacional',
+  'rh',
+  't.i',
+}
+
 export default LinkProps
