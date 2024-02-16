@@ -17,14 +17,14 @@ export function useSessionStorage<T>(key: string) {
     }
   }
 
-  const getItem = (): T | string | sessionType | undefined => {
+  const getItem = (): string | sessionType | null => {
     try {
       const item = window.sessionStorage.getItem(key)
-      if (item === null) return undefined
+      if (item === null) throw new Error('Item desconhecido')
       return item
     } catch (e) {
       console.error(e)
-      return undefined
+      return null
     }
   }
 

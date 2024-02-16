@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
@@ -26,11 +28,9 @@ import collaboratorLinks from '@/configs/link-cards'
 
 import { Separator } from '@/components/ui/separator'
 
-import useFormatter from '@/hooks/use-formatter'
-
 const HeaderSheet = () => {
   const { removeItem } = useSessionStorage('isLogged')
-  const { userName, userRole } = useFormatter()
+  // const { userName, userRole } = useFormatter()
 
   return (
     <Sheet>
@@ -43,11 +43,9 @@ const HeaderSheet = () => {
         <SheetHeader className="px-2 py-3">
           <SheetTitle className="flex flex-col items-start">
             <span className="text-base font-semibold capitalize">
-              {userName ?? 'Usuário'}
+              {'Usuário'}
             </span>
-            <span className="text-sm font-medium uppercase">
-              {userRole ?? 'Cargo'}
-            </span>
+            <span className="text-sm font-medium uppercase">{'Cargo'}</span>
           </SheetTitle>
         </SheetHeader>
         <Separator />
