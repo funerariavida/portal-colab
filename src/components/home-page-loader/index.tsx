@@ -12,7 +12,7 @@ const HomePageLoader = () => {
         </div>
         <Skeleton className="lg:hidden h-full w-20" />
       </header>
-      <main className="mt-20 h-full bg-background w-full flex flex-col items-center justify-between">
+      <main className="h-full bg-background w-full flex flex-col items-center justify-between">
         <div className="w-full">
           <Skeleton className="h-32 md:h-40 w-full" />
         </div>

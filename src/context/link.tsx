@@ -12,7 +12,7 @@ import LinkProps from '@/types/links'
 type LinkContextProps = {
   links: LinkProps[] | null
   setLinks: Dispatch<SetStateAction<LinkProps[] | null>>
-  getLinkByPage: (page: string) => LinkProps[]
+  getLinkByPage: (page: string) => LinkProps[] | undefined
 }
 
 const LinkContext = createContext<LinkContextProps>({} as LinkContextProps)
@@ -21,12 +21,7 @@ function LinkProvider({ children }: { children: ReactNode }) {
   const [links, setLinks] = useState<LinkProps[] | null>(null)
 
   const getLinkByPage = (page: string) => {
-    if (links) {
-      return links.filter((element: LinkProps) => element.page === page)
-    } else {
-      console.log(links)
-      throw new Error('Página não encontrada')
-    }
+    return links?.filter((element: LinkProps) => element.page === page)
   }
 
   return (
