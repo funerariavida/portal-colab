@@ -1,5 +1,3 @@
-'use client'
-
 import LinkCard from '@/components/link-card'
 import LinkProps from '@/types/links'
 

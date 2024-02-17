@@ -2,18 +2,19 @@
 
 import { ComponentProps } from 'react'
 
-import { useSessionStorage } from '@/hooks/use-session-storage'
+import Link from 'next/link'
 
-import { Link, LogOut } from 'lucide-react'
+import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
 import useFormatter from '@/hooks/use-formatter'
+import { LogOut } from 'lucide-react'
 import HeaderNavigation from '../header-navigation'
 
 export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
-  const { removeItem, getItem } = useSessionStorage(
+  const { removeItem } = useSessionStorage(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
 
