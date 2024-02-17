@@ -2,8 +2,15 @@
 
 import Link from 'next/link'
 
-import { Button } from '@/components/ui/button'
+import { useLinkContext } from '@/context/link'
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
@@ -12,19 +19,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { ExternalLink, LogOut, Menu } from 'lucide-react'
-
-import collaboratorLinks from '@/configs/link-cards'
 
 import { Separator } from '@/components/ui/separator'
 
@@ -33,6 +32,11 @@ import useFormatter from '@/hooks/use-formatter'
 const HeaderSheet = () => {
   const { removeItem } = useSessionStorage('isLogged')
   const { username, userrole } = useFormatter()
+  const { getLinkByPage } = useLinkContext()
+
+  const data = getLinkByPage('main')
+
+  if (!data) return <Skeleton className="lg:hidden h-full w-20" />
 
   return (
     <Sheet>
@@ -55,7 +59,7 @@ const HeaderSheet = () => {
         <Separator />
         <div className="grid gap-4 p-4">
           <Accordion type="single" collapsible className="w-full">
-            {collaboratorLinks.map((data, index) => {
+            {data.map((data, index) => {
               return (
                 <AccordionItem key={index} value={`index-${index}`}>
                   <AccordionTrigger className="font-semibold capitalize text-primary">

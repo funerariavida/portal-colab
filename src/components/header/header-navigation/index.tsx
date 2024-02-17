@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { useLinkContext } from '@/context/link'
 import Link from 'next/link'
@@ -20,7 +21,15 @@ const HeaderNavigation = () => {
 
   const data = getLinkByPage('main')
 
-  if(!data) return <p>Carregando header...</p>
+  if(!data) {
+    return (
+      <div className="hidden lg:flex h-full items-center justify-center gap-3">
+      <Skeleton className="h-full w-24 rounded-lg" />
+      <Skeleton className="h-full w-24 rounded-lg" />
+      <Skeleton className="h-full w-24 rounded-lg" />
+      </div>
+    )
+  }
 
   return (
     <NavigationMenu className="hidden lg:flex">
