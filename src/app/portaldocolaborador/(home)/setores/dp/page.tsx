@@ -11,8 +11,6 @@ export default function DepartamentoPessoalPage() {
 
   const data = getLinkByPage('dp')
 
-  console.log(data)
-
   if (!data) return <CardGroupSkeleton />
 
   return (

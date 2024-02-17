@@ -6,7 +6,7 @@ import CardGroupSkeleton from '@/components/skeleton/card-group'
 import { useLinkContext } from '@/context/link'
 
 export default function AtendimentoPage() {
-  const { links, getLinkByPage } = useLinkContext()
+  const { getLinkByPage } = useLinkContext()
 
   const data = getLinkByPage('atendimento')
 

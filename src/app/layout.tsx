@@ -5,6 +5,7 @@ import { Roboto } from 'next/font/google'
 
 import './globals.css'
 
+import LinkProviderWrapper from '@/components/link-provider-wrapper'
 import { Toaster } from '@/components/ui/toaster'
 
 const roboto = Roboto({
@@ -25,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={roboto.className}>
-        {children}
-        <Toaster />
+        <LinkProviderWrapper>
+          {children}
+          <Toaster />
+        </LinkProviderWrapper>
       </body>
     </html>
   )
