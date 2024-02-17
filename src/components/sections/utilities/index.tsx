@@ -9,8 +9,8 @@ import { useLinkContext } from '@/context/link'
 import SectionProps from '@/types/section'
 
 export default function UtilsSection({ cardVariant, ...props }: SectionProps) {
-  const { links, getLinkByPage } = useLinkContext()
-  const data = links && getLinkByPage('main')
+  const { getLinkByPage } = useLinkContext()
+  const data = getLinkByPage('main')
 
   if (!data) return <CardGroupSkeleton />
 

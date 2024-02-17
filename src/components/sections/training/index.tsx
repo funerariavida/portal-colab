@@ -1,8 +1,15 @@
 import SectionProps from '@/types/section'
 
 import LinkCard from '@/components/link-card'
+import CardGroupSkeleton from '@/components/skeleton/card-group'
+import { useLinkContext } from '@/context/link'
 
-const TrainingSection = ({ data, cardVariant, ...props }: SectionProps) => {
+const TrainingSection = ({ cardVariant, ...props }: SectionProps) => {
+  const { getLinkByPage } = useLinkContext()
+  const data = getLinkByPage('main')
+
+  if (!data) return <CardGroupSkeleton />
+
   return (
     <section {...props}>
       <h2 className="text-lg font-semibold text-white lg:text-2xl">

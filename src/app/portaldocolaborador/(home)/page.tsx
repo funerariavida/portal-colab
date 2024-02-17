@@ -1,3 +1,5 @@
+import DepartmentSection from '@/components/sections/department'
+import TrainingSection from '@/components/sections/training'
 import UtilsSection from '@/components/sections/utilities'
 
 export default function PortalPage() {
@@ -15,17 +17,13 @@ export default function PortalPage() {
       />
 
       {/* Training section */}
-      {/* <TrainingSection
-        data={links}
-        className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center"
-      /> */}
+      <TrainingSection className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center" />
 
       {/* Department section */}
-      {/* <DepartmentSection
-        data={links}
+      <DepartmentSection
         cardVariant="secondary"
         className="p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center"
-      /> */}
+      />
     </div>
   )
 }
