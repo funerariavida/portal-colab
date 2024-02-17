@@ -50,7 +50,6 @@ const LinkCard = forwardRef<HTMLAnchorElement, componentProps>(
         )}
         ref={ref}
         {...props}
-        replace
       >
         {/* icon wrapper */}
         <div className="w-full flex items-center justify-end">

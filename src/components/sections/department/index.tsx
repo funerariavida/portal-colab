@@ -1,3 +1,5 @@
+'use client'
+
 import SectionProps from '@/types/section'
 
 import { useLinkContext } from '@/context/link'
