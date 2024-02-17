@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import collaboratorLinks from '@/configs/link-cards'
+'use client'
 
 import { ExternalLink } from 'lucide-react'
 
@@ -12,21 +12,28 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
 
+import { useLinkContext } from '@/context/link'
 import Link from 'next/link'
 
 const HeaderNavigation = () => {
+  const { getLinkByPage } = useLinkContext()
+
+  const data = getLinkByPage('main')
+
+  if(!data) return <p>Carregando header...</p>
+
   return (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
         {/* Percorrendo array de links */}
-        {collaboratorLinks.map((link, index) => {
+        {data.map((link, index) => {
           return (
             <NavigationMenuItem key={index}>
               <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
                 {link.name}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[300px] gap-3 p-4">
+                <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
                   {/* Percorrendo array de infos */}
                   {link.infos.map((info, index) => {
                     return (
