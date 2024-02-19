@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        token: process.env.API_LOGIN_KEY,
+        token: 'd770180fa872617edf0833fbd1a51455',
       },
       body: JSON.stringify(req),
     },
