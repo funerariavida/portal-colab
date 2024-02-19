@@ -65,6 +65,7 @@ export default function useLogin() {
           else {
             callToast(e.name, e.message, 'destructive')
           }
+          console.log(e)
         })
         .finally(() => setIsLoading(false))
     },
