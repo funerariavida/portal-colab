@@ -33,7 +33,7 @@ export default function useLogin() {
       setIsLoading(true)
 
       axios<CollabResponse>({
-        url: `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/login`,
+        url: `https://www.empresavida.com.br/api/login`,
         method: 'post',
         data: {
           cpf,
