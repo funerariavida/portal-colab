@@ -9,7 +9,7 @@ import { useLinkContext } from '@/context/link'
 export default function CrematorioPage() {
   const { getLinkByPage } = useLinkContext()
 
-  const data = getLinkByPage('crematórios')
+  const data = getLinkByPage('crematorios')
 
   if (!data) return <CardGroupSkeleton />
 
