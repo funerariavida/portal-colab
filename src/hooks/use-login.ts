@@ -55,11 +55,7 @@ export default function useLogin() {
         .catch((e: Error | AxiosError) => {
           // axios error
           if (axios.isAxiosError(e)) {
-            callToast(
-              'Erro de requisição',
-              e.response?.data.message,
-              'destructive',
-            )
+            callToast('Erro de requisição', e.message, 'destructive')
           }
           // general error
           else {
