@@ -12,11 +12,6 @@ export async function POST(request: Request) {
     body: JSON.stringify(req),
   }).then((res) => res.json())
 
-  console.log({
-    'base-path': process.env.API_BASE_URL,
-    key: process.env.API_LOGIN_KEY,
-  })
-
   return NextResponse.json({
     data,
   })
