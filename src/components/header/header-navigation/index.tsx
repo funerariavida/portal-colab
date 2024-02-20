@@ -48,12 +48,15 @@ const HeaderNavigation = () => {
                     return (
                       <Link
                         key={index}
-                        href={info.linkPath}
+                        href={`${info.linkPath}`}
                         target="blank"
                         legacyBehavior
                         passHref
                       >
-                        <NavigationMenuLink className="flex items-start justify-between p-4 transition-all rounded-lg hover:bg-secondary hover:text-white">
+                        <NavigationMenuLink 
+                          className="flex items-start justify-between p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
+                          target='blank'
+                        >
                           {info.title}
                           <ExternalLink size="16" />
                         </NavigationMenuLink>

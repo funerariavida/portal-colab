@@ -17,6 +17,9 @@ export default function useLinks() {
   const { data, isLoading, error } = useSWR<LinkProps[], Error>(
     '/links',
     fetcher,
+    {
+      refreshInterval: 1, // refresh data every 1s
+    },
   )
 
   return { data, isLoading, error }

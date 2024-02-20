@@ -30,7 +30,7 @@ const DepartmentSection = ({ cardVariant, ...props }: SectionProps) => {
               title={link.title}
               description={link.description}
               icon={link.icon}
-              linkPath={`portaldocolaborador/${link.linkPath}`}
+              linkPath={`${link.linkPath}`}
             />
           )
         })}
