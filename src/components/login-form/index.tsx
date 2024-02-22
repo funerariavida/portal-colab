@@ -1,5 +1,6 @@
 'use client'
 
+import doLogin from '@/actions/login'
 import useLogin from '@/hooks/use-login'
 
 // form
@@ -9,11 +10,9 @@ import { z } from 'zod'
 
 // components
 import InputMask from 'react-input-mask'
-import { Button } from '../ui/button'
-
-import { Loader2, LogIn } from 'lucide-react'
 
 import { Form, FormControl, FormField, FormItem } from '../ui/form'
+import SubmitButton from './submit-button'
 
 const formSchema = z.object({
   cpf: z.string().min(2, {
@@ -33,7 +32,8 @@ const LoginForm = () => {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    recallData(values.cpf)
+    // recallData(values.cpf)
+    doLogin(values.cpf)
     form.reset()
   }
 
@@ -58,19 +58,10 @@ const LoginForm = () => {
                   placeholder="CPF"
                 />
               </FormControl>
-              {/* <FormMessage className="px-3 text-xs font-bold text-secondary" /> */}
             </FormItem>
           )}
         />
-        <Button
-          className="w-full border-0 text-primary hover:bg-secondary hover:text-white"
-          variant={'outline'}
-          disabled={isLoading || !form.formState.isValid}
-          type="submit"
-        >
-          {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-          {!isLoading && <LogIn className="w-4 h-4 mr-2" />} Acessar
-        </Button>
+        <SubmitButton isValid={form.formState.isValid} />
       </form>
     </Form>
   )
