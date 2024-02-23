@@ -3,8 +3,6 @@ import TrainingSection from '@/components/sections/training'
 import UtilsSection from '@/components/sections/utilities'
 
 export default function PortalPage() {
-  throw new Error('Ocorreu um erro na home page')
-
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen">
       {/* title */}
