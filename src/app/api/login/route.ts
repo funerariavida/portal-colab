@@ -12,7 +12,10 @@ export async function POST(request: Request) {
     body: JSON.stringify(req),
   }).then((res) => res.json())
 
+  const ip = request.headers.get('X-Forwarded-For')
+
   return NextResponse.json({
     data,
+    ip,
   })
 }

@@ -1,21 +1,24 @@
 'use client'
 
 import { Loader2, LogIn } from 'lucide-react'
-import { useFormStatus } from 'react-dom'
 import { Button } from '../ui/button'
 
-export default function SubmitButton({ isValid }: { isValid: boolean }) {
-  const { pending } = useFormStatus()
-
+export default function SubmitButton({
+  isDisabled = false,
+  isLoading = false,
+}: {
+  isDisabled: boolean
+  isLoading: boolean
+}) {
   return (
     <Button
       className="w-full border-0 text-primary hover:bg-secondary hover:text-white"
       variant={'outline'}
-      disabled={pending || !isValid}
+      disabled={isDisabled}
       type="submit"
     >
-      {pending && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-      {!pending && <LogIn className="w-4 h-4 mr-2" />} Acessar
+      {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+      {!isLoading && <LogIn className="w-4 h-4 mr-2" />} Acessar
     </Button>
   )
 }

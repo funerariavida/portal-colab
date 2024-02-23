@@ -1,6 +1,5 @@
 'use client'
 
-import doLogin from '@/actions/login'
 import useLogin from '@/hooks/use-login'
 
 // form
@@ -32,8 +31,7 @@ const LoginForm = () => {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // recallData(values.cpf)
-    doLogin(values.cpf)
+    recallData(values.cpf)
     form.reset()
   }
 
@@ -61,7 +59,10 @@ const LoginForm = () => {
             </FormItem>
           )}
         />
-        <SubmitButton isValid={form.formState.isValid} />
+        <SubmitButton
+          isDisabled={isLoading || !form.formState.isValid}
+          isLoading={isLoading}
+        />
       </form>
     </Form>
   )
