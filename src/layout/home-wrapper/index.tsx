@@ -1,9 +1,11 @@
 'use client'
 
-import HomePageLoader from '@/components/home-page-loader'
+import { ReactNode, useEffect } from 'react'
+
 import { useLinkContext } from '@/context/link'
 import useLinks from '@/hooks/use-links'
-import { ReactNode, useEffect } from 'react'
+
+import HomePageLoader from '@/components/home-page-loader'
 
 type Props = {
   children: ReactNode
@@ -11,13 +13,13 @@ type Props = {
 
 export default function HomeWrapper({ children }: Props) {
   const { data, isLoading } = useLinks()
-  const { links, setLinks } = useLinkContext()
+  const { setLinks } = useLinkContext()
 
   useEffect(() => {
     if (data) {
       setLinks(data)
     }
-  }, [data, links, setLinks])
+  }, [data, setLinks])
 
   if (isLoading) return <HomePageLoader />
 

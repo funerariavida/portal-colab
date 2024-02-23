@@ -1,3 +1,5 @@
+'use server'
+
 import { CompTimeResponse } from '@/types/comp-time'
 
 export default async function getCompTime(

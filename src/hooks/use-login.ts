@@ -19,7 +19,6 @@ type CollabResponse = {
       type_user: string
     },
   ]
-  ip: string
 }
 
 export default function useLogin() {
@@ -42,7 +41,6 @@ export default function useLogin() {
       })
         .then((res) => {
           const data = res.data.data[0]
-          const ip = res.data.ip
           setItem({
             name: data.nome,
             role: data.cargo,
@@ -52,7 +50,6 @@ export default function useLogin() {
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
           // redirecionando para a página principal
-          console.log(ip)
           replace('/portaldocolaborador')
         })
         .catch((e: Error | AxiosError) => {

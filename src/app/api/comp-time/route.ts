@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json',
       token: process.env.API_COMP_TIME_KEY,
     },
-    body: JSON.stringify(req),
+    body: req,
   }).then((res) => res.json())
 
   return NextResponse.json({

@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server'
 export async function POST(request: Request) {
   const req = await request.json()
 
+  const ip = request.headers.get('X-Forwarded-For')
+
   const data = await fetch(`${process.env.API_BASE_URL}/auth`, {
     method: 'post',
     headers: {
@@ -12,10 +14,7 @@ export async function POST(request: Request) {
     body: JSON.stringify(req),
   }).then((res) => res.json())
 
-  const ip = request.headers.get('X-Forwarded-For')
-
   return NextResponse.json({
     data,
-    ip,
   })
 }
