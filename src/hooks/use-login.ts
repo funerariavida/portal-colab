@@ -23,6 +23,9 @@ type CollabResponse = {
   ]
   city: string
   country: string
+  region: string
+  latitude: string
+  longitude: string
 }
 
 export default function useLogin() {
@@ -47,6 +50,9 @@ export default function useLogin() {
           const data = res.data.data[0]
           const city = res.data.city
           const country = res.data.country
+          const region = res.data.region
+          const latitude = res.data.latitude
+          const longitude = res.data.longitude
           setItem({
             name: data.nome,
             role: data.cargo,
@@ -54,6 +60,9 @@ export default function useLogin() {
           })
           console.log('cidade:', city)
           console.log('pais:', country)
+          console.log('region:', region)
+          console.log('latitude:', latitude)
+          console.log('longitude:', longitude)
           // Chamando retorno visual
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
