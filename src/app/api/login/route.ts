@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server'
 
+import { geolocation } from '@vercel/edge'
+
 export async function POST(request: Request) {
+  const { city, country } = geolocation(request)
   const req = await request.json()
 
   const ip = request.headers.get('X-Forwarded-For')
@@ -16,5 +19,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     data,
+    city,
+    country,
   })
 }

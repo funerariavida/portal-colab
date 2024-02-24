@@ -1,3 +1,5 @@
+'use client'
+
 import axios, { AxiosError } from 'axios'
 
 import { useCallback, useState } from 'react'
@@ -19,6 +21,8 @@ type CollabResponse = {
       type_user: string
     },
   ]
+  city: string
+  country: string
 }
 
 export default function useLogin() {
@@ -41,11 +45,15 @@ export default function useLogin() {
       })
         .then((res) => {
           const data = res.data.data[0]
+          const city = res.data.city
+          const country = res.data.country
           setItem({
             name: data.nome,
             role: data.cargo,
             cpf: data.cpf,
           })
+          console.log('cidade:', city)
+          console.log('pais:', country)
           // Chamando retorno visual
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
@@ -64,7 +72,7 @@ export default function useLogin() {
         })
         .finally(() => setIsLoading(false))
     },
-    [replace, setItem],
+    [setItem],
   )
 
   return { recallData, isLoading }
