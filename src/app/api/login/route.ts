@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json',
       token: process.env.API_LOGIN_KEY,
     },
-    body: JSON.stringify(requestJSON),
+    body: JSON.stringify(req),
   }).then((res) => res.json())
 
   return NextResponse.json({
