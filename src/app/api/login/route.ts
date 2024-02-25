@@ -4,12 +4,12 @@ import { geolocation } from '@vercel/edge'
 
 export async function POST(request: Request) {
   const { city, country, region, latitude, longitude } = geolocation(request)
-  const req = await request.json()
+  const { cpf } = await request.json()
 
   const ip = request.headers.get('X-Forwarded-For')
 
   const requestJSON = {
-    req,
+    cpf,
     ip,
     city,
     country,
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json',
       token: process.env.API_LOGIN_KEY,
     },
-    body: JSON.stringify(req),
+    body: JSON.stringify(requestJSON),
   }).then((res) => res.json())
 
   return NextResponse.json({
