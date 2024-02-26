@@ -61,12 +61,16 @@ export default function useLogin() {
           }
           // general error
           else {
-            callToast(e.name, e.message, 'destructive')
+            callToast(
+              'Ocorreu um erro ao realizar o login',
+              'Por favor, tente novamente',
+              'destructive',
+            )
           }
         })
         .finally(() => setIsLoading(false))
     },
-    [setItem],
+    [replace, setItem],
   )
 
   return { recallData, isLoading }
