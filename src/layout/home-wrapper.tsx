@@ -1,11 +1,10 @@
 'use client'
 
-import { ReactNode, useEffect } from 'react'
-
-import { useLinkContext } from '@/context/link'
-import useLinks from '@/hooks/use-links'
+import { ReactNode, Suspense, useEffect } from 'react'
 
 import HomePageLoader from '@/components/home-page-loader'
+import { useLinkContext } from '@/context/link'
+import useLinks from '@/hooks/use-links'
 
 type Props = {
   children: ReactNode
@@ -21,9 +20,11 @@ export default function HomeWrapper({ children }: Props) {
     }
   }, [data, setLinks])
 
-  if (isLoading) return <HomePageLoader />
+  // if (isLoading) return <HomePageLoader />
 
-  if (data && !isLoading) {
-    return <div className="min-h-screen w-full">{children}</div>
-  }
+  return (
+    <div className="min-h-screen w-full">
+      <Suspense fallback={<HomePageLoader />}>{children}</Suspense>
+    </div>
+  )
 }

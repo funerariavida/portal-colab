@@ -5,8 +5,9 @@ import { Roboto } from 'next/font/google'
 
 import './globals.css'
 
-import LinkProviderWrapper from '@/components/link-provider-wrapper'
 import { Toaster } from '@/components/ui/toaster'
+
+import Providers from '@/components/providers'
 
 const roboto = Roboto({
   weight: ['300', '400', '700'],
@@ -26,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={roboto.className}>
-        <LinkProviderWrapper>
+        <Providers>
           {children}
           <Toaster />
-        </LinkProviderWrapper>
+        </Providers>
       </body>
     </html>
   )
