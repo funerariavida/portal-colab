@@ -11,19 +11,13 @@ export default function PortalPage() {
           Portal do Colaborador
         </h1>
       </div>
-      <UtilsSection
-        className="h-full w-full flex flex-col items-between justify-start"
-        cardVariant="primary"
-      />
+      <UtilsSection className="h-full w-full flex flex-col items-between justify-start" />
 
       {/* Training section */}
       <TrainingSection className="h-[60vh] xl:h-screen bg-primary w-full flex flex-col gap-10 lg:gap-20 items-center justify-center" />
 
       {/* Department section */}
-      <DepartmentSection
-        cardVariant="secondary"
-        className="p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center"
-      />
+      <DepartmentSection className="p-3 h-full lg:h-screen w-full flex flex-col gap-10 items-center justify-center" />
     </div>
   )
 }

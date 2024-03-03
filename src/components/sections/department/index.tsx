@@ -4,10 +4,10 @@ import SectionProps from '@/types/section'
 
 import { useLinkContext } from '@/context/link'
 
-import LinkCard from '@/components/link-card'
+import { LinkCard } from '@/components/link-card'
 import CardGroupSkeleton from '@/components/skeleton/card-group'
 
-const DepartmentSection = ({ cardVariant, ...props }: SectionProps) => {
+const DepartmentSection = ({ ...props }: SectionProps) => {
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage('main')
 
@@ -22,16 +22,20 @@ const DepartmentSection = ({ cardVariant, ...props }: SectionProps) => {
         {/* Card link */}
         {data[2].infos.map((link, index) => {
           return (
-            <LinkCard
-              className="w-4/5 sm:w-80 h-28"
-              iconAlign="center"
+            <LinkCard.Root
               key={index}
-              variant={cardVariant}
-              title={link.title}
-              description={link.description}
-              icon={link.icon}
-              linkPath={`${link.linkPath}`}
-            />
+              variant="secondary"
+              linkPath={link.linkPath}
+              target="blank"
+            >
+              <LinkCard.Content
+                variant="secondary"
+                title={link.title}
+                description={link.description}
+                icon={link.icon}
+              />
+              <LinkCard.Icon variant="secondary" />
+            </LinkCard.Root>
           )
         })}
       </div>

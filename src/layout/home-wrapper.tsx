@@ -1,30 +1,35 @@
 'use client'
 
-import { ReactNode, Suspense, useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 
+import getLinks from '@/actions/get-links'
 import HomePageLoader from '@/components/home-page-loader'
 import { useLinkContext } from '@/context/link'
-import useLinks from '@/hooks/use-links'
+import { useQuery } from '@tanstack/react-query'
 
 type Props = {
   children: ReactNode
 }
 
 export default function HomeWrapper({ children }: Props) {
-  const { data, isLoading } = useLinks()
+  const { data, isPending } = useQuery({
+    queryKey: ['links'],
+    queryFn: getLinks,
+  })
+
   const { setLinks } = useLinkContext()
 
   useEffect(() => {
     if (data) {
       setLinks(data)
     }
+
+    console.log(data)
   }, [data, setLinks])
 
-  // if (isLoading) return <HomePageLoader />
-
   return (
-    <div className="min-h-screen w-full">
-      <Suspense fallback={<HomePageLoader />}>{children}</Suspense>
+    <div className="min-h-screen w-full max-w-[1920px] grid-rows-[min-content_max-content]">
+      {isPending ? <HomePageLoader /> : children}
     </div>
   )
 }

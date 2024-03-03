@@ -1,14 +1,13 @@
 'use client'
 
-import LinkCard from '@/components/link-card'
-
+import { LinkCard } from '@/components/link-card'
 import CardGroupSkeleton from '@/components/skeleton/card-group'
 
 import { useLinkContext } from '@/context/link'
 
 import SectionProps from '@/types/section'
 
-export default function UtilsSection({ cardVariant, ...props }: SectionProps) {
+export default function UtilsSection({ ...props }: SectionProps) {
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage('main')
 
@@ -26,15 +25,20 @@ export default function UtilsSection({ cardVariant, ...props }: SectionProps) {
           {/* Card link */}
           {data[0].infos.map((link, index) => {
             return (
-              <LinkCard
-                variant={cardVariant}
+              <LinkCard.Root
                 key={index}
-                title={link.title}
-                description={link.description}
-                icon={link.icon}
+                variant="primary"
                 linkPath={link.linkPath}
                 target="blank"
-              />
+              >
+                <LinkCard.Content
+                  variant="primary"
+                  title={link.title}
+                  description={link.description}
+                  icon={link.icon}
+                />
+                <LinkCard.Icon variant="primary" />
+              </LinkCard.Root>
             )
           })}
         </div>
