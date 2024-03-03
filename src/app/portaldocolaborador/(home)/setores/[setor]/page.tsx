@@ -11,10 +11,8 @@ type routeParams = {
 }
 
 export default function AtendimentoPage({ params }: routeParams) {
-  const department = params.setor
-
+  const department = params.setor.split('_').join(' ')
   const { getLinkByPage } = useLinkContext()
-
   const data = getLinkByPage(department)
 
   if (!data) return <CardGroupSkeleton />
