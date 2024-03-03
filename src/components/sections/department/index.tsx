@@ -26,7 +26,6 @@ const DepartmentSection = ({ ...props }: SectionProps) => {
               key={index}
               variant="secondary"
               linkPath={link.linkPath}
-              target="blank"
             >
               <LinkCard.Content
                 variant="secondary"

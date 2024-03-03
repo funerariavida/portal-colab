@@ -1,4 +1,4 @@
-import LinkCard from '@/components/link-card'
+import { LinkCard } from '@/components/link-card'
 import LinkProps from '@/types/links'
 
 import { ComponentProps } from 'react'
@@ -64,14 +64,20 @@ export default function GenericSector({
       >
         {link.infos.map((info, index) => {
           return (
-            <LinkCard
+            <LinkCard.Root
               key={index}
-              title={info.title}
               variant={cardVariant}
-              description={info.description}
-              icon={info.icon}
               linkPath={info.linkPath}
-            />
+              target="blank"
+            >
+              <LinkCard.Content
+                variant={cardVariant}
+                title={info.title}
+                description={info.description}
+                icon={info.icon}
+              />
+              <LinkCard.Icon variant={cardVariant} />
+            </LinkCard.Root>
           )
         })}
       </div>

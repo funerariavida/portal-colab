@@ -23,8 +23,6 @@ export default function HomeWrapper({ children }: Props) {
     if (data) {
       setLinks(data)
     }
-
-    console.log(data)
   }, [data, setLinks])
 
   return (

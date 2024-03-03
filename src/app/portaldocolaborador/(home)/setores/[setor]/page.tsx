@@ -1,5 +1,9 @@
 'use client'
 
+import GenericSector from '@/components/sections/generic-sector'
+import CardGroupSkeleton from '@/components/skeleton/card-group'
+import { useLinkContext } from '@/context/link'
+
 type routeParams = {
   params: {
     setor: string
@@ -7,20 +11,22 @@ type routeParams = {
 }
 
 export default function AtendimentoPage({ params }: routeParams) {
-  // const { getLinkByPage } = useLinkContext()
+  const department = params.setor
 
-  // const data = getLinkByPage('atendimento')
+  const { getLinkByPage } = useLinkContext()
 
-  // if (!data) return <CardGroupSkeleton />
+  const data = getLinkByPage(department)
 
-  console.log(params)
+  if (!data) return <CardGroupSkeleton />
 
   return (
     <div className="mx-auto grid w-full h-full max-w-[1440px] grid-rows-[min_content_max-content]">
       <div className="w-full bg-secondary h-24 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-white">Setor</h1>
+        <h1 className="text-2xl font-bold text-white capitalize">
+          {department}
+        </h1>
       </div>
-      {/* {data.map((link, index) => {
+      {data.map((link, index) => {
         return (
           <GenericSector
             hasHeader
@@ -29,7 +35,7 @@ export default function AtendimentoPage({ params }: routeParams) {
             cardVariant="secondary"
           />
         )
-      })} */}
+      })}
     </div>
   )
 }
