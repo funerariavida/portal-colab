@@ -13,7 +13,7 @@ export default function LinkCardIcons({
   return (
     <div
       className={classNames(
-        'col-span-[min-content] row-span-1 flex justify-end',
+        'col-span-1 row-span-1 flex justify-end',
         {
           'mb-auto': iconAlign === 'top',
         },

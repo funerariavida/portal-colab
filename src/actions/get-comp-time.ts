@@ -10,6 +10,9 @@ export default async function getCompTime(
     {
       method: 'POST',
       body: JSON.stringify({ name }),
+      next: {
+        revalidate: 10000, // 10s
+      },
     },
   )
     .then((res) => res.json())

@@ -8,7 +8,7 @@ import HeaderSheet from './header-sheet'
 
 export default function Header() {
   return (
-    <header className="fixed top-0 z-10 flex items-center justify-center w-full h-20 px-3 py-6 shadow-md bg-background lg:px-5">
+    <header className="fixed top-0 z-10 flex items-center justify-center w-full max-w-[1920px] h-20 px-3 py-6 shadow-md bg-background lg:px-5">
       <Link href={'/portaldocolaborador'} className="w-32 ms-7 lg:m-0">
         <Image className="w-full" src={Logo} alt="Logomarca" />
       </Link>

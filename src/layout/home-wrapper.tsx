@@ -26,7 +26,7 @@ export default function HomeWrapper({ children }: Props) {
   }, [data, setLinks])
 
   return (
-    <div className="min-h-screen w-full max-w-[1920px] grid-rows-[min-content_max-content]">
+    <div className="min-h-screen min-w-full max-w-[1920px] grid-rows-[5rem_max-content] justify-center">
       {isPending ? <HomePageLoader /> : children}
     </div>
   )

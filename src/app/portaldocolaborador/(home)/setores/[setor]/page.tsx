@@ -11,17 +11,27 @@ type routeParams = {
 }
 
 export default function AtendimentoPage({ params }: routeParams) {
-  const department = params.setor.split('_').join(' ')
+  const department =
+    params.setor === 'ti' ? 't.i' : params.setor.split('_').join(' ')
+  let formatedDepartment = ''
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage(department)
+
+  if (department === 'rh') {
+    formatedDepartment = 'Recursos Humanos'
+  } else if (department === 'dp') {
+    formatedDepartment = 'Departamento Pessoal'
+  } else if (department === 't.i') {
+    formatedDepartment = 'Tecnologia da Informação'
+  }
 
   if (!data) return <CardGroupSkeleton />
 
   return (
     <div className="mx-auto grid w-full h-full max-w-[1440px] grid-rows-[min_content_max-content]">
-      <div className="w-full bg-secondary h-24 flex flex-col items-center justify-center">
+      <div className="w-full bg-secondary h-32 flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-white capitalize">
-          {department}
+          {formatedDepartment}
         </h1>
       </div>
       {data.map((link, index) => {
