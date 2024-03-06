@@ -137,15 +137,13 @@ export const columns: ColumnDef<CompTime>[] = [
           {autorization}
         </span>
       ) : (
-        <span className="text-sm flex align-items justify-center text-table-cell">
-          -
-        </span>
+        <span className="text-sm ms-5 text-table-cell">-</span>
       )
     },
   },
   {
     accessorKey: 'status',
-    header: 'Status',
+    header: '',
     cell: ({ row }) => {
       const status: string = row.getValue('status')
       return (
