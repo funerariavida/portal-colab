@@ -23,14 +23,6 @@ import {
 
 import { ReactNode } from 'react'
 
-enum statusType {
-  'Concluído',
-  'Negado',
-  'Pendente',
-  'Agendado',
-  'DEFAULT',
-}
-
 function getStatus(status: string): ReactNode {
   switch (status) {
     case 'Concluído':
@@ -114,14 +106,26 @@ export const columns: ColumnDef<CompTime>[] = [
   {
     accessorKey: 'data',
     header: 'Data',
+    cell: ({ row }) => {
+      const data: string = row.getValue('data')
+      return <span className="text-sm text-table-cell">{data}</span>
+    },
   },
   {
     accessorKey: 'duração',
     header: 'Duração',
+    cell: ({ row }) => {
+      const duration: string = row.getValue('duração')
+      return <span className="text-sm text-table-cell">{duration}</span>
+    },
   },
   {
     accessorKey: 'motivo',
     header: 'Motivo',
+    cell: ({ row }) => {
+      const motive: string = row.getValue('motivo')
+      return <span className="text-sm text-table-cell">{motive}</span>
+    },
   },
   {
     accessorKey: 'autorização',
@@ -129,9 +133,13 @@ export const columns: ColumnDef<CompTime>[] = [
     cell: ({ row }) => {
       const autorization: string = row.getValue('autorização')
       return autorization ? (
-        <span className="text-capitalize text-base">{autorization}</span>
+        <span className="capitalize text-sm text-table-cell">
+          {autorization}
+        </span>
       ) : (
-        <span className="text-base flex align-items justify-center">-</span>
+        <span className="text-sm flex align-items justify-center text-table-cell">
+          -
+        </span>
       )
     },
   },
