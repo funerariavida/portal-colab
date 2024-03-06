@@ -1,16 +1,18 @@
 import getCompTime from '@/actions/get-comp-time'
 
-
-import { Suspense } from 'react'
-
 export default async function BancoPage() {
   const data = await getCompTime('VICTOR JERRYSSON GAMA BASTOS')
+
+  console.log(data)
+
   return (
-    <div>
-      <h1>Banco de horas</h1>
-      <Suspense fallback={<p>Carregando registros...</p>}>
-        <pre>{JSON.stringify(data.registros, null, 2)}</pre>
-      </Suspense>
+    <div className="grid grid-rows-[130px_max-content]">
+      <div className="row-span-1 flex items-center justify-center">
+        <h1>Banco de horas</h1>
+      </div>
+      {/* <div className="container mx-auto py-10">
+        <DataTable columns={columns} data={data} />
+      </div> */}
     </div>
   )
 }
