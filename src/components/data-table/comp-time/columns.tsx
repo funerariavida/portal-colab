@@ -60,7 +60,7 @@ function getStatus(status: string): ReactNode {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <AlertCircle className="h-4 w-4 text-yellow-400" />
+              <AlertCircle className="h-4 w-4 text-yellow-500" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Agendamento pendente</p>
@@ -105,7 +105,7 @@ function getStatus(status: string): ReactNode {
 export const columns: ColumnDef<CompTime>[] = [
   {
     accessorKey: 'data',
-    header: 'Data',
+    header: 'data',
     cell: ({ row }) => {
       const data: string = row.getValue('data')
       return <span className="text-sm text-table-cell">{data}</span>
@@ -113,7 +113,7 @@ export const columns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'duração',
-    header: 'Duração',
+    header: 'duração',
     cell: ({ row }) => {
       const duration: string = row.getValue('duração')
       return <span className="text-sm text-table-cell">{duration}</span>
@@ -121,7 +121,7 @@ export const columns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'motivo',
-    header: 'Motivo',
+    header: 'motivo',
     cell: ({ row }) => {
       const motive: string = row.getValue('motivo')
       return <span className="text-sm text-table-cell">{motive}</span>
@@ -129,7 +129,7 @@ export const columns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'autorização',
-    header: 'Autorização',
+    header: 'autorização',
     cell: ({ row }) => {
       const autorization: string = row.getValue('autorização')
       return autorization ? (
@@ -137,13 +137,15 @@ export const columns: ColumnDef<CompTime>[] = [
           {autorization}
         </span>
       ) : (
-        <span className="text-sm ms-5 text-table-cell">-</span>
+        <span className="text-sm text-table-cell">Em análise</span>
       )
     },
   },
   {
     accessorKey: 'status',
-    header: '',
+    header: () => {
+      return <span className="flex items-center justify-center">status</span>
+    },
     cell: ({ row }) => {
       const status: string = row.getValue('status')
       return (
