@@ -21,5 +21,5 @@ export default async function getCompTime(
 
   const data = await response.json()
 
-  return data.data[0].registros
+  return data.data[0]
 }
