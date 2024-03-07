@@ -6,14 +6,17 @@ import { revalidateTag } from 'next/cache'
 export default async function getCompTime(
   name: string,
 ): Promise<CompTimeResponse> {
+  const params = new URLSearchParams({
+    nome: name,
+  })
+
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/comp-time`,
+    `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/comp-time?` + params,
     {
       next: {
         tags: ['comp-time'],
       },
-      method: 'POST',
-      body: JSON.stringify({ nome: name }),
+      method: 'GET',
     },
   )
 

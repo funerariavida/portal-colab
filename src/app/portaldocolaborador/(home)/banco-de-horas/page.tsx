@@ -1,9 +1,20 @@
+'use client'
+
 import getCompTime from '@/actions/get-comp-time'
 import { columns } from '@/components/data-table/comp-time/columns'
 import { DataTable } from '@/components/data-table/comp-time/data-table'
 
-export default async function BancoPage() {
-  const data = await getCompTime('VICTOR JERRYSSON GAMA BASTOS')
+import { useQuery } from '@tanstack/react-query'
+
+export default function BancoPage() {
+  // const data = await getCompTime('VICTOR JERRYSSON GAMA BASTOS')
+  const name = 'VICTOR JERRYSSON GAMA BASTOS'
+
+  // fetching post data
+  const { data, isPending } = useQuery({
+    queryKey: ['comp-time'],
+    queryFn: () => getCompTime(name),
+  })
 
   return (
     <div className="grid w-full grid-rows-[130px_max-content]">
@@ -13,9 +24,13 @@ export default async function BancoPage() {
           acompanhe seus lançamentos de horas extras
         </h2>
       </div>
-      <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={data.registros} />
-      </div>
+      {isPending && <p>Carregando tabela...</p>}
+
+      {data && (
+        <div className="container mx-auto py-10">
+          <DataTable columns={columns} data={data.registros} />
+        </div>
+      )}
     </div>
   )
 }
