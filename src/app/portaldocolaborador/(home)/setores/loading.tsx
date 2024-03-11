@@ -1,4 +1,4 @@
-import HomePageLoader from '@/components/home-page-loader'
+import HomePageLoader from '@/layout/home-page-loader'
 
 export default function DepartmentLoading() {
   return <HomePageLoader />

@@ -17,7 +17,7 @@ export function useSessionStorage<T>(key: string) {
     }
   }
 
-  const getItem = (): string | sessionType | null => {
+  const getItem = (): string | null => {
     try {
       const item = window.sessionStorage.getItem(key)
       if (item === null) throw new Error('Item desconhecido')

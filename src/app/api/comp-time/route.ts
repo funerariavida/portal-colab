@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
-  const req = await request.json()
   const nome = request.nextUrl.searchParams.get('nome')
 
   const params =
@@ -10,18 +9,15 @@ export async function GET(request: NextRequest) {
       nome,
     })
 
-  console.log('parâmetros:', nome)
-
   const response = await fetch(
     `${process.env.API_BASE_URL}/bancohoras?` + params,
     {
-      method: 'post',
+      method: 'get',
       cache: 'no-store',
       headers: {
         'Content-Type': 'application/json',
         token: process.env.API_COMP_TIME_KEY,
       },
-      body: JSON.stringify({ nome }),
     },
   )
 

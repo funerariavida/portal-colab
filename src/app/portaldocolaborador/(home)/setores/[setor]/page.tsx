@@ -1,7 +1,7 @@
 'use client'
 
-import GenericSector from '@/components/sections/generic-sector'
-import CardGroupSkeleton from '@/components/skeleton/card-group'
+import GenericSector from '@/components/generic-sector'
+import CardGroupSkeleton from '@/components/skeleton/card-group/card-group'
 import { useLinkContext } from '@/context/link'
 
 type routeParams = {

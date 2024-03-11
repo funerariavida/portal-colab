@@ -1,30 +1,38 @@
 'use client'
 
 import getCompTime from '@/actions/get-comp-time'
+
 import { columns } from '@/components/data-table/comp-time/columns'
 import { DataTable } from '@/components/data-table/comp-time/data-table'
+import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { useQuery } from '@tanstack/react-query'
 
 export default function BancoPage() {
-  // const data = await getCompTime('VICTOR JERRYSSON GAMA BASTOS')
-  const name = 'VICTOR JERRYSSON GAMA BASTOS'
+  const { getItem } = useSessionStorage(
+    process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
+  )
+  const user = JSON.parse(getItem() ?? '')
 
   // fetching post data
   const { data, isPending } = useQuery({
     queryKey: ['comp-time'],
-    queryFn: () => getCompTime(name),
+    queryFn: () => getCompTime(user?.name),
   })
 
   return (
-    <div className="grid w-full grid-rows-[130px_max-content]">
-      <div className="row-span-1 w-full gap-3 bg-secondary flex flex-col items-center justify-center">
-        <h1 className="text-white text-4xl leading-10">Banco de horas</h1>
-        <h2 className="text-zinc-300 text-xl leading-8">
+    <div className="flex-1 w-full grid grid-rows-[min-content_max-content]">
+      <div className="row-span-1 w-full gap-2 py-3 bg-secondary grid place-items-center">
+        <h1 className="text-white text-heading-2">Banco de horas</h1>
+        <h2 className="text-zinc-300 text-heading-3">
           acompanhe seus lançamentos de horas extras
         </h2>
       </div>
-      {isPending && <p>Carregando tabela...</p>}
+      {isPending && (
+        <div className="w-full h-full grid place-items-center text-center">
+          <p>Carregando tabela...</p>
+        </div>
+      )}
 
       {data && (
         <div className="container mx-auto py-10">

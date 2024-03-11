@@ -1,23 +1,22 @@
 'use client'
 
-import SectionProps from '@/types/section'
+import { useLinkContext } from '@/context/link'
 
 import { LinkCard } from '@/components/link-card'
 import CardGroupSkeleton from '@/components/skeleton/card-group'
-import { useLinkContext } from '@/context/link'
 
-const TrainingSection = ({ ...props }: SectionProps) => {
+const TrainingSection = () => {
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage('main')
 
   if (!data) return <CardGroupSkeleton />
 
   return (
-    <section {...props}>
-      <h2 className="text-lg font-semibold text-white lg:text-2xl">
+    <section className="h-[60vh] xl:h-screen bg-primary w-full grid grid-rows-[15%_85%] grid-cols-1 place-items-center">
+      <h2 className="row-span-1 col-span-1 h-full text-lg grid place-items-center font-semibold text-white lg:text-heading-3">
         Treinamentos
       </h2>
-      <div className="flex flex-wrap items-center justify-center w-full gap-6">
+      <div className="col-span-1 row-span-1 h-full flex flex-wrap items-center justify-center w-full gap-2">
         {/* Card link */}
         {data[1].infos.map((link, index) => {
           return (

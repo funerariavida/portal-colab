@@ -15,6 +15,7 @@ const config = {
       padding: '2rem',
       screens: {
         '2xl': '1400px',
+        desktop: '1440px',
       },
     },
     extend: {
@@ -62,6 +63,11 @@ const config = {
           header: 'hsl(var(--table-header))',
           cell: 'hsl(var(--table-cell))',
         },
+      },
+      fontSize: {
+        'heading-1': ['3rem', '1'],
+        'heading-2': ['1.875rem', '2.25rem'],
+        'heading-3': ['1.5rem', '2rem'],
       },
       borderRadius: {
         lg: 'var(--radius)',

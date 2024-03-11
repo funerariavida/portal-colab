@@ -25,7 +25,7 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
       <HeaderNavigation />
       <Separator
         orientation="vertical"
-        className="w-[2px] h-full hidden lg:flex bg-primary"
+        className="w-[2px] h-full hidden lg:flex bg-zinc-400"
       />
       <div className="flex-col hidden mr-2 lg:flex">
         <h1 className="text-base font-bold capitalize">

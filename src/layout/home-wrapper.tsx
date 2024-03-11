@@ -3,8 +3,8 @@
 import { ReactNode, useEffect } from 'react'
 
 import getLinks from '@/actions/get-links'
-import HomePageLoader from '@/components/home-page-loader'
 import { useLinkContext } from '@/context/link'
+import HomePageLoader from '@/layout/home-page-loader'
 import { useQuery } from '@tanstack/react-query'
 
 type Props = {
