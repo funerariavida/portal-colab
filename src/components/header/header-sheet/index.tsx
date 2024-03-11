@@ -23,14 +23,14 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
-import { CalendarClock, ExternalLink, LogOut, Menu } from 'lucide-react'
+import { ExternalLink, LogOut, Menu } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
 
 import useFormatter from '@/hooks/use-formatter'
 
 const HeaderSheet = () => {
-  const { removeItem } = useSessionStorage('isLogged')
+  const { removeItem } = useSessionStorage('collab')
   const { username, userrole } = useFormatter()
   const { getLinkByPage } = useLinkContext()
 
@@ -59,32 +59,26 @@ const HeaderSheet = () => {
         <Separator />
         <div className="grid gap-4 p-4">
           <Accordion type="single" collapsible className="w-full">
-            {data.map((data, index) => {
-              return (
-                <AccordionItem key={index} value={`index-${index}`}>
-                  <AccordionTrigger className="font-semibold capitalize text-primary">
-                    {data.name}
-                  </AccordionTrigger>
-                  <AccordionContent className="flex flex-col items-start">
-                    {data.infos.map((link, index) => {
-                      return (
-                        <Button
-                          className="hover:bg-secondary hover:text-white"
-                          key={index}
-                          variant={'ghost'}
-                          asChild
-                        >
-                          <Link href={link.linkPath} target="blank">
-                            <ExternalLink className="w-4 h-4 mr-4 text-inherit" />
-                            <span className="text-inherit">{link.title}</span>
-                          </Link>
-                        </Button>
-                      )
-                    })}
-                  </AccordionContent>
-                </AccordionItem>
-              )
-            })}
+            <AccordionItem value={'index-1'}>
+              <AccordionTrigger className="font-semibold capitalize text-primary">
+                Ferramentas
+              </AccordionTrigger>
+              <AccordionContent className="flex flex-col items-start">
+                <Button
+                  className="hover:bg-secondary hover:text-white"
+                  variant={'ghost'}
+                  asChild
+                >
+                  <Link
+                    href={'/portaldocolaborador/banco-de-horas'}
+                    target="blank"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-4 text-inherit" />
+                    <span className="text-inherit">Tabela de horas</span>
+                  </Link>
+                </Button>
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
         <SheetFooter>
@@ -93,17 +87,6 @@ const HeaderSheet = () => {
               <Link href={'/portaldocolaborador/login'}>
                 <LogOut className="w-4 h-4 mr-4" />
                 <span className="text-base">Sair</span>
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              title="Visualize suas horas lançadas"
-              variant={'outline'}
-            >
-              <Link href={'/portaldocolaborador/banco-de-horas'}>
-                <CalendarClock className="h-4 w-4 mr-4" />
-                <span className="text-base">Tabela de horas</span>
               </Link>
             </Button>
           </div>

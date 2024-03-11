@@ -34,29 +34,29 @@ const HeaderNavigation = () => {
   return (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
-      <NavigationMenuItem>
-        <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
-          Ferramentas
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
-            <Link
-              href={'/banco-de-horas'}
-              target="blank"
-              legacyBehavior
-              passHref
-            >
-              <NavigationMenuLink 
-                className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
-                target='blank'
+        <NavigationMenuItem>
+          <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
+            Ferramentas
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
+              <Link
+                href={'/banco-de-horas'}
+                target="blank"
+                legacyBehavior
+                passHref
               >
-                Tabela de horas
-                <ExternalLink className="w-4 h-4" />
-              </NavigationMenuLink>
-            </Link>
-          </ul>
-        </NavigationMenuContent>
-      </NavigationMenuItem>
+                <NavigationMenuLink 
+                  className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
+                  target='blank'
+                >
+                  Tabela de horas
+                  <ExternalLink className="w-4 h-4" />
+                </NavigationMenuLink>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
         {/* Percorrendo array de links */}
         {/* {data.map((link, index) => {
           return (

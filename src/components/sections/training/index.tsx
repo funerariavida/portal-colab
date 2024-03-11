@@ -12,7 +12,7 @@ const TrainingSection = () => {
   if (!data) return <CardGroupSkeleton />
 
   return (
-    <section className="h-[60vh] xl:h-screen bg-primary w-full grid grid-rows-[15%_85%] grid-cols-1 place-items-center">
+    <section className="h-[60vh] bg-primary w-full grid grid-rows-[15%_85%] grid-cols-1 place-items-center">
       <h2 className="row-span-1 col-span-1 h-full text-lg grid place-items-center font-semibold text-white lg:text-heading-3">
         Treinamentos
       </h2>
