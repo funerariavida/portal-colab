@@ -34,8 +34,31 @@ const HeaderNavigation = () => {
   return (
     <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
+          Ferramentas
+        </NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
+            <Link
+              href={'/banco-de-horas'}
+              target="blank"
+              legacyBehavior
+              passHref
+            >
+              <NavigationMenuLink 
+                className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
+                target='blank'
+              >
+                Tabela de horas
+                <ExternalLink className="w-4 h-4" />
+              </NavigationMenuLink>
+            </Link>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
         {/* Percorrendo array de links */}
-        {data.map((link, index) => {
+        {/* {data.map((link, index) => {
           return (
             <NavigationMenuItem key={index}>
               <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
@@ -43,7 +66,6 @@ const HeaderNavigation = () => {
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
-                  {/* Percorrendo array de infos */}
                   {link.infos.map((info, index) => {
                     return (
                       <Link
@@ -67,7 +89,7 @@ const HeaderNavigation = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
           )
-        })}
+        })} */}
       </NavigationMenuList>
     </NavigationMenu>
   )

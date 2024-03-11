@@ -1,6 +1,7 @@
 'use client'
 
 import getCompTime from '@/actions/get-comp-time'
+import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
@@ -26,11 +27,7 @@ export default function BancoPage() {
           acompanhe seus lançamentos de horas extras
         </h2>
       </div>
-      {data && (
-        <div className="w-full h-full grid place-items-center text-center">
-          <p>Carregando tabela...</p>
-        </div>
-      )}
+      {data && <DataTableSkeleton />}
 
       {/* {data && (
         <div className="container mx-auto py-10">

@@ -13,7 +13,7 @@ export default function DepartmentSection() {
   if (!data) return <CardGroupSkeleton />
 
   return (
-    <section className="w-full grid grid-rows-[min-content_max-content] grid-cols-1 place-items-center gap-3">
+    <section className="w-full grid grid-rows-[min-content_max-content] grid-cols-1 place-items-center gap-3 py-3">
       <div className="w-full col-span-1 row-span-1 flex items-center justify-center py-3">
         <h2 className="text-lg font-semibold text-zinc-800 lg:text-heading-3">
           Setores
