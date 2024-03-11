@@ -1,7 +1,8 @@
 'use client'
 
 import GenericSector from '@/components/generic-sector'
-import CardGroupSkeleton from '@/components/skeleton/card-group/card-group'
+import CardGroupSkeleton from '@/components/skeleton/card-group'
+
 import { useLinkContext } from '@/context/link'
 
 type routeParams = {
@@ -23,6 +24,8 @@ export default function AtendimentoPage({ params }: routeParams) {
     formatedDepartment = 'Departamento Pessoal'
   } else if (department === 't.i') {
     formatedDepartment = 'Tecnologia da Informação'
+  } else if (department === 'assistencia') {
+    formatedDepartment = 'Assistência Familiar'
   }
 
   if (!data) return <CardGroupSkeleton />
