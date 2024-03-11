@@ -74,7 +74,7 @@ const HeaderSheet = () => {
                     target="blank"
                   >
                     <ExternalLink className="w-4 h-4 mr-4 text-inherit" />
-                    <span className="text-inherit">Tabela de horas</span>
+                    <span className="text-inherit">Banco de horas</span>
                   </Link>
                 </Button>
               </AccordionContent>
