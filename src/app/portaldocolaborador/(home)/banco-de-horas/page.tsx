@@ -1,6 +1,8 @@
 'use client'
 
 import getCompTime from '@/actions/get-comp-time'
+import { columns } from '@/components/data-table/comp-time/columns'
+import { DataTable } from '@/components/data-table/comp-time/data-table'
 import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
@@ -27,13 +29,13 @@ export default function BancoPage() {
           acompanhe seus lançamentos de horas extras
         </h2>
       </div>
-      {data && <DataTableSkeleton />}
+      {isPending && <DataTableSkeleton />}
 
-      {/* {data && (
+      {data && (
         <div className="container mx-auto py-10">
           <DataTable columns={columns} data={data.registros} />
         </div>
-      )} */}
+      )}
     </div>
   )
 }
