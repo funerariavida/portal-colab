@@ -2,8 +2,6 @@
 
 import getCompTime from '@/actions/get-comp-time'
 
-import { columns } from '@/components/data-table/comp-time/columns'
-import { DataTable } from '@/components/data-table/comp-time/data-table'
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { useQuery } from '@tanstack/react-query'
@@ -28,17 +26,17 @@ export default function BancoPage() {
           acompanhe seus lançamentos de horas extras
         </h2>
       </div>
-      {isPending && (
+      {data && (
         <div className="w-full h-full grid place-items-center text-center">
           <p>Carregando tabela...</p>
         </div>
       )}
 
-      {data && (
+      {/* {data && (
         <div className="container mx-auto py-10">
           <DataTable columns={columns} data={data.registros} />
         </div>
-      )}
+      )} */}
     </div>
   )
 }

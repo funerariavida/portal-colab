@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
 import useFormatter from '@/hooks/use-formatter'
-import { LogOut } from 'lucide-react'
+import { CalendarClock, LogOut } from 'lucide-react'
 import HeaderNavigation from '../header-navigation'
 
 export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
@@ -33,15 +33,29 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         </h1>
         <h2 className="text-sm uppercase">{userrole ?? 'Cargo'}</h2>
       </div>
+
       <Button
         asChild
+        size={'icon'}
+        title="Visualize suas horas lançadas"
+        variant={'outline'}
+        className="hidden lg:flex hover:bg-transparent hover:text-primary"
+      >
+        <Link href={'/portaldocolaborador/banco-de-horas'}>
+          <CalendarClock className="h-4 w-4" />
+        </Link>
+      </Button>
+
+      <Button
+        asChild
+        size={'icon'}
+        title="Sair da conta"
         variant={'outline'}
         onClick={() => removeItem()}
         className="hidden lg:flex hover:bg-transparent hover:text-primary"
       >
         <Link href={'/portaldocolaborador/login'}>
-          <LogOut className="w-4 h-4 mr-4" />
-          <span className="text-base">Sair</span>
+          <LogOut className="w-4 h-4" />
         </Link>
       </Button>
     </div>

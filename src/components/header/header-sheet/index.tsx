@@ -23,7 +23,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
-import { ExternalLink, LogOut, Menu } from 'lucide-react'
+import { CalendarClock, ExternalLink, LogOut, Menu } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
 
@@ -88,11 +88,22 @@ const HeaderSheet = () => {
           </Accordion>
         </div>
         <SheetFooter>
-          <div className="flex items-start w-full">
+          <div className="flex flex-wrap items-start justify-between w-full gap-3">
             <Button asChild onClick={() => removeItem()} variant={'outline'}>
               <Link href={'/portaldocolaborador/login'}>
                 <LogOut className="w-4 h-4 mr-4" />
-                <span>Sair</span>
+                <span className="text-base">Sair</span>
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              title="Visualize suas horas lançadas"
+              variant={'outline'}
+            >
+              <Link href={'/portaldocolaborador/banco-de-horas'}>
+                <CalendarClock className="h-4 w-4 mr-4" />
+                <span className="text-base">Tabela de horas</span>
               </Link>
             </Button>
           </div>

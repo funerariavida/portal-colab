@@ -58,6 +58,7 @@ export default function useLogin() {
           // axios error
           if (axios.isAxiosError(e)) {
             callToast('Erro de requisição', e.message, 'destructive')
+            console.log(e)
           }
           // general error
           else {

@@ -148,9 +148,12 @@ export const columns: ColumnDef<CompTime>[] = [
     },
     cell: ({ row }) => {
       const status: string = row.getValue('status')
+      const authorization: string = row.getValue('autorização')
       return (
         <div className="mx-auto flex items-center justify-center">
-          {getStatus(status)}
+          {authorization && status === ''
+            ? getStatus('Pendente')
+            : getStatus(status)}
         </div>
       )
     },
