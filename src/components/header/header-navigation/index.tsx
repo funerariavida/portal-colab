@@ -41,7 +41,7 @@ const HeaderNavigation = () => {
           <NavigationMenuContent>
             <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
               <Link
-                href={'/banco-de-horas'}
+                href={'/portaldocolaborador/banco-de-horas'}
                 target="blank"
                 legacyBehavior
                 passHref
