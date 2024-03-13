@@ -11,6 +11,8 @@ export default function PortalPage() {
           Portal do Colaborador
         </h1>
       </div>
+
+      {/* Utils section */}
       <UtilsSection />
 
       {/* Training section */}

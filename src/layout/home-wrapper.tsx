@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from 'react'
 
 import getLinks from '@/actions/get-links'
+import UserPhoneDialog from '@/components/user-phone-dialog'
 import { useLinkContext } from '@/context/link'
 import HomePageLoader from '@/layout/home-page-loader'
 import { useQuery } from '@tanstack/react-query'
@@ -28,6 +29,7 @@ export default function HomeWrapper({ children }: Props) {
   return (
     <div className="min-h-screen min-w-full max-w-[1920px] grid-rows-[5rem_max-content] justify-center">
       {isPending ? <HomePageLoader /> : children}
+      {!isPending && data && <UserPhoneDialog />}
     </div>
   )
 }
