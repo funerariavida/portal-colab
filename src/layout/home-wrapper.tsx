@@ -1,12 +1,12 @@
 'use client'
 
+import { useQuery } from '@tanstack/react-query'
 import { ReactNode, useEffect } from 'react'
 
 import getLinks from '@/actions/get-links'
 import UserPhoneDialog from '@/components/user-phone-dialog'
 import { useLinkContext } from '@/context/link'
 import HomePageLoader from '@/layout/home-page-loader'
-import { useQuery } from '@tanstack/react-query'
 
 type Props = {
   children: ReactNode
