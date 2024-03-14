@@ -6,6 +6,9 @@ import { z } from 'zod'
 
 import InputMask from 'react-input-mask'
 
+import UpdateUserPhone from '@/actions/update-user-phone'
+import { useMutation } from '@tanstack/react-query'
+import { RotateCw } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
 
@@ -14,6 +17,11 @@ const formSchema = z.object({
 })
 
 export default function PhoneForm() {
+  // sending user phone info
+  const { isPending, mutate, data } = useMutation({
+    mutationFn: UpdateUserPhone,
+  })
+
   // defining form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -23,7 +31,9 @@ export default function PhoneForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    mutate(values.phone, {
+      onSuccess: () => console.log(data),
+    })
   }
 
   return (
@@ -51,8 +61,8 @@ export default function PhoneForm() {
           )}
         />
         <div className="w-full flex justify-end">
-          <Button type="submit">
-            {/* <RotateCcw className="w-4 h-4 mr-4" /> */}
+          <Button type="submit" disabled={isPending}>
+            {isPending && <RotateCw className="w-4 h-4 mr-4 animate-spin" />}
             Continuar
           </Button>
         </div>
