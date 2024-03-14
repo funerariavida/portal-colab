@@ -13,7 +13,7 @@ import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
 
 const formSchema = z.object({
-  phone: z.string().min(2).max(20),
+  phone: z.string().min(15).max(20),
 })
 
 export default function PhoneForm() {
@@ -61,7 +61,12 @@ export default function PhoneForm() {
           )}
         />
         <div className="w-full flex justify-end">
-          <Button type="submit" disabled={isPending}>
+          <Button
+            type="submit"
+            disabled={
+              isPending || (!form.formState.isDirty && !form.formState.isValid)
+            }
+          >
             {isPending && <RotateCw className="w-4 h-4 mr-4 animate-spin" />}
             Continuar
           </Button>
