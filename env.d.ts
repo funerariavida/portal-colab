@@ -6,5 +6,6 @@ namespace NodeJS {
     API_CONTENT_KEY: string
     API_LOGIN_KEY: string
     API_COMP_TIME_KEY: string
+    PHONE_ENDPOINT_KEY: string
   }
 }

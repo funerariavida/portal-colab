@@ -1,14 +1,15 @@
 'use server'
 
-export default async function UpdateUserPhone(telefone: string) {
+export default async function UpdateUserPhone(userInfo: {
+  cpf: string
+  telefone: string
+}) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/user-phone`,
+    `${process.env.NEXT_PUBLIC_NODE_API_BASE_URL}/update-phone`,
     {
+      cache: 'no-store',
       method: 'PATCH',
-      headers: {
-        // token: '',
-      },
-      body: JSON.stringify({ telefone }),
+      body: JSON.stringify(userInfo),
     },
   )
 

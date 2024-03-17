@@ -14,9 +14,10 @@ type routeParams = {
 export default function AtendimentoPage({ params }: routeParams) {
   const department =
     params.setor === 'ti' ? 't.i' : params.setor.split('_').join(' ')
-  let formatedDepartment = ''
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage(department)
+
+  let formatedDepartment = department
 
   if (department === 'rh') {
     formatedDepartment = 'Recursos Humanos'
@@ -29,6 +30,8 @@ export default function AtendimentoPage({ params }: routeParams) {
   }
 
   if (!data) return <CardGroupSkeleton />
+
+  console.log(formatedDepartment, params.setor)
 
   return (
     <div className="mx-auto grid w-full h-full max-w-[1440px] grid-rows-[min_content_max-content]">

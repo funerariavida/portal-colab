@@ -7,16 +7,29 @@ import { z } from 'zod'
 import InputMask from 'react-input-mask'
 
 import UpdateUserPhone from '@/actions/update-user-phone'
+import { useSessionStorage } from '@/hooks/use-session-storage'
+import callToast from '@/utils/call-toast'
 import { useMutation } from '@tanstack/react-query'
 import { RotateCw } from 'lucide-react'
+import { Dispatch, SetStateAction } from 'react'
 import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+
+type phoneFormProps = {
+  setDialogState: Dispatch<SetStateAction<boolean>>
+}
 
 const formSchema = z.object({
   phone: z.string().min(15).max(20),
 })
 
-export default function PhoneForm() {
+export default function PhoneForm({ setDialogState }: phoneFormProps) {
+  const { getItem } = useSessionStorage(
+    process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
+  )
+
+  const userInfo = JSON.parse(getItem() ?? '')
+
   // sending user phone info
   const { isPending, mutate, data } = useMutation({
     mutationFn: UpdateUserPhone,
@@ -31,9 +44,21 @@ export default function PhoneForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    mutate(values.phone, {
-      onSuccess: () => console.log(data),
-    })
+    mutate(
+      { cpf: userInfo.cpf, telefone: values.phone },
+      {
+        onSuccess: () => {
+          setDialogState(false)
+          callToast('Sucesso', 'seu telefone foi atualizado!', 'success')
+        },
+        onError: (err) =>
+          callToast(
+            'Ocorreu um erro na requisição!',
+            err.message,
+            'destructive',
+          ),
+      },
+    )
   }
 
   return (
@@ -53,7 +78,7 @@ export default function PhoneForm() {
                     placeholder="Ex. (88) 9 9999-9999"
                     className="flex col-span-3 text-zinc-600 h-10 px-3 py-2 text-sm border rounded-md border-input bg-background ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-black"
                     {...field}
-                    mask={'(99) 9 9999-9999'}
+                    mask={'(99) 99999-9999'}
                   />
                 </FormControl>
               </div>

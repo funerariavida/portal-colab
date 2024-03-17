@@ -18,6 +18,7 @@ type CollabResponse = {
       nome: string
       cargo: string
       cpf: string
+      telefone: string
       type_user: string
     },
   ]
@@ -47,6 +48,7 @@ export default function useLogin() {
             name: data.nome,
             role: data.cargo,
             cpf: data.cpf,
+            telefone: data.telefone,
           })
           // Chamando retorno visual
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')

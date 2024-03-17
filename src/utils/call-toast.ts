@@ -10,7 +10,7 @@ const callToast = (
     title,
     description,
     variant: variant === 'destructive' ? 'destructive' : 'default',
-    duration: 2500,
+    duration: 3000,
     className: classNames({ 'bg-green-500 text-white': variant === 'success' }),
   })
 }

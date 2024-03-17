@@ -32,7 +32,7 @@ export default function UserPhoneDialog() {
             informações pedidas abaixo para continuar
           </DialogDescription>
         </DialogHeader>
-        <PhoneForm />
+        <PhoneForm setDialogState={setIsOpen} />
       </DialogContent>
     </Dialog>
   )
