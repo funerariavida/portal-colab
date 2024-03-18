@@ -13,13 +13,13 @@ export default function UtilsSection() {
 
   if (data) {
     return (
-      <section className="grid grid-rows-[min-content_max-content] items-center justify-center w-full">
-        <div className="w-full flex items-center justify-center h-14">
-          <h3 className="text-lg flex-1 text-center font-semibold lg:text-heading-3 text-zinc-800">
+      <section className="grid grid-rows-[max-content_auto] place-items-center w-full py-6 gap-6">
+        <div className="w-full grid place-items-center">
+          <h3 className="text-lg text-center font-semibold lg:text-heading-3 text-zinc-800">
             {data[0].name}
           </h3>
         </div>
-        <div className="flex-1 px-2 py-6 flex flex-wrap items-center justify-center gap-3">
+        <div className="px-2 flex flex-wrap items-center justify-center gap-3">
           {/* Card link */}
           {data[0].infos.map((link, index) => {
             return (

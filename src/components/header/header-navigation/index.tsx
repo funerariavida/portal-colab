@@ -50,7 +50,7 @@ const HeaderNavigation = () => {
                   className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
                   target='blank'
                 >
-                  Banco de horas
+                  Visualizar banco de horas
                   <ExternalLink className="w-4 h-4" />
                 </NavigationMenuLink>
               </Link>

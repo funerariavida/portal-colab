@@ -20,7 +20,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 
   if (!isLoading) {
     return (
-      <div className="min-h-screen w-full items-center justify-center max-w-[1920px]">
+      <div className="min-h-screen w-full items-center justify-center">
         {children}
       </div>
     )
