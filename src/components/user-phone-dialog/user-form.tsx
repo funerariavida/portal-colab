@@ -24,7 +24,7 @@ const formSchema = z.object({
 })
 
 export default function PhoneForm({ setDialogState }: phoneFormProps) {
-  const { getItem } = useSessionStorage(
+  const { getItem, setItem } = useSessionStorage(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
 
@@ -50,6 +50,12 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
         onSuccess: () => {
           setDialogState(false)
           callToast('Sucesso', 'seu telefone foi atualizado!', 'success')
+          setItem({
+            name: userInfo.name,
+            role: userInfo.role,
+            cpf: userInfo.cpf,
+            telefone: values.phone,
+          })
         },
         onError: (err) =>
           callToast(

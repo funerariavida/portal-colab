@@ -5,8 +5,12 @@ import { ReactNode, useEffect } from 'react'
 
 import getLinks from '@/actions/get-links'
 import { useLinkContext } from '@/context/link'
+
 import { useSessionStorage } from '@/hooks/use-session-storage'
+
 import HomePageLoader from '@/layout/home-page-loader'
+
+import UserPhoneDialog from '@/components/user-phone-dialog'
 
 type Props = {
   children: ReactNode
@@ -35,7 +39,7 @@ export default function HomeWrapper({ children }: Props) {
   return (
     <div className="min-h-screen min-w-full max-w-[1920px] grid-rows-[5rem_max-content] justify-center">
       {isPending ? <HomePageLoader /> : children}
-      {/* {!isPending && data && !userPhone && <UserPhoneDialog />} */}
+      {!isPending && data && !userPhone && <UserPhoneDialog />}
     </div>
   )
 }
