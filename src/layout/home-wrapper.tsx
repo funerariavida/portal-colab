@@ -8,9 +8,8 @@ import { useLinkContext } from '@/context/link'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
-import HomePageLoader from '@/layout/home-page-loader'
-
 import UserPhoneDialog from '@/components/user-phone-dialog'
+import HomePageLoader from '@/layout/home-page-loader'
 
 type Props = {
   children: ReactNode
