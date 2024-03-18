@@ -6,7 +6,7 @@ import {
   SetStateAction,
   createContext,
   useContext,
-  useState,
+  useState
 } from 'react'
 
 import LinkProps from '@/types/links'
@@ -19,7 +19,9 @@ type LinkContextProps = {
 
 const LinkContext = createContext<LinkContextProps>({} as LinkContextProps)
 
-function LinkProvider({ children }: { children: ReactNode }) {
+function LinkProvider({
+  children
+}: { children: ReactNode }) {
   const [links, setLinks] = useState<LinkProps[] | null>(null)
 
   const getLinkByPage = (page: string) => {

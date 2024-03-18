@@ -37,7 +37,7 @@ export default function HomeWrapper({ children }: Props) {
   }, [data, setLinks])
 
   return (
-    <div className="min-h-screen min-w-full max-w-[1920px] grid-rows-[5rem_max-content] justify-center">
+    <div className="min-h-screen min-w-full grid-rows-[5rem_max-content] justify-center">
       {isPending ? <HomePageLoader /> : children}
       {!isPending && data && !userPhone && <UserPhoneDialog />}
     </div>

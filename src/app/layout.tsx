@@ -27,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        <div className="min-h-screen w-full grid place-items-center">
+          <Providers>
+            {children}
+            <Toaster />
+          </Providers>
+        </div>
       </body>
     </html>
   )

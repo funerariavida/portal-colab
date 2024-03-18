@@ -8,7 +8,7 @@ import HomeWrapper from '@/layout/home-wrapper'
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="h-screen w-full items-center mx-auto justify-center">
+    <div className="min-h-screen w-full max-w-[1920px] flex-col items-center mx-auto justify-center">
       <AuthLayout>
         <HomeWrapper>
           <Header />
