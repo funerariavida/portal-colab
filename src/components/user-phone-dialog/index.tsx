@@ -25,7 +25,7 @@ export default function UserPhoneDialog() {
         {/* header */}
         <DialogHeader>
           <DialogTitle className="text-lg text-black">
-            Atualiar telefone
+            Atualizar telefone
           </DialogTitle>
           <DialogDescription className="text-base text-zinc-500">
             Verificamos que seu telefone está desatualizado. Atualize as
