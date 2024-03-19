@@ -2,7 +2,7 @@ import { Skeleton } from '../ui/skeleton'
 
 export default function DataTableSkeleton() {
   return (
-    <div className="container h-full row-span-1 col-span-1 mx-auto grid place-items-center">
+    <div className="container mx-auto py-10">
       <table className="w-full rounded-md border">
         <thead className="grid grid-cols-5 grid-rows-1 border-b">
           <th className="col-span-1 row-span-1 flex items-center justify-center p-2">

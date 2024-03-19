@@ -22,12 +22,13 @@ export default function BancoPage() {
   })
 
   return (
-    <div className="flex-1 w-full grid grid-rows-[80px_1fr] grid-cols-1">
-      <div className="w-full h-full bg-secondary grid place-items-center">
-        <h1 className="text-white font-bold text-heading-3 md:text-heading-2 lg:text-heading-1">
+    <div className="flex-1 w-full grid grid-rows-[min-content_auto] grid-cols-1">
+      <div className="w-full h-full bg-secondary grid place-items-center py-10">
+        <h1 className="text-white font-bold text-heading-3 text-center md:text-heading-2 lg:text-heading-1">
           Banco de horas
         </h1>
       </div>
+
       {isPending && <DataTableSkeleton />}
 
       {!data && !isPending && (
