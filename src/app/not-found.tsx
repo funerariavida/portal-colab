@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-zinc-100 w-full flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-zinc-100 w-full flex flex-col items-center justify-center px-3">
       <h1 className="text-6xl text-primary font-bold mb-5">404</h1>
       <h2 className="text-xl text-foreground font-bold">
         Página não encontrada
@@ -16,11 +16,8 @@ export default function NotFoundPage() {
         <Button variant={'outline'} asChild>
           <Link href="/portaldocolaborador">Página principal</Link>
         </Button>
-        {/* <Button variant={'outline'} asChild>
-          <Link href="/portaldocolaborador/banco-de-horas">Banco de horas</Link>
-        </Button> */}
         <Button variant={'outline'} asChild>
-          <Link href="/portaldocolaborador/login">Login</Link>
+          <Link href="/portaldocolaborador/banco-de-horas">Banco de Horas</Link>
         </Button>
       </div>
     </div>

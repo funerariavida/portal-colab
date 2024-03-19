@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <div className="min-h-screen w-full grid place-items-center">
+        <div className="min-h-screen min-w-full grid place-items-center">
           <Providers>
             {children}
             <Toaster />

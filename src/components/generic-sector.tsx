@@ -21,14 +21,14 @@ export default function GenericSector({
 }: Props) {
   return (
     <section
-      className="mx-auto grid w-full max-w-[1440px] grid-rows-[min_content_max-content] gap-3"
+      className="grid place-items-center min-w-full grid-rows-[max_content_auto] gap-3"
       {...props}
     >
       {/* header */}
       {hasHeader && (
         <div
           className={classNames(
-            'w-full h-20 bg-background flex flex-col items-center justify-center',
+            'min-w-full h-20 bg-background flex flex-col items-center justify-center',
           )}
         >
           <h1
@@ -53,7 +53,7 @@ export default function GenericSector({
       {/* cards */}
       <div
         className={classNames(
-          'flex-1 flex items-center justify-center gap-3 p-6',
+          'min-w-full flex items-center justify-center gap-3 py-6',
           {
             'flex-row flex-wrap': cardOrientation === 'horizontal',
           },
