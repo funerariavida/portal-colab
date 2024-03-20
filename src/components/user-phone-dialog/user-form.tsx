@@ -107,6 +107,7 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
                     {...registerWithMask('phone', '(99) 99999-9999')}
                     className="col-span-3"
                     placeholder="Ex. (88) 99999-9999"
+                    disabled={isPending}
                     required
                   />
                 </FormControl>
@@ -116,12 +117,7 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
           )}
         />
         <div className="w-full flex justify-end">
-          <Button
-            type="submit"
-            disabled={
-              isPending || (!form.formState.isDirty && !form.formState.isValid)
-            }
-          >
+          <Button type="submit" disabled={isPending || !form.formState.isValid}>
             {isPending && <RotateCw className="w-4 h-4 mr-4 animate-spin" />}
             Continuar
           </Button>
