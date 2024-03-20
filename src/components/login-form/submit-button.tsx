@@ -15,8 +15,8 @@ export default function SubmitButton({
       disabled={isDisabled}
       type="submit"
     >
-      {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-      {!isLoading && <LogIn className="w-4 h-4 mr-2" />} Acessar
+      {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      {!isLoading && <LogIn className="mr-2 h-4 w-4" />} Acessar
     </Button>
   )
 }

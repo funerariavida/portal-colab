@@ -36,7 +36,7 @@ const HeaderSheet = () => {
 
   const data = getLinkByPage('main')
 
-  if (!data) return <Skeleton className="lg:hidden h-full w-20" />
+  if (!data) return <Skeleton className="h-full w-20 lg:hidden" />
 
   return (
     <Sheet>
@@ -45,7 +45,7 @@ const HeaderSheet = () => {
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent className="px-2 overflow-auto">
+      <SheetContent className="overflow-auto px-2">
         <SheetHeader className="px-2 py-3">
           <SheetTitle className="flex flex-col items-start">
             <span className="text-base font-semibold capitalize">
@@ -73,7 +73,7 @@ const HeaderSheet = () => {
                     href={'/portaldocolaborador/banco-de-horas'}
                     target="blank"
                   >
-                    <ExternalLink className="w-4 h-4 mr-4 text-inherit" />
+                    <ExternalLink className="mr-4 h-4 w-4 text-inherit" />
                     <span className="text-inherit">
                       VIsualizar banco de horas
                     </span>
@@ -84,10 +84,10 @@ const HeaderSheet = () => {
           </Accordion>
         </div>
         <SheetFooter>
-          <div className="flex flex-wrap items-start justify-between w-full gap-3">
+          <div className="flex w-full flex-wrap items-start justify-between gap-3">
             <Button asChild onClick={() => removeItem()} variant={'outline'}>
               <Link href={'/portaldocolaborador/login'}>
-                <LogOut className="w-4 h-4 mr-4" />
+                <LogOut className="mr-4 h-4 w-4" />
                 <span className="text-base">Sair</span>
               </Link>
             </Button>

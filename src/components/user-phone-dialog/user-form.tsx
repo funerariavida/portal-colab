@@ -111,14 +111,14 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
                     required
                   />
                 </FormControl>
-                <FormMessage className="col-start-2 col-span-3" />
+                <FormMessage className="col-span-3 col-start-2" />
               </div>
             </FormItem>
           )}
         />
-        <div className="w-full flex justify-end">
+        <div className="flex w-full justify-end">
           <Button type="submit" disabled={isPending || !form.formState.isValid}>
-            {isPending && <RotateCw className="w-4 h-4 mr-4 animate-spin" />}
+            {isPending && <RotateCw className="mr-4 h-4 w-4 animate-spin" />}
             Continuar
           </Button>
         </div>

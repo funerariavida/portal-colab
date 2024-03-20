@@ -26,7 +26,7 @@ export default function CertificatePage() {
 
       {isPending && <p>Carregando tabela...</p>}
 
-      <div className="w-full">tabela</div>
+      <div className="container mx-auto py-10">tabela</div>
     </div>
   )
 }

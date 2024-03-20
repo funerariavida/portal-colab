@@ -24,9 +24,9 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
       <HeaderNavigation />
       <Separator
         orientation="vertical"
-        className="w-[2px] h-full hidden lg:flex bg-zinc-400"
+        className="hidden h-full w-[2px] bg-zinc-400 lg:flex"
       />
-      <div className="flex-col hidden mr-2 lg:flex">
+      <div className="mr-2 hidden flex-col lg:flex">
         <h1 className="text-base font-bold capitalize">
           {username ?? 'Usuário'}
         </h1>
@@ -37,10 +37,10 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         asChild
         title="Ir para tela inicial"
         variant={'outline'}
-        className="hidden lg:flex hover:bg-transparent hover:text-primary"
+        className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
         <Link href={'/portaldocolaborador'}>
-          <Home className="h-4 w-4 mr-4" />
+          <Home className="mr-4 h-4 w-4" />
           <span className="text-base">Tela inicial</span>
         </Link>
       </Button>
@@ -50,10 +50,10 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         title="Sair da conta"
         variant={'outline'}
         onClick={() => removeItem()}
-        className="hidden lg:flex hover:bg-transparent hover:text-primary"
+        className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
         <Link href={'/portaldocolaborador/login'}>
-          <LogOut className="w-4 h-4 mr-4" />
+          <LogOut className="mr-4 h-4 w-4" />
           <span className="text-base">Sair</span>
         </Link>
       </Button>

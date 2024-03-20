@@ -12,7 +12,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
       <AuthLayout>
         <HomeWrapper>
           <Header />
-          <main className="flex mt-20 min-w-full min-h-screen flex-col items-center justify-between">
+          <main className="mt-20 flex min-h-screen min-w-full flex-col items-center justify-between">
             {children}
           </main>
           <Footer />

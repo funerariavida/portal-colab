@@ -15,7 +15,7 @@ export default function LinkCardContent({
   variant = `default`,
 }: LinkCardContent) {
   return (
-    <div className="col-span-1 row-span-1 h-full flex items-center justify-start gap-4">
+    <div className="col-span-1 row-span-1 flex h-full items-center justify-start gap-4">
       {icon && (
         <DynamicIcon
           name={icon}
@@ -25,8 +25,8 @@ export default function LinkCardContent({
         />
       )}
       <div>
-        <h1 className="text-base sm:text-xl font-bold">{title}</h1>
-        <p className="text-xs sm:text-base font-medium">{description}</p>
+        <h1 className="text-base font-bold sm:text-xl">{title}</h1>
+        <p className="text-xs font-medium sm:text-base">{description}</p>
       </div>
     </div>
   )

@@ -45,7 +45,7 @@ function getStatus(status: string): ReactNode {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <XCircle className="h-4 w-4 text-destructive mx-auto" />
+              <XCircle className="mx-auto h-4 w-4 text-destructive" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Lançamento negado!</p>
@@ -75,7 +75,7 @@ function getStatus(status: string): ReactNode {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <CalendarCheck className="h-4 w-4 text-zinc-400 text-success" />
+              <CalendarCheck className="h-4 w-4 text-success text-zinc-400" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Agendamento realizado!</p>
@@ -90,7 +90,7 @@ function getStatus(status: string): ReactNode {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
-              <CircleDashed className="h-4 w-4 text-zinc-400 animate-spin" />
+              <CircleDashed className="h-4 w-4 animate-spin text-zinc-400" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Lançamento em análise!</p>
@@ -133,7 +133,7 @@ export const columns: ColumnDef<CompTime>[] = [
     cell: ({ row }) => {
       const autorization: string = row.getValue('autorização')
       return autorization ? (
-        <span className="capitalize text-sm text-table-cell">
+        <span className="text-sm capitalize text-table-cell">
           {autorization}
         </span>
       ) : (

@@ -8,11 +8,11 @@ import HeaderSheet from './header-sheet'
 
 export default function Header() {
   return (
-    <header className="fixed top-0 z-10 flex items-center justify-center w-full max-w-[1920px] h-20 px-3 py-6 shadow-md bg-background lg:px-5">
-      <Link href={'/portaldocolaborador'} className="w-32 ms-7 lg:m-0">
+    <header className="fixed top-0 z-10 flex h-20 w-full max-w-[1920px] items-center justify-center bg-background px-3 py-6 shadow-md lg:px-5">
+      <Link href={'/portaldocolaborador'} className="ms-7 w-32 lg:m-0">
         <Image className="w-full" src={Logo} alt="Logomarca" />
       </Link>
-      <HeaderInfo className="flex items-center justify-center h-full gap-4 ms-auto" />
+      <HeaderInfo className="ms-auto flex h-full items-center justify-center gap-4" />
       <HeaderSheet />
     </header>
   )

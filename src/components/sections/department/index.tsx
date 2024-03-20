@@ -13,13 +13,13 @@ export default function DepartmentSection() {
   if (!data) return <CardGroupSkeleton />
 
   return (
-    <section className="w-full h-full grid grid-rows-[min-content_max-content] grid-cols-1 place-items-center gap-6 py-6">
-      <div className="w-full col-span-1 row-span-1 flex items-center justify-center">
+    <section className="grid h-full w-full grid-cols-1 grid-rows-[min-content_max-content] place-items-center gap-6 py-6">
+      <div className="col-span-1 row-span-1 flex w-full items-center justify-center">
         <h2 className="text-lg font-semibold text-zinc-800 lg:text-heading-3">
           Setores
         </h2>
       </div>
-      <div className="row-span-1 col-span-1 flex flex-wrap items-center justify-center w-full gap-4">
+      <div className="col-span-1 row-span-1 flex w-full flex-wrap items-center justify-center gap-4">
         {/* Card link */}
         {data[2].infos.map((link, index) => {
           return (

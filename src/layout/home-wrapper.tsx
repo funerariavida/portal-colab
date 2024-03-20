@@ -36,7 +36,7 @@ export default function HomeWrapper({ children }: Props) {
   }, [data, setLinks])
 
   return (
-    <div className="min-h-screen min-w-full grid place-items-center">
+    <div className="grid min-h-screen min-w-full place-items-center">
       {isPending ? <HomePageLoader /> : children}
       {!isPending && data && !userPhone && <UserPhoneDialog />}
     </div>

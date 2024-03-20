@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead
-                    className="text-table-header text-base font-bold capitalize"
+                    className="text-base font-bold capitalize text-table-header"
                     key={header.id}
                   >
                     {header.isPlaceholder

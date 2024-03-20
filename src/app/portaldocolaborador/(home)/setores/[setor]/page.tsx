@@ -55,9 +55,9 @@ export default function AtendimentoPage({ params }: routeParams) {
   if (!data) return <CardGroupSkeleton />
 
   return (
-    <div className="grid place-items-center min-w-full min-h-full grid-cols-1 grid-rows-[auto_auto]">
-      <div className="col-span-1 min-w-full bg-secondary py-10 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-white text-center capitalize">
+    <div className="grid min-h-full min-w-full grid-cols-1 grid-rows-[auto_auto] place-items-center">
+      <div className="col-span-1 flex min-w-full flex-col items-center justify-center bg-secondary py-10">
+        <h1 className="text-center text-2xl font-bold capitalize text-white">
           {formatedDepartment}
         </h1>
       </div>

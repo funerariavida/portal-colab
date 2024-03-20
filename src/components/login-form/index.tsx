@@ -53,14 +53,14 @@ export default function LoginForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center w-1/2 gap-3"
+        className="flex w-1/2 flex-col items-center justify-center gap-3"
       >
         {/* cpf */}
         <FormField
           control={form.control}
           name="cpf"
           render={({ field }) => (
-            <FormItem className="w-full grid">
+            <FormItem className="grid w-full">
               <FormControl>
                 <Input
                   {...field}
@@ -70,7 +70,7 @@ export default function LoginForm() {
                   placeholder="CPF"
                 />
               </FormControl>
-              <FormMessage className="text-slate-800 font-semibold px-3 py-2" />
+              <FormMessage className="px-3 py-2 font-semibold text-slate-800" />
             </FormItem>
           )}
         />

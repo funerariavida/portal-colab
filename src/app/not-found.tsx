@@ -3,16 +3,16 @@ import Link from 'next/link'
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-zinc-100 w-full flex flex-col items-center justify-center px-3">
-      <h1 className="text-6xl text-primary font-bold mb-5">404</h1>
-      <h2 className="text-xl text-foreground font-bold">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center bg-zinc-100 px-3">
+      <h1 className="mb-5 text-6xl font-bold text-primary">404</h1>
+      <h2 className="text-xl font-bold text-foreground">
         Página não encontrada
       </h2>
-      <p className="text-base text-center font-medium text-zinc-500">
+      <p className="text-center text-base font-medium text-zinc-500">
         A página procurada não existe, navegue para uma das nossas páginas
         existentes
       </p>
-      <div className="mt-6 grid items-center justify-center grid-cols-1 sm:grid-cols-2 gap-2">
+      <div className="mt-6 grid grid-cols-1 items-center justify-center gap-2 sm:grid-cols-2">
         <Button variant={'outline'} asChild>
           <Link href="/portaldocolaborador">Página principal</Link>
         </Button>

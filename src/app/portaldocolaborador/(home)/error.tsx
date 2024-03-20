@@ -17,8 +17,8 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="flex flex-col h-full w-full px-10 gap-4 items-center justify-center text-center">
-      <h2 className="text-destructive text-xl font-bold">Algo deu errado!</h2>
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-10 text-center">
+      <h2 className="text-xl font-bold text-destructive">Algo deu errado!</h2>
       <p className="text-base font-medium">{error.message}</p>
       <Button
         className="mt-5"
@@ -28,7 +28,7 @@ export default function Error({
           () => reset()
         }
       >
-        <RotateCcw className="w-4 h-4 mr-2" />
+        <RotateCcw className="mr-2 h-4 w-4" />
         Tente novamente
       </Button>
     </div>
