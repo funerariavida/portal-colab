@@ -1,10 +1,10 @@
-type CertificateProps = {
-  data: {
-    envio: string
-    nome: string
-    arquivos: string
-    status: string
-  }[]
+export type CertificateProps = {
+  envio: string
+  nome: string
+  arquivos: string
+  status: string
 }
 
-export default CertificateProps
+export type CertificateResponseProps = {
+  data: CertificateProps[]
+}

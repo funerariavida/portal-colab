@@ -1,11 +1,11 @@
 'use server'
 
-import CertificateProps from '@/types/certificate'
+import { CertificateResponseProps } from '@/types/certificate'
 import { revalidateTag } from 'next/cache'
 
 export default async function getCertificates(
   name: string,
-): Promise<CertificateProps> {
+): Promise<CertificateResponseProps> {
   const params = new URLSearchParams({
     name,
   })

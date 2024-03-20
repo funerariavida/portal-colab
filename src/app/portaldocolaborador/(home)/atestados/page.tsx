@@ -1,7 +1,16 @@
 'use client'
 
-import getCertificates from '@/actions/get-certificates'
+// hooks
 import { useSessionStorage } from '@/hooks/use-session-storage'
+
+// actions
+import getCertificates from '@/actions/get-certificates'
+
+// datatable
+import { certificateColumns } from '@/components/data-table/certificates/columns'
+import { CertificateDataTable } from '@/components/data-table/certificates/data-table'
+
+// react query
 import { useQuery } from '@tanstack/react-query'
 
 export default function CertificatePage() {
@@ -19,14 +28,18 @@ export default function CertificatePage() {
   return (
     <div className="grid min-h-full w-full grid-rows-[max-content_auto]">
       <div className="grid w-full place-items-center bg-secondary">
-        <h1 className="py-10 text-center text-heading-1 font-bold text-white">
+        <h1 className="py-10 text-center text-heading-3 font-bold text-white">
           Atestados e Declarações
         </h1>
       </div>
 
       {isPending && <p>Carregando tabela...</p>}
 
-      <div className="container mx-auto py-10">tabela</div>
+      {data && (
+        <div className="container mx-auto py-10">
+          <CertificateDataTable columns={certificateColumns} data={data.data} />
+        </div>
+      )}
     </div>
   )
 }
