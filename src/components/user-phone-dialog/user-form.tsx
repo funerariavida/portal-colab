@@ -1,10 +1,10 @@
 'use client'
 
+import { useHookFormMask } from 'use-mask-input'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-
-import InputMask from 'react-input-mask'
 
 import UpdateUserPhone from '@/actions/update-user-phone'
 import { useSessionStorage } from '@/hooks/use-session-storage'
@@ -13,14 +13,34 @@ import { useMutation } from '@tanstack/react-query'
 import { RotateCw } from 'lucide-react'
 import { Dispatch, SetStateAction } from 'react'
 import { Button } from '../ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '../ui/form'
+import { Input } from '../ui/input'
 
 type phoneFormProps = {
   setDialogState: Dispatch<SetStateAction<boolean>>
 }
 
+const phoneRegex = /\(\d\d\)\s\d\d\d\d\d-\d\d\d\d/ // (99) 99999-9999
+
 const formSchema = z.object({
-  phone: z.string().min(15).max(20),
+  phone: z
+    .string()
+    .min(2, {
+      message: 'Entrada mínima inválida MIN:2',
+    })
+    .max(20, {
+      message: 'Entrada máxima inválida MAX:20',
+    })
+    .refine((value) => phoneRegex.test(value ?? ''), {
+      message: 'Número inválido EX:(88) 99999-9999',
+    }),
 })
 
 export default function PhoneForm({ setDialogState }: phoneFormProps) {
@@ -42,6 +62,8 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
       phone: '',
     },
   })
+
+  const registerWithMask = useHookFormMask(form.register)
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutate(
@@ -76,17 +98,19 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
           render={({ field }) => (
             <FormItem className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
-                <FormLabel className="text-right text-black">
+                <FormLabel className="col-span-1 text-right text-black">
                   Telefone:
                 </FormLabel>
                 <FormControl>
-                  <InputMask
-                    placeholder="Ex. (88) 9 9999-9999"
-                    className="flex col-span-3 text-zinc-600 h-10 px-3 py-2 text-sm border rounded-md border-input bg-background ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:ring-black"
+                  <Input
                     {...field}
-                    mask={'(99) 99999-9999'}
+                    {...registerWithMask('phone', '(99) 99999-9999')}
+                    className="col-span-3"
+                    placeholder="Ex. (88) 99999-9999"
+                    required
                   />
                 </FormControl>
+                <FormMessage className="col-start-2 col-span-3" />
               </div>
             </FormItem>
           )}
