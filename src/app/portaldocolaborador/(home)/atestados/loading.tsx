@@ -2,7 +2,7 @@ import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 import HeaderSkeleton from '@/components/skeleton/header-skeleton'
 import { Skeleton } from '@/components/ui/skeleton'
 
-export default function CompTimeLoading() {
+export default function CertificateLoading() {
   return (
     <div className="grid h-screen w-full max-w-[1920px] bg-background">
       <HeaderSkeleton />

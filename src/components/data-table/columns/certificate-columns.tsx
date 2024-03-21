@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 // icons
 
-export const certificateColumns: ColumnDef<CertificateProps>[] = [
+const certificateColumns: ColumnDef<CertificateProps>[] = [
   {
     accessorKey: 'envio',
     header: 'envio',
@@ -54,3 +54,5 @@ export const certificateColumns: ColumnDef<CertificateProps>[] = [
     },
   },
 ]
+
+export default certificateColumns

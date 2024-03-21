@@ -21,7 +21,7 @@ type DataTableProps<TData, TValue> = {
   data: TData[]
 }
 
-export function CertificateDataTable<TData, TValue>({
+export default function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {

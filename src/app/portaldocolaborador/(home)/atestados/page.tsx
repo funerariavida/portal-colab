@@ -6,11 +6,12 @@ import { useSessionStorage } from '@/hooks/use-session-storage'
 // actions
 import getCertificates from '@/actions/get-certificates'
 
-// datatable
-import { certificateColumns } from '@/components/data-table/certificates/columns'
-import { CertificateDataTable } from '@/components/data-table/certificates/data-table'
+// data-table
+import DataTable from '@/components/data-table'
+import certificateColumns from '@/components/data-table/columns/certificate-columns'
 
 // react query
+import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 import { useQuery } from '@tanstack/react-query'
 
 export default function CertificatePage() {
@@ -33,11 +34,11 @@ export default function CertificatePage() {
         </h1>
       </div>
 
-      {isPending && <p>Carregando tabela...</p>}
+      {isPending && <DataTableSkeleton />}
 
       {data && (
         <div className="container mx-auto py-10">
-          <CertificateDataTable columns={certificateColumns} data={data.data} />
+          <DataTable columns={certificateColumns} data={data.data} />
         </div>
       )}
     </div>

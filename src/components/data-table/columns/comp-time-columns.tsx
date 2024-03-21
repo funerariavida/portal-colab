@@ -102,7 +102,7 @@ function getStatus(status: string): ReactNode {
   }
 }
 
-export const columns: ColumnDef<CompTime>[] = [
+const compTimeColumns: ColumnDef<CompTime>[] = [
   {
     accessorKey: 'data',
     header: 'data',
@@ -159,3 +159,5 @@ export const columns: ColumnDef<CompTime>[] = [
     },
   },
 ]
+
+export default compTimeColumns

@@ -1,13 +1,16 @@
 'use client'
 
-import getCompTime from '@/actions/get-comp-time'
-import { columns } from '@/components/data-table/comp-time/columns'
-import { DataTable } from '@/components/data-table/comp-time/data-table'
-import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
-
+// hooks
 import { useSessionStorage } from '@/hooks/use-session-storage'
-
 import { useQuery } from '@tanstack/react-query'
+
+// actions
+import getCompTime from '@/actions/get-comp-time'
+
+// components
+import DataTable from '@/components/data-table'
+import CompTimeColumns from '@/components/data-table/columns/comp-time-columns'
+import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 
 export default function BancoPage() {
   const { getItem } = useSessionStorage(
@@ -39,9 +42,11 @@ export default function BancoPage() {
         </div>
       )}
 
+      {isPending && <DataTableSkeleton />}
+
       {data && (
         <div className="container mx-auto py-10">
-          <DataTable columns={columns} data={data.registros} />
+          <DataTable columns={CompTimeColumns} data={data.registros} />
         </div>
       )}
     </div>
