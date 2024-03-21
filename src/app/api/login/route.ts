@@ -18,16 +18,16 @@ export async function POST(request: Request) {
     longitude,
   }
 
-  const data = await fetch(`${process.env.API_BASE_URL}/auth`, {
-    method: 'post',
+  const response = await fetch(`${process.env.API_BASE_URL}/auth`, {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       token: process.env.API_LOGIN_KEY,
     },
     body: JSON.stringify(requestJSON),
-  }).then((res) => res.json())
-
-  return NextResponse.json({
-    data,
   })
+
+  const data = await response.json()
+
+  return NextResponse.json(data)
 }

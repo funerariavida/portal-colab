@@ -1,18 +1,10 @@
 export type CollabResponse = {
-  data: [
-    {
-      code: number
-      message: string
-      nome: string
-      cargo: string
-      cpf: string
-      type_user: string
-    },
-  ]
-}
-
-export type Collaborators = {
+  code: number
+  message?: string
   nome: string
   cargo: string
   cpf: string
+  email: string
+  telefone: string
+  type_user: string
 }

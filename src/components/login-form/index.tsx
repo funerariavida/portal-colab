@@ -1,19 +1,29 @@
 'use client'
 
 // hooks
-import useLogin from '@/hooks/use-login'
+import { useSessionStorage } from '@/hooks/use-session-storage'
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import { useHookFormMask } from 'use-mask-input'
+
+// actions
+import userLogin from '@/actions/user-login'
+
+// utils
 
 // form
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-// components
+import { CollabResponse } from '@/types/collaborators'
 
+// components
+import callToast from '@/utils/call-toast'
+import { Loader2, LogIn } from 'lucide-react'
+import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
 import { Input } from '../ui/input'
-import SubmitButton from './submit-button'
 
 const cpfRegex = /\d\d\d\.\d\d\d\.\d\d\d-\d\d/
 
@@ -32,7 +42,15 @@ const formSchema = z.object({
 })
 
 export default function LoginForm() {
-  const { recallData, isLoading } = useLogin()
+  const { replace } = useRouter()
+
+  const { setItem } = useSessionStorage(
+    process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
+  )
+  const { isPending, mutate } = useMutation({
+    mutationKey: ['user-login'],
+    mutationFn: userLogin,
+  })
 
   // Preparando formulário
   const form = useForm<z.infer<typeof formSchema>>({
@@ -45,8 +63,38 @@ export default function LoginForm() {
   const registerWithMask = useHookFormMask(form.register)
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    recallData(values.cpf)
-    form.reset()
+    // recallData(values.cpf)
+
+    // sending POST request
+    mutate(values.cpf, {
+      onSuccess: (data: CollabResponse) => {
+        form.reset()
+
+        // on request Error
+        if (data.code !== 200) {
+          callToast(
+            'Ocorreu um erro ao realizar o login',
+            data.message ?? '',
+            'destructive',
+          )
+          console.log(data.message)
+        } else {
+          // Calling visual return
+          callToast('Sucesso', 'CPF validado com sucesso!', 'success')
+
+          // setting the user info on session storage
+          setItem({
+            name: data.nome,
+            role: data.cargo,
+            cpf: data.cpf,
+            telefone: data.telefone,
+          })
+
+          // redirecting to home page
+          replace('/portaldocolaborador')
+        }
+      },
+    })
   }
 
   return (
@@ -65,7 +113,7 @@ export default function LoginForm() {
                 <Input
                   {...field}
                   {...registerWithMask('cpf', '999.999.999-99')}
-                  disabled={isLoading}
+                  disabled={isPending}
                   className="text-black"
                   placeholder="CPF"
                 />
@@ -74,10 +122,15 @@ export default function LoginForm() {
             </FormItem>
           )}
         />
-        <SubmitButton
-          isDisabled={isLoading || !form.formState.isValid}
-          isLoading={isLoading}
-        />
+        <Button
+          className="w-full border-0 text-primary hover:bg-secondary hover:text-white"
+          variant={'outline'}
+          disabled={isPending}
+          type="submit"
+        >
+          {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {!isPending && <LogIn className="mr-2 h-4 w-4" />} Acessar
+        </Button>
       </form>
     </Form>
   )
