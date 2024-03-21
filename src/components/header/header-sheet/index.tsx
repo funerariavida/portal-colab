@@ -27,6 +27,8 @@ import { ExternalLink, LogOut, Menu } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
 
+import NewsDialog from '@/components/dialog/news-dialog'
+import { portalTools } from '@/configs/data'
 import useFormatter from '@/hooks/use-formatter'
 
 const HeaderSheet = () => {
@@ -64,21 +66,24 @@ const HeaderSheet = () => {
                 Ferramentas
               </AccordionTrigger>
               <AccordionContent className="flex flex-col items-start">
-                <Button
-                  className="hover:bg-secondary hover:text-white"
-                  variant={'ghost'}
-                  asChild
-                >
-                  <Link
-                    href={'/portaldocolaborador/banco-de-horas'}
-                    target="blank"
-                  >
-                    <ExternalLink className="mr-4 h-4 w-4 text-inherit" />
-                    <span className="text-inherit">
-                      VIsualizar banco de horas
-                    </span>
-                  </Link>
-                </Button>
+                {portalTools.map((tool, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      className="hover:bg-secondary hover:text-white"
+                      variant={'ghost'}
+                      asChild
+                    >
+                      <Link href={tool.link} target={tool.target}>
+                        <ExternalLink className="mr-4 h-4 w-4 text-inherit" />
+                        <span className="text-inherit">{tool.title}</span>
+                      </Link>
+                    </Button>
+                  )
+                })}
+                <Separator />
+
+                <NewsDialog />
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "clean": "rmdir /s .next && next dev",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",

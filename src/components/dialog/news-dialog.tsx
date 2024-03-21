@@ -31,8 +31,8 @@ export default function NewsDialog() {
               Ver. {version}
             </span>
           </DialogTitle>
-          <DialogDescription className="grid grid-rows-2 gap-2">
-            <p className="row-span-1 text-base">
+          <DialogDescription className="grid grid-rows-[max-content_auto] gap-3">
+            <p className="text-base">
               O portal do colaborador agora conta com uma página para visualizar
               <Link
                 href={'portaldocolaborador/atestados'}
@@ -47,7 +47,7 @@ export default function NewsDialog() {
               cabeçalho
             </p>
 
-            <div className="row-span-1 max-w-[600px]">
+            <div className="max-w-[600px]">
               <Image
                 src={require('@/assets/image/news/image-01.png')}
                 alt="news-image"
