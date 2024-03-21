@@ -3,6 +3,7 @@
 
 import { ExternalLink } from 'lucide-react'
 
+import NewsDialog from '@/components/dialog/news-dialog'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,12 +12,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
+import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 
+import { portalTools } from '@/configs/data'
 import { useLinkContext } from '@/context/link'
 import Link from 'next/link'
 
-const HeaderNavigation = () => {
+export default function HeaderNavigation() {
   const { getLinkByPage } = useLinkContext()
 
   const data = getLinkByPage('main')
@@ -40,20 +43,29 @@ const HeaderNavigation = () => {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
-              <Link
-                href={'/portaldocolaborador/banco-de-horas'}
-                target="blank"
-                legacyBehavior
-                passHref
-              >
-                <NavigationMenuLink 
-                  className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
-                  target='blank'
+              {portalTools.map((tool, index) => {
+                return (
+                  <Link
+                  key={index}
+                  href={tool.link}
+                  target={tool.target}
+                  legacyBehavior
+                  passHref
                 >
-                  Visualizar banco de horas
-                  <ExternalLink className="w-4 h-4" />
-                </NavigationMenuLink>
-              </Link>
+                  <NavigationMenuLink 
+                    className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
+                    target='blank'
+                  >
+                    {tool.title}
+                    <ExternalLink className="w-4 h-4" />
+                  </NavigationMenuLink>
+                </Link>
+                )
+              })}
+              <Separator />
+
+              {/* Whats new */}
+              <NewsDialog />
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -94,5 +106,3 @@ const HeaderNavigation = () => {
     </NavigationMenu>
   )
 }
-
-export default HeaderNavigation

@@ -8,7 +8,7 @@ import { useLinkContext } from '@/context/link'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
-import UserPhoneDialog from '@/components/user-phone-dialog'
+import UserPhoneDialog from '@/components/dialog/user-phone-dialog'
 import HomePageLoader from '@/layout/home-page-loader'
 
 type Props = {

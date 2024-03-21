@@ -63,8 +63,6 @@ export default function LoginForm() {
   const registerWithMask = useHookFormMask(form.register)
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // recallData(values.cpf)
-
     // sending POST request
     mutate(values.cpf, {
       onSuccess: (data: CollabResponse) => {
@@ -118,7 +116,7 @@ export default function LoginForm() {
                   placeholder="CPF"
                 />
               </FormControl>
-              <FormMessage className="px-3 py-2 font-semibold text-slate-800" />
+              <FormMessage className="px-3 py-2 font-semibold text-zinc-900" />
             </FormItem>
           )}
         />

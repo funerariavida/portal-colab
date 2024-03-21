@@ -12,7 +12,7 @@ import callToast from '@/utils/call-toast'
 import { useMutation } from '@tanstack/react-query'
 import { RotateCw } from 'lucide-react'
 import { Dispatch, SetStateAction } from 'react'
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 import {
   Form,
   FormControl,
@@ -20,8 +20,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
-import { Input } from '../ui/input'
+} from '../../ui/form'
+import { Input } from '../../ui/input'
 
 type phoneFormProps = {
   setDialogState: Dispatch<SetStateAction<boolean>>
