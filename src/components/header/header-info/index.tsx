@@ -12,8 +12,6 @@ import { Separator } from '@/components/ui/separator'
 import HeaderNavigation from '../header-navigation'
 
 export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
-  const clearAll = window.sessionStorage.clear()
-
   const { username, userrole } = useFormatter()
 
   return (
@@ -46,7 +44,7 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         asChild
         title="Sair da conta"
         variant={'outline'}
-        onClick={() => clearAll}
+        onClick={() => window.sessionStorage.clear()}
         className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
         <Link href={'/portaldocolaborador/login'}>

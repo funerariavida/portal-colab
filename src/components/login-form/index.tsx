@@ -16,7 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { CollabResponse } from '@/types/collaborators'
+import { CollabResponse, SessionCollab } from '@/types/collaborators'
 
 // components
 import callToast from '@/utils/call-toast'
@@ -44,11 +44,11 @@ const formSchema = z.object({
 export default function LoginForm() {
   const { replace } = useRouter()
 
-  const { setItem: setUser } = useSessionStorage(
+  const { setItem: setUser } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
 
-  const { setItem: setNewsView } = useSessionStorage(
+  const { setItem: setNewsView } = useSessionStorage<boolean>(
     process.env.NEXT_PUBLIC_NEWS_CONDITION,
   )
 
@@ -82,9 +82,6 @@ export default function LoginForm() {
           )
           console.log(data.message)
         } else {
-          // Calling visual return
-          callToast('Sucesso', 'CPF validado com sucesso!', 'success')
-
           // setting the user info on session storage
           setUser({
             name: data.nome,
@@ -95,6 +92,9 @@ export default function LoginForm() {
 
           // setting the news dialog condition
           setNewsView(false)
+
+          // Calling visual return
+          callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
           // redirecting to home page
           replace('/portaldocolaborador')
