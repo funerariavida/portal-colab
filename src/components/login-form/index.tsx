@@ -44,9 +44,14 @@ const formSchema = z.object({
 export default function LoginForm() {
   const { replace } = useRouter()
 
-  const { setItem } = useSessionStorage(
+  const { setItem: setUser } = useSessionStorage(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
+
+  const { setItem: setNewsView } = useSessionStorage(
+    process.env.NEXT_PUBLIC_NEWS_CONDITION,
+  )
+
   const { isPending, mutate } = useMutation({
     mutationKey: ['user-login'],
     mutationFn: userLogin,
@@ -81,12 +86,15 @@ export default function LoginForm() {
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
           // setting the user info on session storage
-          setItem({
+          setUser({
             name: data.nome,
             role: data.cargo,
             cpf: data.cpf,
             telefone: data.telefone,
           })
+
+          // setting the news dialog condition
+          setNewsView(false)
 
           // redirecting to home page
           replace('/portaldocolaborador')

@@ -11,17 +11,19 @@ import getCompTime from '@/actions/get-comp-time'
 import DataTable from '@/components/data-table'
 import CompTimeColumns from '@/components/data-table/columns/comp-time-columns'
 import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
+import { SessionCollab } from '@/types/collaborators'
 
 export default function BancoPage() {
-  const { getItem } = useSessionStorage(
+  const { getItem } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
-  const user = JSON.parse(getItem() ?? '')
+
+  const user = getItem()
 
   // fetching post data
   const { data, isPending } = useQuery({
     queryKey: ['comp-time'],
-    queryFn: () => getCompTime(user?.name),
+    queryFn: () => getCompTime(user?.name ?? ''),
   })
 
   return (

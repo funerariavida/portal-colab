@@ -1,20 +1,34 @@
+// icons
+import { MessageCircleQuestion } from 'lucide-react'
+
+// next
+import Image from 'next/image'
+import Link from 'next/link'
+
+// components
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { MessageCircleQuestion } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useSessionStorage } from '@/hooks/use-session-storage'
 import { Button } from '../ui/button'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('../../../package.json').version
 
 export default function NewsDialog() {
+  const { getItem } = useSessionStorage<string>(
+    process.env.NEXT_PUBLIC_NEWS_CONDITION,
+  )
+
+  console.log(getItem())
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -31,12 +45,11 @@ export default function NewsDialog() {
               Ver. {version}
             </span>
           </DialogTitle>
-          <DialogDescription className="grid grid-rows-[max-content_auto] gap-3">
+          <DialogDescription className="grid grid-rows-[max-content_auto] gap-3 overflow-y-auto">
             <p className="text-base">
               O portal do colaborador agora conta com uma página para visualizar
               <Link
                 href={'portaldocolaborador/atestados'}
-                target="blank"
                 className="mx-1 font-bold text-primary hover:underline"
               >
                 atestados e declarações
@@ -58,6 +71,15 @@ export default function NewsDialog() {
             </div>
           </DialogDescription>
         </DialogHeader>
+        <DialogFooter className="justify-end">
+          <DialogClose asChild>
+            <Button asChild>
+              <Link href="/portaldocolaborador/atestados">
+                Verificar novidade
+              </Link>
+            </Button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

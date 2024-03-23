@@ -5,23 +5,19 @@ export type sessionType = {
 }
 
 export function useSessionStorage<T>(key: string) {
-  const setItem = (value: T | string | sessionType): void => {
+  const setItem = (value: T): void => {
     try {
-      if (typeof value === 'string') {
-        window.sessionStorage.setItem(key, value)
-      } else {
-        window.sessionStorage.setItem(key, JSON.stringify(value))
-      }
+      window.sessionStorage.setItem(key, JSON.stringify(value))
     } catch (e) {
       console.error(e)
     }
   }
 
-  const getItem = (): string | null => {
+  const getItem = (): T | null => {
     try {
       const item = window.sessionStorage.getItem(key)
       if (item === null) throw new Error('Item desconhecido')
-      return item
+      return JSON.parse(item) as T
     } catch (e) {
       console.error(e)
       return null
@@ -36,9 +32,18 @@ export function useSessionStorage<T>(key: string) {
     }
   }
 
+  const clearAll = (): void => {
+    try {
+      window.sessionStorage.clear()
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return {
     setItem,
     getItem,
     removeItem,
+    clearAll,
   }
 }

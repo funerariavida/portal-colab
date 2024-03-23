@@ -8,3 +8,10 @@ export type CollabResponse = {
   telefone: string
   type_user: string
 }
+
+export type SessionCollab = {
+  name: string
+  role: string
+  cpf: string
+  telefone: string
+}

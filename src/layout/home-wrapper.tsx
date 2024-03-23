@@ -10,6 +10,7 @@ import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import UserPhoneDialog from '@/components/dialog/user-phone-dialog'
 import HomePageLoader from '@/layout/home-page-loader'
+import { SessionCollab } from '@/types/collaborators'
 
 type Props = {
   children: ReactNode
@@ -21,11 +22,11 @@ export default function HomeWrapper({ children }: Props) {
     queryFn: getLinks,
   })
 
-  const { getItem } = useSessionStorage(
+  const { getItem } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
 
-  const userPhone = JSON.parse(getItem() ?? '').telefone
+  const user = getItem()
 
   const { setLinks } = useLinkContext()
 
@@ -38,7 +39,7 @@ export default function HomeWrapper({ children }: Props) {
   return (
     <div className="grid min-h-screen min-w-full place-items-center">
       {isPending ? <HomePageLoader /> : children}
-      {!isPending && data && !userPhone && <UserPhoneDialog />}
+      {!isPending && data && !user?.telefone && <UserPhoneDialog />}
     </div>
   )
 }
