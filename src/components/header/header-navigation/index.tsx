@@ -1,7 +1,9 @@
+'use client'
+
+import { useState } from 'react'
+
 // configs
 import { portalTools } from '@/configs/data'
-
-// cookies
 
 // next
 import Link from 'next/link'
@@ -22,8 +24,14 @@ import {
 import { Separator } from '@/components/ui/separator'
 
 export default function HeaderNavigation() {
+  const [isOpen, setIsOpen] = useState<string>('')
+
   return (
-    <NavigationMenu className="hidden lg:flex">
+    <NavigationMenu
+      className="hidden lg:flex"
+      value={isOpen}
+      onValueChange={setIsOpen}
+    >
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-primary capitalize text-white focus:bg-primary">
@@ -37,6 +45,7 @@ export default function HeaderNavigation() {
                     key={index}
                     href={tool.link}
                     target={tool.target}
+                    onClick={() => setIsOpen('')}
                     legacyBehavior
                     passHref
                   >
@@ -53,7 +62,7 @@ export default function HeaderNavigation() {
               <Separator />
 
               {/* Whats new */}
-              <NewsDialog />
+              <NewsDialog onClick={() => setIsOpen('')} />
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

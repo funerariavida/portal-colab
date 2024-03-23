@@ -8,6 +8,7 @@ import { useLinkContext } from '@/context/link'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
 
+import NewsDialog from '@/components/dialog/news-dialog'
 import UserPhoneDialog from '@/components/dialog/user-phone-dialog'
 import HomePageLoader from '@/layout/home-page-loader'
 import { SessionCollab } from '@/types/collaborators'
@@ -40,6 +41,7 @@ export default function HomeWrapper({ children }: Props) {
     <div className="grid min-h-screen min-w-full place-items-center">
       {isPending ? <HomePageLoader /> : children}
       {!isPending && data && !user?.telefone && <UserPhoneDialog />}
+      <NewsDialog hasTrigger={false} />
     </div>
   )
 }

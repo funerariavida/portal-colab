@@ -1,9 +1,19 @@
 'use client'
 
+// next
 import Link from 'next/link'
 
-import { useLinkContext } from '@/context/link'
+// hooks
+import useFormatter from '@/hooks/use-formatter'
 
+// configs
+import { portalTools } from '@/configs/data'
+
+// react
+import { useState } from 'react'
+
+// components
+import NewsDialog from '@/components/dialog/news-dialog'
 import {
   Accordion,
   AccordionContent,
@@ -11,6 +21,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
   SheetContent,
@@ -19,29 +30,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { Skeleton } from '@/components/ui/skeleton'
 
-import { useSessionStorage } from '@/hooks/use-session-storage'
-
+// icons
 import { ExternalLink, LogOut, Menu } from 'lucide-react'
 
-import { Separator } from '@/components/ui/separator'
-
-import NewsDialog from '@/components/dialog/news-dialog'
-import { portalTools } from '@/configs/data'
-import useFormatter from '@/hooks/use-formatter'
-
 const HeaderSheet = () => {
-  const { removeItem } = useSessionStorage('collab')
   const { username, userrole } = useFormatter()
-  const { getLinkByPage } = useLinkContext()
 
-  const data = getLinkByPage('main')
-
-  if (!data) return <Skeleton className="h-full w-20 lg:hidden" />
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild className="flex lg:hidden">
         <Button variant="outline">
           <Menu />
@@ -83,14 +82,18 @@ const HeaderSheet = () => {
                 })}
                 <Separator />
 
-                <NewsDialog />
+                <NewsDialog onClick={() => setIsOpen(false)} />
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
         <SheetFooter>
           <div className="flex w-full flex-wrap items-start justify-between gap-3">
-            <Button asChild onClick={() => removeItem()} variant={'outline'}>
+            <Button
+              asChild
+              onClick={() => window.sessionStorage.clear()}
+              variant={'outline'}
+            >
               <Link href={'/portaldocolaborador/login'}>
                 <LogOut className="mr-4 h-4 w-4" />
                 <span className="text-base">Sair</span>
