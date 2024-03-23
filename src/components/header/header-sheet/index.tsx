@@ -69,6 +69,7 @@ const HeaderSheet = () => {
                   return (
                     <Button
                       key={index}
+                      onClick={() => setIsOpen(false)}
                       className="hover:bg-secondary hover:text-white"
                       variant={'ghost'}
                       asChild
