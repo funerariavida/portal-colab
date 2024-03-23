@@ -44,15 +44,12 @@ export default function HeaderNavigation() {
                   <Link
                     key={index}
                     href={tool.link}
-                    target={tool.target}
+                    // target={tool.target}
                     onClick={() => setIsOpen('')}
                     legacyBehavior
                     passHref
                   >
-                    <NavigationMenuLink
-                      className="flex items-start justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white"
-                      target="blank"
-                    >
+                    <NavigationMenuLink className="flex items-start justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white">
                       {tool.title}
                       <ExternalLink className="h-4 w-4" />
                     </NavigationMenuLink>

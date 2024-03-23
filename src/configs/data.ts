@@ -10,11 +10,11 @@ export const portalTools: portalToolsProps[] = [
   {
     title: 'Visualizar banco de horas',
     link: '/portaldocolaborador/banco-de-horas',
-    target: '_blank',
+    target: '_self',
   },
   {
     title: 'Atestados e declarações',
     link: '/portaldocolaborador/atestados',
-    target: '_blank',
+    target: '_self',
   },
 ]
