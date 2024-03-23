@@ -17,7 +17,7 @@ const LinkCardRoot = forwardRef<HTMLAnchorElement, LinkCardRootProps>(
           'grid grid-cols-[1fr_min-content] grid-rows-1 items-center justify-center rounded-xl p-4 shadow-md transition-all duration-300 hover:scale-105',
           className,
           {
-            'h-32 w-96 sm:h-40': className === undefined,
+            'h-32 w-64 sm:h-40 sm:w-96': className === undefined,
           },
           {
             'bg-background text-primary': variant === 'default',

@@ -1,13 +1,20 @@
 'use client'
 
+import Link from 'next/link'
+
 import { ColumnDef } from '@tanstack/react-table'
 
 // types
 import { CertificateProps } from '@/types/certificate'
-import { ExternalLink } from 'lucide-react'
-import Link from 'next/link'
 
 // icons
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+import { CheckCircle2, ExternalLink, XCircle } from 'lucide-react'
 
 const certificateColumns: ColumnDef<CertificateProps>[] = [
   {
@@ -34,7 +41,7 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
       return (
         <Link
           href={files}
-          target="blank"
+          target="_blank"
           className="flex items-center hover:underline"
         >
           <span className="mr-3 text-sm text-table-cell">{files}</span>
@@ -50,7 +57,37 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
     },
     cell: ({ row }) => {
       const status: string = row.getValue('status')
-      return <span className="flex items-center justify-center">{status}</span>
+      return (
+        <span className="flex items-center justify-center">
+          {/* document accepted */}
+          {status === 'Aceito' && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <CheckCircle2 className="h-4 w-4 text-success" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Documento aceito</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+
+          {/* document denied */}
+          {status === 'Recusado' && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <XCircle className="h-4 w-4 text-destructive" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Documento recusado</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
+        </span>
+      )
     },
   },
 ]

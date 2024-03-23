@@ -3,20 +3,21 @@
 import { ReactNode, useLayoutEffect, useState } from 'react'
 
 import { useSessionStorage } from '@/hooks/use-session-storage'
+import { SessionCollab } from '@/types/collaborators'
 import { useRouter } from 'next/navigation'
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const { getItem } = useSessionStorage(
+  const { getItem } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
-  const { push } = useRouter()
+  const { replace } = useRouter()
 
   useLayoutEffect(() => {
     if (!getItem()) {
-      push('/portaldocolaborador/login')
+      replace('/portaldocolaborador/login')
     } else setIsLoading(false)
-  }, [getItem, push])
+  }, [getItem, replace])
 
   if (!isLoading) {
     return (

@@ -6,17 +6,12 @@ import { ComponentProps } from 'react'
 import { Home, LogOut } from 'lucide-react'
 
 import useFormatter from '@/hooks/use-formatter'
-import { useSessionStorage } from '@/hooks/use-session-storage'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import HeaderNavigation from '../header-navigation'
 
 export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
-  const { removeItem } = useSessionStorage(
-    process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
-  )
-
   const { username, userrole } = useFormatter()
 
   return (
@@ -49,7 +44,7 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         asChild
         title="Sair da conta"
         variant={'outline'}
-        onClick={() => removeItem()}
+        onClick={() => window.sessionStorage.clear()}
         className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
         <Link href={'/portaldocolaborador/login'}>

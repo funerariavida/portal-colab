@@ -8,11 +8,12 @@ import { z } from 'zod'
 
 import UpdateUserPhone from '@/actions/update-user-phone'
 import { useSessionStorage } from '@/hooks/use-session-storage'
+import { SessionCollab } from '@/types/collaborators'
 import callToast from '@/utils/call-toast'
 import { useMutation } from '@tanstack/react-query'
 import { RotateCw } from 'lucide-react'
 import { Dispatch, SetStateAction } from 'react'
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 import {
   Form,
   FormControl,
@@ -20,8 +21,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../ui/form'
-import { Input } from '../ui/input'
+} from '../../ui/form'
+import { Input } from '../../ui/input'
 
 type phoneFormProps = {
   setDialogState: Dispatch<SetStateAction<boolean>>
@@ -44,14 +45,14 @@ const formSchema = z.object({
 })
 
 export default function PhoneForm({ setDialogState }: phoneFormProps) {
-  const { getItem, setItem } = useSessionStorage(
+  const { getItem, setItem } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
 
-  const userInfo = JSON.parse(getItem() ?? '')
+  const user = getItem()
 
   // sending user phone info
-  const { isPending, mutate, data } = useMutation({
+  const { isPending, mutate } = useMutation({
     mutationFn: UpdateUserPhone,
   })
 
@@ -67,15 +68,15 @@ export default function PhoneForm({ setDialogState }: phoneFormProps) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutate(
-      { cpf: userInfo.cpf, telefone: values.phone },
+      { cpf: user?.cpf ?? '', telefone: values.phone },
       {
         onSuccess: () => {
           setDialogState(false)
           callToast('Sucesso', 'seu telefone foi atualizado!', 'success')
           setItem({
-            name: userInfo.name,
-            role: userInfo.role,
-            cpf: userInfo.cpf,
+            name: user?.name ?? '',
+            role: user?.role ?? '',
+            cpf: user?.cpf ?? '',
             telefone: values.phone,
           })
         },

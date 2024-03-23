@@ -16,7 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { CollabResponse } from '@/types/collaborators'
+import { CollabResponse, SessionCollab } from '@/types/collaborators'
 
 // components
 import callToast from '@/utils/call-toast'
@@ -44,9 +44,14 @@ const formSchema = z.object({
 export default function LoginForm() {
   const { replace } = useRouter()
 
-  const { setItem } = useSessionStorage(
+  const { setItem: setUser } = useSessionStorage<SessionCollab>(
     process.env.NEXT_PUBLIC_SESSION_STORAGE_NAME,
   )
+
+  const { setItem: setNewsView } = useSessionStorage<boolean>(
+    process.env.NEXT_PUBLIC_NEWS_CONDITION,
+  )
+
   const { isPending, mutate } = useMutation({
     mutationKey: ['user-login'],
     mutationFn: userLogin,
@@ -63,8 +68,6 @@ export default function LoginForm() {
   const registerWithMask = useHookFormMask(form.register)
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // recallData(values.cpf)
-
     // sending POST request
     mutate(values.cpf, {
       onSuccess: (data: CollabResponse) => {
@@ -79,16 +82,19 @@ export default function LoginForm() {
           )
           console.log(data.message)
         } else {
-          // Calling visual return
-          callToast('Sucesso', 'CPF validado com sucesso!', 'success')
-
           // setting the user info on session storage
-          setItem({
+          setUser({
             name: data.nome,
             role: data.cargo,
             cpf: data.cpf,
             telefone: data.telefone,
           })
+
+          // setting the news dialog condition
+          setNewsView(false)
+
+          // Calling visual return
+          callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
           // redirecting to home page
           replace('/portaldocolaborador')
@@ -118,7 +124,7 @@ export default function LoginForm() {
                   placeholder="CPF"
                 />
               </FormControl>
-              <FormMessage className="px-3 py-2 font-semibold text-slate-800" />
+              <FormMessage className="px-3 py-2 font-semibold text-zinc-900" />
             </FormItem>
           )}
         />

@@ -1,8 +1,18 @@
-/* eslint-disable prettier/prettier */
 'use client'
 
+import { useState } from 'react'
+
+// configs
+import { portalTools } from '@/configs/data'
+
+// next
+import Link from 'next/link'
+
+// icons
 import { ExternalLink } from 'lucide-react'
 
+// components
+import NewsDialog from '@/components/dialog/news-dialog'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,88 +21,52 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Separator } from '@/components/ui/separator'
 
-import { useLinkContext } from '@/context/link'
-import Link from 'next/link'
-
-const HeaderNavigation = () => {
-  const { getLinkByPage } = useLinkContext()
-
-  const data = getLinkByPage('main')
-
-  if(!data) {
-    return (
-      <div className="hidden lg:flex h-full items-center justify-center gap-3">
-      <Skeleton className="h-full w-24 rounded-lg" />
-      <Skeleton className="h-full w-24 rounded-lg" />
-      <Skeleton className="h-full w-24 rounded-lg" />
-      </div>
-    )
-  }
+export default function HeaderNavigation() {
+  const [isOpen, setIsOpen] = useState<string>('')
 
   return (
-    <NavigationMenu className="hidden lg:flex">
+    <NavigationMenu
+      className="hidden lg:flex"
+      value={isOpen}
+      onValueChange={setIsOpen}
+    >
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
+          <NavigationMenuTrigger className="bg-primary capitalize text-white focus:bg-primary">
             Ferramentas
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
-              <Link
-                href={'/portaldocolaborador/banco-de-horas'}
-                target="blank"
-                legacyBehavior
-                passHref
-              >
-                <NavigationMenuLink 
-                  className="flex items-start justify-between text-center p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
-                  target='blank'
-                >
-                  Visualizar banco de horas
-                  <ExternalLink className="w-4 h-4" />
-                </NavigationMenuLink>
-              </Link>
+            <ul className="grid max-h-[400px] w-[300px] gap-3 overflow-auto p-4">
+              {portalTools.map((tool, index) => {
+                return (
+                  <Link
+                    key={index}
+                    href={tool.link}
+                    target={tool.target}
+                    onClick={() => setIsOpen('')}
+                    legacyBehavior
+                    passHref
+                  >
+                    <NavigationMenuLink
+                      className="flex items-start justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white"
+                      target="blank"
+                    >
+                      {tool.title}
+                      <ExternalLink className="h-4 w-4" />
+                    </NavigationMenuLink>
+                  </Link>
+                )
+              })}
+              <Separator />
+
+              {/* Whats new */}
+              <NewsDialog onClick={() => setIsOpen('')} />
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {/* Percorrendo array de links */}
-        {/* {data.map((link, index) => {
-          return (
-            <NavigationMenuItem key={index}>
-              <NavigationMenuTrigger className="text-white capitalize bg-primary focus:bg-primary">
-                {link.name}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[300px] max-h-[400px] overflow-auto gap-3 p-4">
-                  {link.infos.map((info, index) => {
-                    return (
-                      <Link
-                        key={index}
-                        href={`${info.linkPath}`}
-                        target="blank"
-                        legacyBehavior
-                        passHref
-                      >
-                        <NavigationMenuLink 
-                          className="flex items-start justify-between p-4 transition-all rounded-lg hover:bg-secondary hover:text-white"
-                          target='blank'
-                        >
-                          {info.title}
-                          <ExternalLink size="16" />
-                        </NavigationMenuLink>
-                      </Link>
-                    )
-                  })}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          )
-        })} */}
       </NavigationMenuList>
     </NavigationMenu>
   )
 }
-
-export default HeaderNavigation

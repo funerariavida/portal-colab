@@ -1,3 +1,6 @@
+// cookies
+
+// components
 import DepartmentSection from '@/components/sections/department'
 import TrainingSection from '@/components/sections/training'
 import UtilsSection from '@/components/sections/utilities'

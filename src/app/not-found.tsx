@@ -19,6 +19,11 @@ export default function NotFoundPage() {
         <Button variant={'outline'} asChild>
           <Link href="/portaldocolaborador/banco-de-horas">Banco de Horas</Link>
         </Button>
+        <Button variant={'outline'} asChild>
+          <Link href="/portaldocolaborador/atestados" target="_blank">
+            Verificar novidade
+          </Link>
+        </Button>
       </div>
     </div>
   )
