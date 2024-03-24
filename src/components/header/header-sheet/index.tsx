@@ -32,7 +32,7 @@ import {
 } from '@/components/ui/sheet'
 
 // icons
-import { ExternalLink, LogOut, Menu } from 'lucide-react'
+import { LogOut, Menu } from 'lucide-react'
 
 const HeaderSheet = () => {
   const { username, userrole } = useFormatter()
@@ -75,7 +75,7 @@ const HeaderSheet = () => {
                       asChild
                     >
                       <Link href={tool.link} target={tool.target}>
-                        <ExternalLink className="mr-4 h-4 w-4 text-inherit" />
+                        <tool.icon className="mr-4 h-4 w-4 text-inherit" />
                         <span className="text-inherit">{tool.title}</span>
                       </Link>
                     </Button>

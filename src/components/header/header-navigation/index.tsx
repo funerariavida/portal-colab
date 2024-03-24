@@ -9,7 +9,6 @@ import { portalTools } from '@/configs/data'
 import Link from 'next/link'
 
 // icons
-import { ExternalLink } from 'lucide-react'
 
 // components
 import NewsDialog from '@/components/dialog/news-dialog'
@@ -49,9 +48,9 @@ export default function HeaderNavigation() {
                     legacyBehavior
                     passHref
                   >
-                    <NavigationMenuLink className="flex items-start justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white">
+                    <NavigationMenuLink className="flex items-center justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white">
                       {tool.title}
-                      <ExternalLink className="h-4 w-4" />
+                      <tool.icon className="h-4 w-4" />
                     </NavigationMenuLink>
                   </Link>
                 )
