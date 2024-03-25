@@ -32,7 +32,7 @@ import {
 } from '@/components/ui/sheet'
 
 // icons
-import { LogOut, Menu } from 'lucide-react'
+import { Home, LogOut, Menu } from 'lucide-react'
 
 const HeaderSheet = () => {
   const { username, userrole } = useFormatter()
@@ -75,7 +75,9 @@ const HeaderSheet = () => {
                       asChild
                     >
                       <Link href={tool.link} target={tool.target}>
-                        <tool.icon className="mr-4 h-4 w-4 text-inherit" />
+                        {tool.icon && (
+                          <tool.icon className="mr-4 h-4 w-4 text-inherit" />
+                        )}
                         <span className="text-inherit">{tool.title}</span>
                       </Link>
                     </Button>
@@ -90,6 +92,15 @@ const HeaderSheet = () => {
         </div>
         <SheetFooter>
           <div className="flex w-full flex-wrap items-start justify-between gap-3">
+            {/* home */}
+            <Button asChild variant={'outline'}>
+              <Link href={'/portaldocolaborador'}>
+                <Home className="mr-4 h-4 w-4" />
+                <span className="text-base">Tela inicial</span>
+              </Link>
+            </Button>
+            {/* logout */}
+
             <Button
               asChild
               onClick={() => window.sessionStorage.clear()}

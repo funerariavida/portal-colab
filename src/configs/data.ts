@@ -5,7 +5,7 @@ type portalToolsProps = {
   title: string
   link: string
   target?: HTMLAttributeAnchorTarget
-  icon: LucideIcon
+  icon?: LucideIcon
 }
 
 export const portalTools: portalToolsProps[] = [

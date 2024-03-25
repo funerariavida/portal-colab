@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { portalTools } from '@/configs/data'
 import Link from 'next/link'
 
 export default function NotFoundPage() {
@@ -12,18 +13,18 @@ export default function NotFoundPage() {
         A página procurada não existe, navegue para uma das nossas páginas
         existentes
       </p>
-      <div className="mt-6 grid grid-cols-1 items-center justify-center gap-2 sm:grid-cols-2">
+      <div className="mt-6 flex w-full flex-wrap items-center justify-center gap-3 sm:w-1/2">
         <Button variant={'outline'} asChild>
           <Link href="/portaldocolaborador">Página principal</Link>
         </Button>
-        <Button variant={'outline'} asChild>
-          <Link href="/portaldocolaborador/banco-de-horas">Banco de Horas</Link>
-        </Button>
-        <Button variant={'outline'} asChild>
-          <Link href="/portaldocolaborador/atestados" target="_blank">
-            Verificar novidade
-          </Link>
-        </Button>
+
+        {portalTools.map((tool, index) => {
+          return (
+            <Button key={index} variant={'outline'} asChild>
+              <Link href={tool.link}>{tool.title}</Link>
+            </Button>
+          )
+        })}
       </div>
     </div>
   )
