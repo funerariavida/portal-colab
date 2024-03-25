@@ -34,7 +34,7 @@ import {
 // icons
 import { Home, LogOut, Menu } from 'lucide-react'
 
-const HeaderSheet = () => {
+export default function HeaderSheet() {
   const { username, userrole } = useFormatter()
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -117,5 +117,3 @@ const HeaderSheet = () => {
     </Sheet>
   )
 }
-
-export default HeaderSheet
