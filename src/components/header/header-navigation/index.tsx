@@ -50,7 +50,7 @@ export default function HeaderNavigation() {
                   >
                     <NavigationMenuLink className="flex items-center justify-between rounded-lg p-4 text-center transition-all hover:bg-secondary hover:text-white">
                       {tool.title}
-                      <tool.icon className="h-4 w-4" />
+                      {tool.icon && <tool.icon className="h-4 w-4" />}
                     </NavigationMenuLink>
                   </Link>
                 )
