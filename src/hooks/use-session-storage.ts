@@ -1,9 +1,3 @@
-export type sessionType = {
-  name: string
-  role: string
-  cpf: string
-}
-
 export function useSessionStorage<T>(key: string) {
   const setItem = (value: T): void => {
     try {
