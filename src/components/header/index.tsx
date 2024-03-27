@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import Logo from '@/assets/image/logo.png'
+import Logo from '@/assets/logo/logo-primary.png'
 
 import Link from 'next/link'
 import HeaderInfo from './header-info'

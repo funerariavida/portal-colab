@@ -19,6 +19,7 @@ type AppCardProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   imageAlt?: string
   imageWidthRender?: number
   imageHeightRender?: number
+  disabled?: boolean
 }
 
 export default function AppCard({
@@ -27,6 +28,7 @@ export default function AppCard({
   text,
   className,
   imageAlt,
+  disabled,
   imageWidthRender,
   imageHeightRender,
   ...props
@@ -37,7 +39,7 @@ export default function AppCard({
         href={href}
         target="_blank"
         className={twMerge(
-          'grid h-48 w-48 place-items-center rounded-3xl bg-white shadow-md transition-all duration-300 hover:scale-105',
+          'grid h-48 w-48 place-items-center rounded-3xl bg-zinc-100 shadow-md transition-all duration-300 hover:scale-105',
           className,
         )}
         {...props}
