@@ -1,5 +1,8 @@
-import { LucideIcon, icons } from 'lucide-react'
+// react
 import { HTMLAttributeAnchorTarget } from 'react'
+
+// icons
+import { LucideIcon, icons } from 'lucide-react'
 
 type portalToolsProps = {
   title: string

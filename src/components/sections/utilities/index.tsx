@@ -1,6 +1,6 @@
 'use client'
 
-import { LinkCard } from '@/components/link-card'
+import { LinkCard } from '@/components/cards/link-card'
 import CardGroupSkeleton from '@/components/skeleton/card-group'
 
 import { useLinkContext } from '@/context/link'

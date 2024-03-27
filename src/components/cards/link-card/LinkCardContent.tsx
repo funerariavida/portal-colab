@@ -1,5 +1,5 @@
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
-import DynamicIcon from '../dynamic-icon'
+import DynamicIcon from '../../dynamic-icon'
 
 type LinkCardContent = {
   title: string
