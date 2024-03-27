@@ -1,4 +1,4 @@
-import { LinkCard } from '@/components/cards/link-card'
+import { LinkCard } from '@/components/link-card'
 import LinkProps from '@/types/links'
 
 import { ComponentProps } from 'react'
