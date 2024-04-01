@@ -15,12 +15,14 @@ import { CompTime } from '@/types/comp-time'
 // icons
 import {
   AlertCircle,
+  ArrowUpDown,
   CalendarCheck,
   CheckCircle2,
   CircleDashed,
   XCircle,
 } from 'lucide-react'
 
+import { Button } from '@/components/ui/button'
 import { ReactNode } from 'react'
 
 function getStatus(status: string): ReactNode {
@@ -105,7 +107,17 @@ function getStatus(status: string): ReactNode {
 const compTimeColumns: ColumnDef<CompTime>[] = [
   {
     accessorKey: 'data',
-    header: 'data',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="font-bold">Data</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const data: string = row.getValue('data')
       return <span className="text-sm text-table-cell">{data}</span>
@@ -113,7 +125,17 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'duração',
-    header: 'duração',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="font-bold">Duração</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const duration: string = row.getValue('duração')
       return <span className="text-sm text-table-cell">{duration}</span>
@@ -121,7 +143,17 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'motivo',
-    header: 'motivo',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="font-bold">Motivo</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const motive: string = row.getValue('motivo')
       return <span className="text-sm text-table-cell">{motive}</span>
@@ -129,7 +161,17 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'autorização',
-    header: 'autorização',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="font-bold">Autorização</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const autorization: string = row.getValue('autorização')
       return autorization ? (
@@ -144,7 +186,9 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
   {
     accessorKey: 'status',
     header: () => {
-      return <span className="flex items-center justify-center">status</span>
+      return (
+        <span className="flex items-center justify-center text-sm">status</span>
+      )
     },
     cell: ({ row }) => {
       const status: string = row.getValue('status')
