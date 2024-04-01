@@ -1,5 +1,7 @@
 // hooks
 import { useSessionStorage } from '@/hooks/use-session-storage'
+
+// radix
 import { ComponentProps } from 'react'
 
 // icons
@@ -10,6 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // components
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogClose,
@@ -20,8 +23,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Separator } from '@radix-ui/react-separator'
-import { Button } from '../ui/button'
+import { Separator } from '@/components/ui/separator'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('../../../package.json').version
@@ -68,34 +70,58 @@ export default function NewsDialog({
           <div className="mt-3 grid grid-rows-[max-content_auto] gap-3 overflow-y-auto">
             <Separator className="h-px w-full bg-zinc-400" />
             <div>
-              <h2 className="font-semibold text-black">
-                Atestados e declarações
+              <h2 className="text-base font-semibold text-black">
+                Ordenação de tabelas
               </h2>
             </div>
-            <p className="text-base">
-              O portal do colaborador agora conta com uma página para visualizar
-              atestados e declarações enviadas.
+            <p className="text-sm">
+              Agora ficou mais fácil visualizar as informações das nossas
+              ferramentas
+              <br />
+              Com a ordenação de colunas, você poderá organizar suas tabelas da
+              forma que preferir, para encontrar mais facilmente o que busca.
               <br /> <br />
-              Utilize a mais nova ferramenta através dos links disponíveis no
-              cabeçalho
+              Para utilizar este novo complemento, basta navegar para uma das
+              tabelas na aba de{' '}
+              <strong className="text-priamry">ferramentas</strong> e clicar em
+              cima de um dos cabeçalhos de cada tabela
             </p>
 
-            <div className="max-w-[600px]">
-              <Image
-                src={require('@/assets/image/news/image-01.png')}
-                alt="news-image"
-                className="max-h-full max-w-full"
-                width={600}
-                height={600}
-              />
+            {/* images */}
+            <div className="mt-3 grid w-full grid-cols-1 grid-rows-2 place-items-start gap-3">
+              <div className="max-w-[600px]">
+                <Image
+                  src={require('@/assets/image/news/image-01.png')}
+                  alt="news-image"
+                  className="max-h-full max-w-full"
+                  width={600}
+                  height={600}
+                />
+              </div>
+              <div className="max-w-[600px]">
+                <Image
+                  src={require('@/assets/image/news/image-02.png')}
+                  alt="news-image"
+                  className="max-h-full max-w-full"
+                  width={600}
+                  height={600}
+                />
+              </div>
             </div>
           </div>
         </DialogHeader>
-        <DialogFooter className="justify-end">
+        <DialogFooter className="mt-3 flex flex-wrap justify-end gap-3">
           <DialogClose onClick={onClick} asChild>
             <Button onClick={() => setItem(true)} asChild>
               <Link href="/portaldocolaborador/atestados">
-                Verificar novidade
+                Atestados e declarações
+              </Link>
+            </Button>
+          </DialogClose>
+          <DialogClose onClick={onClick} asChild>
+            <Button onClick={() => setItem(true)} asChild>
+              <Link href="/portaldocolaborador/banco-de-horas">
+                Banco de horas
               </Link>
             </Button>
           </DialogClose>
