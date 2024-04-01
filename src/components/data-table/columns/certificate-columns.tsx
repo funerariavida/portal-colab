@@ -1,25 +1,40 @@
 'use client'
 
+// next
 import Link from 'next/link'
 
+// tanstack
 import { ColumnDef } from '@tanstack/react-table'
 
 // types
 import { CertificateProps } from '@/types/certificate'
 
 // icons
+import { ArrowUpDown, CheckCircle2, ExternalLink, XCircle } from 'lucide-react'
+
+// components
+import { Button } from '@/components/ui/button'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { CheckCircle2, ExternalLink, XCircle } from 'lucide-react'
 
 const certificateColumns: ColumnDef<CertificateProps>[] = [
   {
     accessorKey: 'envio',
-    header: 'envio',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="font-bold">Envio</span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
     cell: ({ row }) => {
       const despatch: string = row.getValue('envio')
       return <span className="text-sm text-table-cell">{despatch}</span>
@@ -27,7 +42,9 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
   },
   {
     accessorKey: 'nome',
-    header: 'nome',
+    header: ({ column }) => {
+      return <span className="text-sm font-bold">Nome</span>
+    },
     cell: ({ row }) => {
       const name: string = row.getValue('nome')
       return <span className="text-sm text-table-cell">{name}</span>
@@ -35,7 +52,9 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
   },
   {
     accessorKey: 'arquivos',
-    header: 'arquivos',
+    header: ({ column }) => {
+      return <span className="text-sm font-bold">Arquivos</span>
+    },
     cell: ({ row }) => {
       const files: string = row.getValue('arquivos')
       return (
@@ -53,12 +72,14 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
   {
     accessorKey: 'status',
     header: () => {
-      return <span className="flex items-center justify-center">status</span>
+      return (
+        <span className="flex items-center justify-center text-sm">status</span>
+      )
     },
     cell: ({ row }) => {
       const status: string = row.getValue('status')
       return (
-        <span className="flex items-center justify-center">
+        <span className="flex items-center justify-center text-sm">
           {/* document accepted */}
           {status === 'Aceito' && (
             <TooltipProvider>

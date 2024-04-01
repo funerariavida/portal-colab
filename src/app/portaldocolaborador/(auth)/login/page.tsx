@@ -1,5 +1,5 @@
-import Logo02 from '@/assets/image/logo-02.png'
-import Logo from '@/assets/image/logo.png'
+import Logo from '@/assets/logo/logo-primary.png'
+import Logo02 from '@/assets/logo/logo-secondary.png'
 import Image from 'next/image'
 
 import LoginForm from '@/components/login-form'
