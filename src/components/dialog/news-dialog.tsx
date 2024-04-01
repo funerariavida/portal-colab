@@ -83,7 +83,7 @@ export default function NewsDialog({
               <br /> <br />
               Para utilizar este novo complemento, basta navegar para uma das
               tabelas na aba de{' '}
-              <strong className="text-priamry">ferramentas</strong> e clicar em
+              <strong className="text-primary">ferramentas</strong> e clicar em
               cima de um dos cabeçalhos de cada tabela
             </p>
 
