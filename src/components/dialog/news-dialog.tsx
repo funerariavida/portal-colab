@@ -53,7 +53,7 @@ export default function NewsDialog({
         </DialogTrigger>
       )}
       <DialogContent
-        className="max-h-[90%] max-w-[80%] overflow-y-scroll"
+        className="max-h-[90%] max-w-[90%] overflow-y-scroll sm:max-w-lg"
         onInteractOutside={() => {
           setItem(true)
         }}
@@ -111,33 +111,39 @@ export default function NewsDialog({
           </p>
 
           {/* images */}
-          <div className="mt-3 grid w-full grid-cols-1 grid-rows-[auto_auto] place-items-start gap-3">
-            <div className="max-w-[600px] border border-zinc-300">
+          <div className="mt-3 flex w-full flex-col items-start justify-center gap-3">
+            <div className="max-w-[800px] border border-zinc-300">
               <Image
                 src={require('@/assets/image/news/image-01.png')}
                 alt="news-image"
                 className="max-w-full"
-                width={100}
-                height={100}
+                width={600}
+                height={600}
               />
             </div>
-            <div className="max-w-[600px] border border-zinc-300">
+            <div className="max-w-[800px] border border-zinc-300">
               <Image
                 src={require('@/assets/image/news/image-02.png')}
                 alt="news-image"
                 className="max-w-full"
-                width={100}
-                height={100}
+                width={600}
+                height={600}
               />
             </div>
           </div>
         </div>
         <DialogFooter className="mt-3 flex flex-wrap justify-end gap-3">
+          <DialogClose className="sm:me-auto" asChild>
+            <Button
+              className="bg-black text-white hover:bg-black/80"
+              onClick={() => setItem(true)}
+            >
+              fechar
+            </Button>
+          </DialogClose>
           <DialogClose onClick={onClick} asChild>
             <Button onClick={() => setItem(true)} asChild>
-              <Link href="/portaldocolaborador/atestados">
-                Atestados e declarações
-              </Link>
+              <Link href="/portaldocolaborador/atestados">Atestados</Link>
             </Button>
           </DialogClose>
           <DialogClose onClick={onClick} asChild>

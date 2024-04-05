@@ -191,7 +191,7 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          <span className="flex items-center justify-center text-sm">
+          <span className="flex items-center justify-center font-bold">
             Status
           </span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
