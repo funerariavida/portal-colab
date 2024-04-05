@@ -53,6 +53,7 @@ export default function NewsDialog({
         </DialogTrigger>
       )}
       <DialogContent
+        className="max-h-screen overflow-y-scroll"
         onInteractOutside={() => {
           setItem(true)
         }}
@@ -67,49 +68,70 @@ export default function NewsDialog({
           <DialogDescription>
             Confira as novidades do portal do colaborador
           </DialogDescription>
-          <div className="mt-3 grid grid-rows-[max-content_auto] gap-3 overflow-y-auto">
-            <Separator className="h-px w-full bg-zinc-400" />
-            <div>
-              <h2 className="text-base font-semibold text-black">
-                Ordenação de tabelas
-              </h2>
-            </div>
-            <p className="text-sm">
-              Agora ficou mais fácil visualizar as informações das nossas
-              ferramentas
-              <br />
-              Com a ordenação de colunas, você poderá organizar suas tabelas da
-              forma que preferir, para encontrar mais facilmente o que busca.
-              <br /> <br />
-              Para utilizar este novo complemento, basta navegar para uma das
-              tabelas na aba de{' '}
-              <strong className="text-primary">ferramentas</strong> e clicar em
-              cima de um dos cabeçalhos de cada tabela
-            </p>
+        </DialogHeader>
+        <div className="mt-3 grid h-full gap-3">
+          {/* first content */}
+          <Separator className="h-px w-full bg-zinc-400" />
+          <div>
+            <h2 className="text-base font-semibold text-black">
+              Ordenação de tabelas
+            </h2>
+          </div>
+          <p className="text-sm">
+            Agora ficou mais fácil visualizar as informações das nossas
+            ferramentas
+            <br />
+            Com a ordenação de colunas, você poderá organizar suas tabelas da
+            forma que preferir, para encontrar mais facilmente o que busca.
+            <br /> <br />
+            Para utilizar este novo complemento, basta navegar para uma das
+            tabelas na aba de{' '}
+            <strong className="text-primary">ferramentas</strong> e clicar em
+            cima de um dos cabeçalhos de cada tabela
+          </p>
 
-            {/* images */}
-            <div className="mt-3 grid w-full grid-cols-1 grid-rows-2 place-items-start gap-3">
-              <div className="max-w-[600px]">
-                <Image
-                  src={require('@/assets/image/news/image-01.png')}
-                  alt="news-image"
-                  className="max-h-full max-w-full"
-                  width={600}
-                  height={600}
-                />
-              </div>
-              <div className="max-w-[600px]">
-                <Image
-                  src={require('@/assets/image/news/image-02.png')}
-                  alt="news-image"
-                  className="max-h-full max-w-full"
-                  width={600}
-                  height={600}
-                />
-              </div>
+          {/* second content */}
+          <Separator className="h-px w-full bg-zinc-400" />
+          <div>
+            <h2 className="text-base font-semibold text-black">
+              Filtragem de células
+            </h2>
+          </div>
+          <p className="text-sm">
+            Com a filtragem de células, você poderá filtrar apenas as
+            informações que você deseja ver e encontrar rapidamente o que você
+            deseja.
+            <br />
+            Selecione qual coluna você deseja filtrar e torne suas buscas mais
+            precisas
+            <br /> <br />
+            Para utilizar este novo complemento, basta navegar para uma das
+            tabelas na aba de{' '}
+            <strong className="text-primary">ferramentas</strong>
+          </p>
+
+          {/* images */}
+          <div className="mt-3 grid w-full grid-cols-1 grid-rows-[auto_auto] place-items-start gap-3">
+            <div className="max-w-[600px] border border-zinc-300">
+              <Image
+                src={require('@/assets/image/news/image-01.png')}
+                alt="news-image"
+                className="max-w-full"
+                width={600}
+                height={600}
+              />
+            </div>
+            <div className="max-w-[600px] border border-zinc-300">
+              <Image
+                src={require('@/assets/image/news/image-02.png')}
+                alt="news-image"
+                className="max-w-full"
+                width={600}
+                height={600}
+              />
             </div>
           </div>
-        </DialogHeader>
+        </div>
         <DialogFooter className="mt-3 flex flex-wrap justify-end gap-3">
           <DialogClose onClick={onClick} asChild>
             <Button onClick={() => setItem(true)} asChild>

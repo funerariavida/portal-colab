@@ -1,4 +1,4 @@
-type CompTime = {
+export type CompTime = {
   nome: string
   setor: string
   data: string
@@ -8,10 +8,14 @@ type CompTime = {
   status: string
 }
 
-type CompTimeResponse = {
-  registros: CompTime[]
+export type CompTimeFilter = {
+  data: string
+  duração: string
+  motivo: string
+  autorização: string
+  status: string
 }
 
-export type { CompTime, CompTimeResponse }
-// eslint-disable-next-line prettier/prettier
-
+export type CompTimeResponse = {
+  registros: CompTime[]
+}

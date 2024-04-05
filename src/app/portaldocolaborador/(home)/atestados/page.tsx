@@ -39,7 +39,7 @@ export default function CertificatePage() {
 
       {data && (
         <div className="container mx-auto py-10">
-          <DataTable columns={certificateColumns} data={data.data} />
+          <DataTable columns={certificateColumns} data={data.data} hasFilter />
         </div>
       )}
     </div>

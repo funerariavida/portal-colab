@@ -42,7 +42,7 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
   },
   {
     accessorKey: 'nome',
-    header: ({ column }) => {
+    header: () => {
       return <span className="text-sm font-bold">Nome</span>
     },
     cell: ({ row }) => {
@@ -52,7 +52,7 @@ const certificateColumns: ColumnDef<CertificateProps>[] = [
   },
   {
     accessorKey: 'arquivos',
-    header: ({ column }) => {
+    header: () => {
       return <span className="text-sm font-bold">Arquivos</span>
     },
     cell: ({ row }) => {

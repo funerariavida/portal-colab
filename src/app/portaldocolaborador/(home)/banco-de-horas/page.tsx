@@ -29,12 +29,10 @@ export default function BancoPage() {
   return (
     <div className="grid w-full flex-1 grid-cols-1 grid-rows-[min-content_auto]">
       <div className="grid h-full w-full place-items-center bg-secondary py-10">
-        <h1 className="text-center text-heading-3 font-bold text-white md:text-heading-2 lg:text-heading-1">
+        <h1 className="text-center text-heading-3 font-bold text-white">
           Banco de horas
         </h1>
       </div>
-
-      {isPending && <DataTableSkeleton />}
 
       {!data && !isPending && (
         <div className="flex h-full w-full items-center justify-center text-center">
@@ -48,7 +46,11 @@ export default function BancoPage() {
 
       {data && (
         <div className="container mx-auto py-10">
-          <DataTable columns={CompTimeColumns} data={data.registros} />
+          <DataTable
+            columns={CompTimeColumns}
+            data={data.registros}
+            hasFilter
+          />
         </div>
       )}
     </div>
