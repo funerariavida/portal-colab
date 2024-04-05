@@ -47,9 +47,8 @@ export default function DataTable<TData, TValue>({
     const aux: any = []
     const filterAux: any = []
     columns.map((column) => aux.push(column))
-    aux.map(
-      (column: { accessorKey: string }) =>
-        column.accessorKey !== 'status' && filterAux.push(column.accessorKey),
+    aux.map((column: { accessorKey: string }) =>
+      filterAux.push(column.accessorKey),
     )
 
     setFilterArray(filterAux)

@@ -185,9 +185,17 @@ const compTimeColumns: ColumnDef<CompTime>[] = [
   },
   {
     accessorKey: 'status',
-    header: () => {
+    header: ({ column }) => {
       return (
-        <span className="flex items-center justify-center text-sm">status</span>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          <span className="flex items-center justify-center text-sm">
+            Status
+          </span>
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
       )
     },
     cell: ({ row }) => {
