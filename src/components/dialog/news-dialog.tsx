@@ -117,8 +117,8 @@ export default function NewsDialog({
                 src={require('@/assets/image/news/image-01.png')}
                 alt="news-image"
                 className="max-w-full"
-                width={100}
-                height={100}
+                width={80}
+                height={80}
               />
             </div>
             <div className="max-w-[600px] border border-zinc-300">
@@ -126,8 +126,8 @@ export default function NewsDialog({
                 src={require('@/assets/image/news/image-02.png')}
                 alt="news-image"
                 className="max-w-full"
-                width={100}
-                height={100}
+                width={80}
+                height={80}
               />
             </div>
           </div>
