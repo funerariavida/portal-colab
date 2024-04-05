@@ -53,8 +53,7 @@ export default function NewsDialog({
         </DialogTrigger>
       )}
       <DialogContent
-        hasXButton
-        className="max-h-screen overflow-y-scroll"
+        className="max-h-[90%] max-w-[80%] overflow-y-scroll"
         onInteractOutside={() => {
           setItem(true)
         }}
