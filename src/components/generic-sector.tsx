@@ -12,6 +12,13 @@ type Props = ComponentProps<'section'> & {
   cardOrientation?: 'vertical' | 'horizontal'
 }
 
+function getContentColor(
+  cardVariant: 'default' | 'primary' | 'secondary' | undefined,
+) {
+  if (cardVariant === 'secondary') return 'primary'
+  else return cardVariant
+}
+
 export default function GenericSector({
   hasHeader = false,
   cardVariant,
@@ -71,7 +78,7 @@ export default function GenericSector({
               target="blank"
             >
               <LinkCard.Content
-                variant={cardVariant}
+                variant={getContentColor(cardVariant)}
                 title={info.title}
                 description={info.description}
                 icon={info.icon}
