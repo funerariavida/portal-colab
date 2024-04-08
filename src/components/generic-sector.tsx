@@ -83,7 +83,7 @@ export default function GenericSector({
                 description={info.description}
                 icon={info.icon}
               />
-              <LinkCard.Icon variant={cardVariant} />
+              <LinkCard.Icon variant={getContentColor(cardVariant)} />
             </LinkCard.Root>
           )
         })}
