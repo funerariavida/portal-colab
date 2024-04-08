@@ -1,6 +1,8 @@
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
 import DynamicIcon from '../dynamic-icon'
 
+import cn from 'classnames'
+
 type LinkCardContent = {
   title: string
   description: string
@@ -19,14 +21,36 @@ export default function LinkCardContent({
       {icon && (
         <DynamicIcon
           name={icon}
-          className={variant === 'default' ? 'text-primary' : 'text-white'}
+          className={cn(
+            { 'text-primary': variant === 'default' },
+            { 'text-white': variant === 'primary' },
+            { 'text-secondary': variant === 'secondary' },
+          )}
           width={32}
           height={32}
         />
       )}
       <div>
-        <h1 className="text-base font-bold sm:text-xl">{title}</h1>
-        <p className="text-xs font-medium sm:text-base">{description}</p>
+        <h1
+          className={cn(
+            'text-base font-bold sm:text-xl',
+            { 'text-primary': variant === 'default' },
+            { 'text-white': variant === 'primary' },
+            { 'text-secondary': variant === 'secondary' },
+          )}
+        >
+          {title}
+        </h1>
+        <p
+          className={cn(
+            'text-xs font-medium sm:text-base',
+            { 'text-primary': variant === 'default' },
+            { 'text-white': variant === 'primary' },
+            { 'text-secondary': variant === 'secondary' },
+          )}
+        >
+          {description}
+        </p>
       </div>
     </div>
   )

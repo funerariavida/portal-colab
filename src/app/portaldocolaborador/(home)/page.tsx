@@ -7,7 +7,7 @@ import UtilsSection from '@/components/sections/utilities'
 
 export default function PortalPage() {
   return (
-    <div className="grid min-h-screen min-w-full grid-cols-1 grid-rows-[max-content_auto_384px_auto]">
+    <div className="grid min-h-screen min-w-full grid-cols-1 grid-rows-[max-content_auto_auto_auto]">
       {/* title */}
       <div className="cols-span-1 grid w-full place-items-center bg-primary py-10">
         <h1 className="text-heading-3 font-bold text-white md:text-heading-2 lg:text-heading-1">
@@ -18,11 +18,11 @@ export default function PortalPage() {
       {/* Utils section */}
       <UtilsSection />
 
-      {/* Training section */}
-      <TrainingSection />
-
       {/* Department section */}
       <DepartmentSection />
+
+      {/* Training section */}
+      <TrainingSection />
     </div>
   )
 }

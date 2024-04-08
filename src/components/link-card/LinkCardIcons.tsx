@@ -23,7 +23,11 @@ export default function LinkCardIcons({
       )}
     >
       <ExternalLink
-        className={variant === 'default' ? 'text-primary' : 'text-white'}
+        className={classNames(
+          { 'text-primary': variant === 'default' },
+          { 'text-white': variant === 'primary' },
+          { 'text-secondary': variant === 'secondary' },
+        )}
         size={24}
       />
     </div>
