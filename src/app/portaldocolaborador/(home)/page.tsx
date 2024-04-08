@@ -18,11 +18,11 @@ export default function PortalPage() {
       {/* Utils section */}
       <UtilsSection />
 
-      {/* Department section */}
-      <DepartmentSection />
-
       {/* Training section */}
       <TrainingSection />
+
+      {/* Department section */}
+      <DepartmentSection />
     </div>
   )
 }
