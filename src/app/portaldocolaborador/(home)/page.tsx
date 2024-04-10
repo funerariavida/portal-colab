@@ -22,17 +22,16 @@ export default function PortalPage() {
         </h1>
       </div>
 
-      {/* Utils section */}
-      {/* <UtilsSection /> */}
-      <GenericSector link={data[0]} variant="primary" hasHeader />
-
-      {/* Department section */}
-      {/* <DepartmentSection /> */}
-      <GenericSector link={data[2]} variant="default-secondary" hasHeader />
-
-      {/* Training section */}
-      {/* <TrainingSection /> */}
-      <GenericSector link={data[1]} variant="default-primary" hasHeader />
+      {data.map((page, index) => {
+        return (
+          <GenericSector
+            key={index}
+            link={page}
+            variant={page.variant ?? 'primary'}
+            hasHeader
+          />
+        )
+      })}
     </div>
   )
 }
