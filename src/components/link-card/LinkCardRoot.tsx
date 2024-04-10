@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ComponentProps, ReactNode, forwardRef } from 'react'
 
 type LinkCardRootProps = ComponentProps<'a'> & {
-  variant?: 'default' | 'primary' | 'secondary'
+  variant?: 'default' | 'primary' | 'secondary' | string
   linkPath: string
   children: ReactNode
 }
@@ -20,13 +20,13 @@ const LinkCardRoot = forwardRef<HTMLAnchorElement, LinkCardRootProps>(
             'h-32 w-64 sm:h-40 sm:w-96': className === undefined,
           },
           {
-            'bg-background text-primary': variant === 'default',
+            'bg-background': variant === 'default',
           },
           {
-            'bg-primary text-white': variant === 'primary',
+            'bg-primary': variant === 'primary',
           },
           {
-            'bg-secondary text-white': variant === 'secondary',
+            'bg-secondary': variant === 'secondary',
           },
         )}
         {...props}

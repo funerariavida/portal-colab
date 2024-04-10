@@ -7,7 +7,7 @@ type LinkCardContent = {
   title: string
   description: string
   icon?: keyof typeof dynamicIconImports
-  variant?: 'default' | 'primary' | 'secondary'
+  variant?: 'default' | 'primary' | 'secondary' | string
 }
 
 export default function LinkCardContent({
@@ -22,8 +22,8 @@ export default function LinkCardContent({
         <DynamicIcon
           name={icon}
           className={cn(
-            { 'text-primary': variant === 'default' },
-            { 'text-white': variant === 'primary' },
+            { 'text-background': variant === 'default' },
+            { 'text-primary': variant === 'primary' },
             { 'text-secondary': variant === 'secondary' },
           )}
           width={32}
@@ -34,8 +34,8 @@ export default function LinkCardContent({
         <h1
           className={cn(
             'text-base font-bold sm:text-xl',
-            { 'text-primary': variant === 'default' },
-            { 'text-white': variant === 'primary' },
+            { 'text-background': variant === 'default' },
+            { 'text-primary': variant === 'primary' },
             { 'text-secondary': variant === 'secondary' },
           )}
         >
@@ -44,8 +44,8 @@ export default function LinkCardContent({
         <p
           className={cn(
             'text-xs font-medium sm:text-base',
-            { 'text-primary': variant === 'default' },
-            { 'text-white': variant === 'primary' },
+            { 'text-background': variant === 'default' },
+            { 'text-primary': variant === 'primary' },
             { 'text-secondary': variant === 'secondary' },
           )}
         >

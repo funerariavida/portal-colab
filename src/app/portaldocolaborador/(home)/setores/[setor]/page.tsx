@@ -67,7 +67,7 @@ export default function AtendimentoPage({ params }: routeParams) {
             hasHeader
             key={index}
             link={link}
-            cardVariant="secondary"
+            variant="secondary"
           />
         )
       })}

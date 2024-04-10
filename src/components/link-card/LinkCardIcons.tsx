@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react'
 
 type LinkCardIconsProps = {
   iconAlign?: 'top' | 'center'
-  variant?: 'default' | 'primary' | 'secondary'
+  variant?: 'default' | 'primary' | 'secondary' | string
 }
 
 export default function LinkCardIcons({
@@ -24,8 +24,8 @@ export default function LinkCardIcons({
     >
       <ExternalLink
         className={classNames(
-          { 'text-primary': variant === 'default' },
-          { 'text-white': variant === 'primary' },
+          { 'text-background': variant === 'default' },
+          { 'text-primary': variant === 'primary' },
           { 'text-secondary': variant === 'secondary' },
         )}
         size={24}
