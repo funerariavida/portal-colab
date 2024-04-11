@@ -1,8 +1,13 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { RotateCcw } from 'lucide-react'
+// react
 import { useEffect } from 'react'
+
+// components
+import { Button } from '@/components/ui/button'
+
+// icons
+import { RotateCcw } from 'lucide-react'
 
 export default function Error({
   error,

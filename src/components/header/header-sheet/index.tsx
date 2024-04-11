@@ -94,7 +94,7 @@ export default function HeaderSheet() {
           <div className="flex w-full flex-wrap items-start justify-between gap-3">
             {/* home */}
             <Button asChild variant={'outline'}>
-              <Link href={'/portaldocolaborador'}>
+              <Link href={'/'}>
                 <Home className="mr-4 h-4 w-4" />
                 <span className="text-base">Tela inicial</span>
               </Link>
@@ -106,7 +106,7 @@ export default function HeaderSheet() {
               onClick={() => window.sessionStorage.clear()}
               variant={'outline'}
             >
-              <Link href={'/portaldocolaborador/login'}>
+              <Link href={'/login'}>
                 <LogOut className="mr-4 h-4 w-4" />
                 <span className="text-base">Sair</span>
               </Link>

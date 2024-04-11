@@ -1,8 +1,11 @@
+// react
 import { ReactNode } from 'react'
 
+// components
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 
+// layout
 import AuthLayout from '@/layout/auth-layout'
 import HomeWrapper from '@/layout/home-wrapper'
 

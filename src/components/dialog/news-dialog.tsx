@@ -143,14 +143,12 @@ export default function NewsDialog({
           </DialogClose>
           <DialogClose onClick={onClick} asChild>
             <Button onClick={() => setItem(true)} asChild>
-              <Link href="/portaldocolaborador/atestados">Atestados</Link>
+              <Link href="/atestados">Atestados</Link>
             </Button>
           </DialogClose>
           <DialogClose onClick={onClick} asChild>
             <Button onClick={() => setItem(true)} asChild>
-              <Link href="/portaldocolaborador/banco-de-horas">
-                Banco de horas
-              </Link>
+              <Link href="/banco-de-horas">Banco de horas</Link>
             </Button>
           </DialogClose>
         </DialogFooter>

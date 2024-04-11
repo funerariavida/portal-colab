@@ -34,7 +34,7 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         variant={'outline'}
         className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
-        <Link href={'/portaldocolaborador'}>
+        <Link href={'/'}>
           <Home className="mr-4 h-4 w-4" />
           <span className="text-base">Tela inicial</span>
         </Link>
@@ -47,7 +47,7 @@ export default function HeaderInfo({ ...props }: ComponentProps<'div'>) {
         onClick={() => window.sessionStorage.clear()}
         className="hidden hover:bg-transparent hover:text-primary lg:flex"
       >
-        <Link href={'/portaldocolaborador/login'}>
+        <Link href={'/login'}>
           <LogOut className="mr-4 h-4 w-4" />
           <span className="text-base">Sair</span>
         </Link>

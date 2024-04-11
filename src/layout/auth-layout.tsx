@@ -15,7 +15,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
 
   useLayoutEffect(() => {
     if (!getItem()) {
-      replace('/portaldocolaborador/login')
+      replace('/login')
     } else setIsLoading(false)
   }, [getItem, replace])
 

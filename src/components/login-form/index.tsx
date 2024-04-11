@@ -97,7 +97,7 @@ export default function LoginForm() {
           callToast('Sucesso', 'CPF validado com sucesso!', 'success')
 
           // redirecting to home page
-          replace('/portaldocolaborador')
+          replace('/')
         }
       },
     })

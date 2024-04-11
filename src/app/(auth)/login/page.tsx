@@ -1,7 +1,11 @@
-import Logo from '@/assets/logo/logo-primary.png'
-import Logo02 from '@/assets/logo/logo-secondary.png'
+// next
 import Image from 'next/image'
 
+// assets
+import Logo from '@/assets/logo/logo-primary.png'
+import Logo02 from '@/assets/logo/logo-secondary.png'
+
+// components
 import LoginForm from '@/components/login-form'
 
 export default function LoginPage() {

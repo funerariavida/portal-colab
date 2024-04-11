@@ -15,7 +15,7 @@ export default function NotFoundPage() {
       </p>
       <div className="mt-6 flex w-full flex-wrap items-center justify-center gap-3 sm:w-1/2">
         <Button variant={'outline'} asChild>
-          <Link href="/portaldocolaborador">Página principal</Link>
+          <Link href="/">Página principal</Link>
         </Button>
 
         {portalTools.map((tool, index) => {
