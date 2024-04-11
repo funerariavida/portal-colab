@@ -4,6 +4,9 @@
 import { useSessionStorage } from '@/hooks/use-session-storage'
 import { useQuery } from '@tanstack/react-query'
 
+// types
+import { SessionCollab } from '@/types/collaborators'
+
 // actions
 import getCompTime from '@/actions/get-comp-time'
 
@@ -11,7 +14,6 @@ import getCompTime from '@/actions/get-comp-time'
 import DataTable from '@/components/data-table'
 import CompTimeColumns from '@/components/data-table/columns/comp-time-columns'
 import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
-import { SessionCollab } from '@/types/collaborators'
 
 export default function BancoPage() {
   const { getItem } = useSessionStorage<SessionCollab>(

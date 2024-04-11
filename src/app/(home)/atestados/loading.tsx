@@ -1,3 +1,4 @@
+// components
 import DataTableSkeleton from '@/components/skeleton/data-table-skeleton'
 import HeaderSkeleton from '@/components/skeleton/header-skeleton'
 import { Skeleton } from '@/components/ui/skeleton'

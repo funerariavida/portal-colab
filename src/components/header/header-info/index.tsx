@@ -1,12 +1,18 @@
 'use client'
 
-import Link from 'next/link'
+// react
 import { ComponentProps } from 'react'
 
+// next
+import Link from 'next/link'
+
+// icons
 import { Home, LogOut } from 'lucide-react'
 
+// hooks
 import useFormatter from '@/hooks/use-formatter'
 
+// components
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import HeaderNavigation from '../header-navigation'

@@ -1,8 +1,11 @@
+// next
 import Image from 'next/image'
+import Link from 'next/link'
 
+// assets
 import Logo from '@/assets/logo/logo-primary.png'
 
-import Link from 'next/link'
+// header components
 import HeaderInfo from './header-info'
 import HeaderSheet from './header-sheet'
 

@@ -1,6 +1,11 @@
-import { Button } from '@/components/ui/button'
-import { portalTools } from '@/configs/data'
+// next
 import Link from 'next/link'
+
+// configs
+import { portalTools } from '@/configs/data'
+
+// components
+import { Button } from '@/components/ui/button'
 
 export default function NotFoundPage() {
   return (

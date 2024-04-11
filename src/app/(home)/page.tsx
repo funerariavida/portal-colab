@@ -11,8 +11,6 @@ export default function PortalPage() {
   const { getLinkByPage } = useLinkContext()
   const data = getLinkByPage('main')
 
-  if (!data) return <CardGroupSkeleton />
-
   return (
     <div className="grid min-h-screen min-w-full grid-cols-1">
       {/* title */}
@@ -22,16 +20,19 @@ export default function PortalPage() {
         </h1>
       </div>
 
-      {data.map((page, index) => {
-        return (
-          <GenericSector
-            key={index}
-            link={page}
-            variant={page.variant ?? 'primary'}
-            hasHeader
-          />
-        )
-      })}
+      {!data && <CardGroupSkeleton />}
+
+      {data &&
+        data.map((page, index) => {
+          return (
+            <GenericSector
+              key={index}
+              link={page}
+              variant={page.variant ?? 'primary'}
+              hasHeader
+            />
+          )
+        })}
     </div>
   )
 }
