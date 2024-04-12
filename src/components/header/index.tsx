@@ -10,7 +10,7 @@ import HeaderSheet from './header-sheet'
 
 export default function Header() {
   return (
-    <header className="fixed top-0 z-10 flex h-20 w-full max-w-[1920px] items-center justify-center bg-background px-5 py-6 shadow-md lg:px-5">
+    <header className="fixed top-0 z-10 flex h-20 w-full max-w-[1920px] items-center justify-center bg-background px-6 py-6 shadow-md lg:px-5">
       <Link href={'/'} className="ms-7 w-32 lg:m-0">
         <Image
           className="w-full"
