@@ -11,7 +11,7 @@ export default function Footer() {
             className="hover:underline"
             target="blank"
           >
-            Funerária Vida
+            Empresa vida
           </Link>
           .<strong>Todos os direitos reservados</strong>
         </span>
