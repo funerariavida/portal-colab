@@ -14,7 +14,7 @@ export default function Header() {
       <Link href={'/'} className="ms-7 w-32 lg:m-0">
         <Image
           className="w-full"
-          src={'/logo/logo.svg'}
+          src={'/logo/portal_logo.svg'}
           alt="Logomarca"
           width={100}
           height={100}

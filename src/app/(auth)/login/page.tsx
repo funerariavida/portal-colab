@@ -12,7 +12,7 @@ export default function LoginPage() {
         <div className="w-52">
           <Image
             className="w-full"
-            src={'/logo/logo.svg'}
+            src={'/logo/portal_logo.svg'}
             alt="Logomarca"
             width={100}
             height={100}
