@@ -11,9 +11,9 @@ export default function Footer() {
             className="hover:underline"
             target="blank"
           >
-            Empresa vida
+            Empresa vida.
           </Link>
-          .<strong>Todos os direitos reservados</strong>
+          <strong>Todos os direitos reservados</strong>
         </span>
       </div>
     </footer>

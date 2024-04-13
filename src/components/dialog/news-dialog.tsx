@@ -138,7 +138,7 @@ export default function NewsDialog({
               className="bg-black text-white hover:bg-black/80"
               onClick={() => setItem(true)}
             >
-              fechar
+              Fechar
             </Button>
           </DialogClose>
           <DialogClose onClick={onClick} asChild>
