@@ -18,14 +18,17 @@ export async function POST(request: Request) {
     longitude,
   }
 
-  const response = await fetch(`${process.env.API_BASE_URL}/auth`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      token: process.env.API_LOGIN_KEY,
+  const response = await fetch(
+    'https://n8n.empresavida.com.br/webhook/api/hub/auth',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        token: process.env.API_LOGIN_KEY,
+      },
+      body: JSON.stringify(requestJSON),
     },
-    body: JSON.stringify(requestJSON),
-  })
+  )
 
   const data = await response.json()
 
